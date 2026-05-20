@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="image/favicon.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Register | CookieCraft</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Poppins:wght@800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --cream: #FAF6EE;
+      --warm-white: #FFFDF8;
+      --brown: #3E2612;
+      --brown-light: #6B3F1C;
+      --gold: #C8963A;
+      --gold-light: #E8C47A;
+      --text-dark: #2A1A0A;
+      --text-mid: #5C3D20;
+      --error: #C15A4A;
+      --success: #4A7C59;
+      --shadow-lg: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+      --card-bg: rgba(255, 253, 248, 0.96);
+      --input-bg: white;
+      --border-color: #E6D5C0;
+      --social-bg: #F1E8DD;
+    }
+
+    /* Dark mode variables */
+    body.dark-mode {
+      --cream: #1a1a1a;
+      --warm-white: #2c2c2c;
+      --brown: #e0c8a8;
+      --brown-light: #d4b48c;
+      --gold: #F0B84D;
+      --gold-light: #e6bc73;
+      --text-dark: #F5E6D3;
+      --text-mid: #D4C0A8;
+      --error: #E57373;
+      --success: #6FBF8A;
+      --shadow-lg: 0 25px 45px -12px rgba(0, 0, 0, 0.5);
+      --card-bg: rgba(30, 30, 35, 0.96);
+      --input-bg: #3a3a3a;
+      --border-color: #5a4a3a;
+      --social-bg: #4a3a2a;
+    }
+
+    /* Unified Brand Logo Styling */
+    .brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.7rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #c77a3f, #b35f2a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+      transition: opacity 0.2s ease, transform 0.2s;
+      display: inline-block;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .brand:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+
+    body.dark-mode .brand {
+      background: linear-gradient(135deg, #f6cf9c, #eab67a, #d48d53);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    @media (max-width: 1024px) {
+      .brand {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .brand {
+        font-size: 1.3rem;
+      }
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body.register-page {
+      min-height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(30, 18, 8, 0.6), rgba(20, 12, 5, 0.7)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2070&auto=format');
+      background-size: cover;
+      background-position: center 30%;
+      background-attachment: fixed;
+      padding: 5rem 1.5rem 3rem !important; /* ample padding on top so it doesn't touch top-right controls */
+      transition: background-color 0.3s, color 0.2s;
+      overflow-y: auto;
+    }
+
+    body.dark-mode {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2070&auto=format');
+      background-size: cover;
+      background-position: center 30%;
+    }
+
+    /* Register card */
+    .register-container {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .register-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(2px);
+      border-radius: 2rem;
+      padding: 2rem 2rem 2.3rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(232, 196, 122, 0.4);
+      transition: background 0.3s, border 0.2s;
+    }
+
+    .register-header {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .register-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--brown);
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+
+    .register-header p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+    }
+
+    .input-group {
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--brown-light);
+    }
+
+    .password-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 0.8rem 1.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      background: var(--input-bg);
+      border: 1.5px solid var(--border-color);
+      border-radius: 1.2rem;
+      transition: all 0.2s;
+      color: var(--text-dark);
+    }
+
+    .password-wrapper .input-field {
+      padding-right: 3rem;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-mid);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+
+    .toggle-password:hover {
+      color: var(--gold);
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200, 150, 58, 0.15);
+    }
+
+    .input-field.error {
+      border-color: var(--error);
+    }
+
+    .error-message {
+      font-size: 0.65rem;
+      color: var(--error);
+      display: none;
+      margin-top: 0.2rem;
+    }
+
+    .input-field.error + .error-message {
+      display: block;
+    }
+
+    .row-2col {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .row-2col .input-group {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    .register-btn {
+      width: 100%;
+      background: var(--brown);
+      border: none;
+      padding: 0.85rem;
+      border-radius: 3rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .register-btn:hover {
+      background: var(--brown-light);
+      transform: scale(0.98);
+      box-shadow: 0 8px 18px rgba(62, 38, 18, 0.2);
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 1rem 0 1rem;
+      color: var(--text-mid);
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .divider::before {
+      margin-right: 1rem;
+    }
+
+    .divider::after {
+      margin-left: 1rem;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .social-btn {
+      background: var(--social-bg);
+      padding: 0.5rem 1.3rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .social-btn i {
+      font-size: 1rem;
+    }
+
+    .social-btn:hover {
+      background: var(--gold-light);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .login-prompt {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      margin-top: 0.5rem;
+    }
+
+    .login-prompt a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 0.3rem;
+    }
+
+    .login-prompt a:hover {
+      text-decoration: underline;
+    }
+
+    .terms-note {
+      text-align: center;
+      font-size: 0.65rem;
+      margin-top: 1rem;
+      color: var(--text-mid);
+    }
+
+    /* STICKY TOP-RIGHT BUTTONS */
+    .sticky-controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 12px;
+      z-index: 1000;
+    }
+
+    .control-btn {
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,215,150,0.6);
+      color: white;
+      width: 48px;
+      height: 48px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .control-btn:hover {
+      background: var(--gold);
+      color: #2A1A0A;
+      transform: scale(1.05);
+    }
+
+    /* RTL body direction */
+    body.rtl {
+      direction: rtl;
+    }
+
+    body.rtl .sticky-controls {
+      right: auto;
+      left: 20px;
+    }
+
+    body.rtl .password-wrapper .toggle-password {
+      right: auto;
+      left: 1rem;
+    }
+
+    body.rtl .password-wrapper .input-field {
+      padding-right: 1.2rem;
+      padding-left: 3rem;
+    }
+
+    body.rtl .row-2col {
+      flex-direction: row-reverse;
+    }
+
+    body.rtl .social-icons {
+      flex-direction: row-reverse;
+    }
+
+    @media (max-width: 560px) {
+      body.register-page {
+        padding: 5.5rem 1rem 2rem !important;
+      }
+      .sticky-controls {
+        top: 12px;
+        right: 12px;
+        gap: 8px;
+      }
+      .control-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+      }
+      body.rtl .sticky-controls {
+        right: auto;
+        left: 12px;
+      }
+      .register-card {
+        padding: 1.5rem;
+      }
+      .row-2col {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body class="register-page">
+  <!-- Sticky top-right: Dark Mode + RTL -->
+  <div class="sticky-controls">
+    <div class="control-btn" id="darkModeToggle" title="Dark Mode">🌙</div>
+    <div class="control-btn" id="rtlToggle" title="RTL Mode">⇄</div>
+  </div>
+
+  <div class="register-container">
+    <div class="register-card">
+      <div class="register-header">
+        <a href="index.html" class="brand">CookieCraft</a>
+        <h1>Create account</h1>
+        <p>Join the CookieCraft community</p>
+      </div>
+
+      <form id="registerForm" novalidate>
+        <div class="row-2col">
+          <div class="input-group" id="field-firstname">
+            <label for="firstname">First name</label>
+            <input type="text" id="firstname" class="input-field" placeholder="John" />
+            <span class="error-message">First name required.</span>
+          </div>
+          <div class="input-group" id="field-lastname">
+            <label for="lastname">Last name</label>
+            <input type="text" id="lastname" class="input-field" placeholder="Doe" />
+            <span class="error-message">Last name required.</span>
+          </div>
+        </div>
+
+        <div class="input-group" id="field-email">
+          <label for="email">Email address</label>
+          <input type="email" id="email" class="input-field" placeholder="hello@cookiecraft.com" />
+          <span class="error-message">Valid email required.</span>
+        </div>
+
+        <div class="input-group" id="field-password">
+          <label for="password">Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" class="input-field" placeholder="Create a strong password" />
+            <button type="button" class="toggle-password" id="togglePassword" aria-label="Show password">
+              <i class="far fa-eye-slash"></i>
+            </button>
+          </div>
+          <span class="error-message">Password must be at least 6 characters.</span>
+        </div>
+
+        <div class="input-group" id="field-confirm">
+          <label for="confirmPassword">Confirm password</label>
+          <div class="password-wrapper">
+            <input type="password" id="confirmPassword" class="input-field" placeholder="Confirm password" />
+            <button type="button" class="toggle-password" id="toggleConfirmPassword" aria-label="Show password">
+              <i class="far fa-eye-slash"></i>
+            </button>
+          </div>
+          <span class="error-message">Passwords do not match.</span>
+        </div>
+
+        <button type="submit" class="register-btn">Sign up →</button>
+
+        <div class="divider">or sign up with</div>
+
+        <div class="social-icons">
+          <a href="#" class="social-btn" id="googleBtn">
+            <i class="fab fa-google"></i> Google
+          </a>
+          <a href="#" class="social-btn" id="appleBtn">
+            <i class="fab fa-apple"></i> Apple
+          </a>
+        </div>
+
+        <div class="login-prompt">
+          Already have an account? <a href="login.html" id="loginLink">Sign in</a>
+        </div>
+        <div class="terms-note">
+          By registering, you agree to our Terms & Privacy Policy.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const form = document.getElementById('registerForm');
+
+      // Fields
+      const firstName = document.getElementById('firstname');
+      const lastName = document.getElementById('lastname');
+      const email = document.getElementById('email');
+      const password = document.getElementById('password');
+      const confirmPassword = document.getElementById('confirmPassword');
+
+      // Error containers
+      const firstNameGroup = document.getElementById('field-firstname');
+      const lastNameGroup = document.getElementById('field-lastname');
+      const emailGroup = document.getElementById('field-email');
+      const passwordGroup = document.getElementById('field-password');
+      const confirmGroup = document.getElementById('field-confirm');
+
+      // Toggle password visibility (two fields)
+      const togglePwd = document.getElementById('togglePassword');
+      const toggleConfirm = document.getElementById('toggleConfirmPassword');
+      const pwdIcon = togglePwd.querySelector('i');
+      const confirmIcon = toggleConfirm.querySelector('i');
+
+      togglePwd.addEventListener('click', () => {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        pwdIcon.classList.toggle('fa-eye-slash');
+        pwdIcon.classList.toggle('fa-eye');
+      });
+      toggleConfirm.addEventListener('click', () => {
+        const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+        confirmPassword.setAttribute('type', type);
+        confirmIcon.classList.toggle('fa-eye-slash');
+        confirmIcon.classList.toggle('fa-eye');
+      });
+
+      function setError(group, show, customMsg = null) {
+        const field = group.querySelector('.input-field');
+        const errorSpan = group.querySelector('.error-message');
+        if (show) {
+          field.classList.add('error');
+          if (customMsg && errorSpan) errorSpan.textContent = customMsg;
+          else if (errorSpan) errorSpan.style.display = 'block';
+        } else {
+          field.classList.remove('error');
+          if (errorSpan) errorSpan.style.display = 'none';
+        }
+      }
+
+      function isValidEmail(emailStr) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailStr.trim());
+      }
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        let isValid = true;
+
+        // First name
+        const firstNameVal = firstName.value.trim();
+        if (!firstNameVal) {
+          setError(firstNameGroup, true, 'First name required.');
+          isValid = false;
+        } else {
+          setError(firstNameGroup, false);
+        }
+
+        // Last name
+        const lastNameVal = lastName.value.trim();
+        if (!lastNameVal) {
+          setError(lastNameGroup, true, 'Last name required.');
+          isValid = false;
+        } else {
+          setError(lastNameGroup, false);
+        }
+
+        // Email
+        const emailVal = email.value.trim();
+        if (!isValidEmail(emailVal)) {
+          setError(emailGroup, true, 'Valid email required.');
+          isValid = false;
+        } else {
+          setError(emailGroup, false);
+        }
+
+        // Password
+        const pwdVal = password.value;
+        if (pwdVal.length < 6) {
+          setError(passwordGroup, true, 'Password must be at least 6 characters.');
+          isValid = false;
+        } else {
+          setError(passwordGroup, false);
+        }
+
+        // Confirm password
+        const confirmVal = confirmPassword.value;
+        if (pwdVal !== confirmVal) {
+          setError(confirmGroup, true, 'Passwords do not match.');
+          isValid = false;
+        } else {
+          setError(confirmGroup, false);
+        }
+
+        if (isValid) {
+          alert(`🎉 Welcome ${firstNameVal}!\nYour account has been created.\n(Registration demo — no backend.)`);
+          form.reset();
+        }
+      });
+
+      // Demo social links
+      const googleBtn = document.getElementById('googleBtn');
+      const appleBtn = document.getElementById('appleBtn');
+
+      googleBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('🔐 Google Sign-Up demo — OAuth integration would be added.');
+      });
+      appleBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('🍎 Apple Sign-Up demo — OAuth integration would be added.');
+      });
+
+      // DARK MODE (localStorage)
+      const darkToggle = document.getElementById('darkModeToggle');
+      const body = document.body;
+      const updateDarkModeButton = (isDark) => {
+        if (!darkToggle) return;
+        darkToggle.innerHTML = isDark ? '☀️' : '🌙';
+        darkToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      };
+      const loadDarkMode = () => {
+        const isDark = localStorage.getItem('cookieStudio-dark') === 'enabled';
+        if (isDark) body.classList.add('dark-mode');
+        else body.classList.remove('dark-mode');
+        updateDarkModeButton(isDark);
+      };
+      if (darkToggle) {
+        darkToggle.addEventListener('click', () => {
+          const isDark = body.classList.contains('dark-mode');
+          if (isDark) {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('cookieStudio-dark', 'disabled');
+          } else {
+            body.classList.add('dark-mode');
+            localStorage.setItem('cookieStudio-dark', 'enabled');
+          }
+          updateDarkModeButton(body.classList.contains('dark-mode'));
+        });
+      }
+      loadDarkMode();
+
+      // RTL TOGGLE
+      const rtlToggle = document.getElementById('rtlToggle');
+      const setRTL = (enabled) => {
+        const card = document.querySelector('.register-card');
+        if (enabled) {
+          body.setAttribute('dir', 'rtl');
+          localStorage.setItem('cookieStudio-rtl', 'enabled');
+          if (rtlToggle) rtlToggle.innerHTML = 'LTR';
+          if (card) card.style.direction = 'rtl';
+        } else {
+          body.setAttribute('dir', 'ltr');
+          localStorage.setItem('cookieStudio-rtl', 'disabled');
+          if (rtlToggle) rtlToggle.innerHTML = '⇄';
+          if (card) card.style.direction = 'ltr';
+        }
+      };
+      const loadRTL = () => setRTL(localStorage.getItem('cookieStudio-rtl') === 'enabled');
+      if (rtlToggle) rtlToggle.addEventListener('click', () => setRTL(body.getAttribute('dir') !== 'rtl'));
+      loadRTL();
+    })();
+  </script>
+</body>
+</html>

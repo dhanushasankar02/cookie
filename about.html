@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="image/favicon.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>CookieCraft | Artisan Cookie Studio — Cohesive Brand Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ----- RESET & BASE (minimal) ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: #FFF8EF;
+      color: #2F241B;
+      line-height: 1.4;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    /* dark mode base overrides */
+    body.dark-mode {
+      background-color: #1e1916;
+      color: #f0e2d4;
+    }
+
+    /* RTL adjustments for navbar & footer (preserved) */
+    body[dir="rtl"] .nav-menu { padding-right: 0; }
+    body[dir="rtl"] .nav-container { flex-direction: row; }
+    body[dir="rtl"] .nav-menu .nav-item .dropdown-menu { text-align: right; left: auto; right: 0; }
+    body[dir="rtl"] #homeDropdownItem .dropdown-menu { left: 0 !important; right: auto !important; }
+    body[dir="rtl"] .dropdown-toggle::after { margin-left: 0; margin-right: 6px; }
+    body[dir="rtl"] .right-buttons { flex-direction: row-reverse; }
+    body[dir="rtl"] .brand { margin-right: 0; margin-left: 2rem; }
+    body[dir="rtl"] .nav-link i { margin-left: 6px; margin-right: 0; }
+    body[dir="rtl"] .nav-collapse { left: auto; right: -100%; border-radius: 24px 0 0 24px; }
+    body[dir="rtl"] .nav-collapse.active { left: auto; right: 0; }
+    body[dir="rtl"] .footer-col h4:after { left: auto; right: 0; }
+    body[dir="rtl"] .footer-links a i { margin-left: 8px; margin-right: 0; }
+
+    /* RTL overrides for about sections */
+    body[dir="rtl"] .ab-founder-badge { left: -20px; right: auto; }
+    body[dir="rtl"] .ab-founder-quote { border-left: none; border-right: 3px solid var(--ab-primary); padding-left: 0; padding-right: 1.5rem; }
+    body[dir="rtl"] .ab-atelier-step.reverse { direction: ltr; }
+    body[dir="rtl"] .ab-atelier-step { direction: rtl; }
+    body[dir="rtl"] .ab-atelier-step .ab-atelier-content { direction: rtl; }
+    body[dir="rtl"] .ab-atelier-step.reverse .ab-atelier-content { direction: rtl; }
+    body[dir="rtl"] .ab-atelier-step .ab-atelier-media { direction: rtl; }
+    body[dir="rtl"] .ab-atelier-step.reverse .ab-atelier-media { direction: rtl; }
+    body[dir="rtl"] .ab-milestones-grid::before {
+      background: linear-gradient(270deg, transparent 0%, var(--ab-border-light) 15%, var(--ab-border-light) 85%, transparent 100%);
+    }
+    body[dir="rtl"].dark-mode .ab-milestones-grid::before {
+      background: linear-gradient(270deg, transparent 0%, var(--ab-border-dark) 15%, var(--ab-border-dark) 85%, transparent 100%);
+    }
+
+    /* ========== UNIFIED BRAND STYLES (navbar & footer exact same size, font, design) ========== */
+    /* Both .brand (navbar) and .footer-brand h3 share identical typography, gradient and visual rhythm */
+    .brand, 
+    .footer-brand h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.7rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #c77a3f, #b35f2a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+      transition: opacity 0.2s ease, transform 0.2s;
+      display: inline-block;
+      line-height: 1.2;
+    }
+
+    /* Hover refinement (subtle lift) */
+    .brand:hover,
+    .footer-brand h3:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+
+    /* Dark mode gradient for both brand signatures */
+    body.dark-mode .brand,
+    body.dark-mode .footer-brand h3 {
+      background: linear-gradient(135deg, #f6cf9c, #eab67a, #d48d53);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* Navbar brand specific alignment & spacing */
+    .brand {
+      white-space: nowrap;
+      margin-right: 2rem;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    /* Footer brand specific additional spacing / margin */
+    .footer-brand h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.7rem;   /* identical to navbar brand */
+      font-weight: 800;
+    }
+
+    /* RESPONSIVE: On tablets/mobile, shrink brand size consistently across navbar & footer */
+    @media (max-width: 1024px) {
+      .brand {
+        font-size: 1.4rem;
+      }
+      .footer-brand h3 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .brand {
+        font-size: 1.3rem;
+      }
+      .footer-brand h3 {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* ----- NAVBAR STYLES (enhanced, fully functional, brand unified) ----- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 248, 240, 0.68);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(245, 215, 180, 0.5);
+      transition: all 0.3s ease;
+      padding: 0.9rem 2rem;
+    }
+    .navbar.scrolled {
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 245, 235, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom-color: rgba(215, 175, 125, 0.3);
+    }
+    body.dark-mode .navbar {
+      background: rgba(28, 24, 22, 0.75);
+      backdrop-filter: blur(12px);
+      border-bottom-color: rgba(180, 130, 80, 0.35);
+    }
+    body.dark-mode .navbar.scrolled {
+      background: rgba(18, 15, 14, 0.9);
+      box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.4);
+    }
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      list-style: none;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .nav-item { position: relative; }
+    .nav-link {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      color: #4b3527;
+      padding: 0.5rem 0;
+      transition: color 0.25s ease;
+      letter-spacing: -0.2px;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    body.dark-mode .nav-link { color: #f3e1cf; }
+    .nav-link i { font-size: 1rem; transition: transform 0.2s; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(95deg, #d9944c, #c2793e);
+      border-radius: 4px;
+      transition: width 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:hover, .nav-link.active { color: #c16f34; }
+    body.dark-mode .nav-link:hover, body.dark-mode .nav-link.active { color: #f7c894; }
+    .nav-link.active::after { width: 100%; }
+    
+    .dropdown-toggle { display: flex; align-items: center; gap: 5px; }
+    .dropdown-arrow {
+      font-size: 0.75rem;
+      margin-left: 6px;
+      transition: transform 0.2s ease;
+    }
+    .dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+    .dropdown.open .dropdown-arrow { transform: rotate(180deg); }
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: rgba(255, 250, 242, 0.98);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 0.6rem 0;
+      min-width: 180px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.25s ease;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(230, 190, 140, 0.5);
+      list-style: none;
+      z-index: 1020;
+    }
+    body.dark-mode .dropdown-menu {
+      background: rgba(30, 26, 22, 0.98);
+      border-color: #5d3f2b;
+    }
+    .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dropdown-item {
+      display: block;
+      padding: 0.55rem 1.5rem;
+      text-decoration: none;
+      color: #4b3527;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .dropdown-item i {
+      width: 1.4rem;
+      display: inline-block;
+      margin-right: 8px;
+      font-size: 0.85rem;
+      color: #c77a3f;
+    }
+    body.dark-mode .dropdown-item { color: #f0decb; }
+    body.dark-mode .dropdown-item i { color: #eab67a; }
+    .dropdown-item:hover, .dropdown-item.active { background-color: rgba(210, 160, 110, 0.2); color: #c16f34; }
+    body.dark-mode .dropdown-item:hover, body.dark-mode .dropdown-item.active { color: #f7c894; }
+
+    @media (min-width: 1025px) {
+      #homeDropdownItem .dropdown-menu { left: auto; right: 0; min-width: 170px; }
+    }
+
+    .right-buttons { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #d6a175;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      color: #b1622e;
+      font-family: inherit;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-outline i { font-size: 1rem; }
+    body.dark-mode .btn-outline { border-color: #cc9a6c; color: #f6cfaa; }
+    .btn-outline:hover { background: #e7c9af; transform: translateY(-2px); border-color: #b56f3a; }
+    body.dark-mode .btn-outline:hover { background: #402f24; color: #ffe1bd; }
+    .btn-login { gap: 8px; padding: 0.5rem 1.2rem; }
+
+    /* New Button Styles for Content Areas */
+    .btn-primary {
+      background: linear-gradient(135deg, #c77a3f, #b35f2a);
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(199, 122, 63, 0.4);
+      color: #fff;
+    }
+    body.dark-mode .btn-primary {
+      background: linear-gradient(135deg, #eab67a, #c77a3f);
+      color: #1e1916;
+      box-shadow: 0 10px 20px rgba(234, 182, 122, 0.2);
+    }
+    body.dark-mode .btn-primary:hover {
+      box-shadow: 0 12px 25px rgba(234, 182, 122, 0.3);
+    }
+
+    .ab-hero-buttons .btn-outline,
+    .ab-manifesto-buttons .btn-outline {
+      padding: 0.8rem 2rem;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 22px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1010;
+    }
+    .hamburger .bar { width: 100%; height: 2.5px; background-color: #b66730; border-radius: 4px; transition: all 0.3s; }
+    body.dark-mode .hamburger .bar { background-color: #e6b27a; }
+    .nav-collapse { display: flex; align-items: center; flex: 1; }
+
+    @media (max-width: 1024px) {
+      .navbar { padding: 0.8rem 1.5rem; }
+      .hamburger { display: flex; }
+      .nav-collapse {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        left: auto;
+        width: 85%;
+        max-width: 360px;
+        height: calc(100vh - 70px);
+        background: rgba(255, 250, 242, 0.97);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 2rem 1.8rem;
+        transition: right 0.35s ease-in-out;
+        box-shadow: -6px 0 24px rgba(0, 0, 0, 0.08);
+        border-radius: 24px 0 0 24px;
+        gap: 2rem;
+        z-index: 999;
+        overflow-y: auto;
+      }
+      body.dark-mode .nav-collapse { background: rgba(20, 17, 16, 0.96); backdrop-filter: blur(20px); }
+      .nav-collapse.active { right: 0; }
+      .nav-menu { flex-direction: column; align-items: flex-start; gap: 1.4rem; width: 100%; margin: 0; }
+      .nav-link { font-size: 1.1rem; white-space: normal; }
+      .btn-outline { font-size: 1rem; width: 100%; text-align: center; justify-content: center; }
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: transparent;
+        backdrop-filter: none;
+        padding-left: 1rem;
+        margin-top: 0.5rem;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+        border: none;
+        width: 100%;
+      }
+      .dropdown.open .dropdown-menu { display: block; }
+      .dropdown-toggle { display: flex; justify-content: space-between; width: 100%; align-items: center; }
+      .dropdown-arrow { margin-left: auto; }
+      .right-buttons { flex-direction: column; width: 100%; gap: 1rem; margin-top: 1rem; }
+      #homeDropdownItem .dropdown-menu { left: 0; right: auto; }
+    }
+
+    /* ----- FOOTER STYLES (fully cohesive) ----- */
+    .site-footer {
+      background: #f7ede2;
+      border-top: 2px solid #e9d4c0;
+      margin-top: 0;
+      padding: 3rem 2rem 1.5rem;
+      font-size: 0.9rem;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    body.dark-mode .site-footer { background: #1e1916; border-top-color: #4a3729; }
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    /* footer brand additional wrapper: no extra conflicting style */
+    .footer-brand p {
+      opacity: 0.8;
+      line-height: 1.5;
+      margin: 0.75rem 0 1rem;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .social-links { display: flex; gap: 1rem; margin-top: 0.5rem; }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(199, 122, 63, 0.12);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: #b1622e;
+      font-size: 1.2rem;
+      transition: all 0.25s;
+      text-decoration: none;
+    }
+    body.dark-mode .social-links a { background: rgba(234, 182, 122, 0.15); color: #eab67a; }
+    .social-links a:hover { background: #c77a3f; color: white; transform: translateY(-3px); }
+    body.dark-mode .social-links a:hover { background: #eab67a; color: #1e1916; }
+    .footer-col h4 {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.2px;
+      position: relative;
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .footer-col h4:after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: #c77a3f;
+      border-radius: 4px;
+    }
+    body.dark-mode .footer-col h4:after { background: #eab67a; }
+    .footer-links { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: 0.7rem; }
+    .footer-links a {
+      text-decoration: none;
+      color: #4b3527;
+      transition: color 0.2s, padding-left 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    body.dark-mode .footer-links a { color: #e2cfbc; }
+    .footer-links a i { font-size: 0.75rem; color: #c77a3f; width: 20px; }
+    .footer-links a:hover { color: #c16f34; padding-left: 4px; }
+    body.dark-mode .footer-links a:hover { color: #f6cfaa; }
+    .contact-info p { display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .contact-info i { width: 24px; color: #c77a3f; font-size: 1rem; }
+    body.dark-mode .contact-info i { color: #eab67a; }
+    .newsletter-form { display: flex; flex-wrap: wrap; margin-top: 1rem; gap: 0.5rem; }
+    .newsletter-form input {
+      flex: 1;
+      min-width: 140px;
+      padding: 0.7rem 1rem;
+      border-radius: 60px;
+      border: 1px solid #e2cfbc;
+      background: white;
+      font-family: inherit;
+      font-size: 0.85rem;
+      outline: none;
+      transition: 0.2s;
+    }
+    body.dark-mode .newsletter-form input { background: #2c2621; border-color: #5d3f2b; color: #f0e2d4; }
+    .newsletter-form input:focus { border-color: #c77a3f; box-shadow: 0 0 0 2px rgba(199, 122, 63, 0.2); }
+    .btn-footer {
+      background: #c77a3f;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-footer:hover { background: #ad5f2c; transform: scale(0.97); }
+    body.dark-mode .btn-footer { background: #d99254; color: #251f1a; }
+    body.dark-mode .btn-footer:hover { background: #f0b27a; }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.8rem;
+      border-top: 1px solid #e0cfbe;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    body.dark-mode .footer-bottom { border-top-color: #3a2c22; }
+    .legal-links { display: flex; gap: 1.2rem; }
+    .legal-links a { text-decoration: none; color: #6b4d36; transition: color 0.2s; }
+    body.dark-mode .legal-links a { color: #c6aa8c; }
+    .legal-links a:hover { color: #c77a3f; }
+
+    @media (max-width: 780px) {
+      .footer-container { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 520px) {
+      .footer-container { grid-template-columns: 1fr; text-align: center; }
+      .footer-col h4:after { left: 50% !important; transform: translateX(-50%); right: auto !important; }
+      .social-links { justify-content: center; }
+      .contact-info p { justify-content: center; }
+      .newsletter-form { justify-content: center; }
+    }
+
+    /* ========================================= */
+    /* ========== UNIQUE ABOUT SECTIONS ========= */
+    /* ========================================= */
+    
+    /* Variables specific to About Page for easy configuration */
+    :root {
+      --ab-primary: #c77a3f;
+      --ab-primary-hover: #b35f2a;
+      --ab-bg-light: #FFF8EF;
+      --ab-bg-card-light: #ffffff;
+      --ab-text-dark: #2F241B;
+      --ab-text-muted-light: #5d4a3d;
+      --ab-border-light: rgba(245, 215, 180, 0.6);
+      
+      --ab-bg-dark: #1e1916;
+      --ab-bg-card-dark: #251e19;
+      --ab-text-light: #f0e2d4;
+      --ab-text-muted-dark: #d4c4b7;
+      --ab-border-dark: rgba(93, 63, 43, 0.5);
+      --ab-accent-gold: #eab67a;
+    }
+
+    body.dark-mode {
+      --ab-primary: #eab67a;
+      --ab-bg-light: #1e1916;
+      --ab-bg-card-light: #251e19;
+      --ab-text-dark: #f0e2d4;
+      --ab-text-muted-light: #d4c4b7;
+      --ab-border-light: rgba(93, 63, 43, 0.5);
+    }
+
+    .ab-section {
+      padding: 6.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ab-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .ab-pretitle {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--ab-primary);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    body.dark-mode .ab-pretitle {
+      color: var(--ab-accent-gold);
+    }
+
+    .ab-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--ab-text-dark);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    body.dark-mode .ab-title {
+      color: var(--ab-text-light);
+    }
+
+    .ab-subtitle {
+      font-size: 1.15rem;
+      color: var(--ab-text-muted-light);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    body.dark-mode .ab-subtitle {
+      color: var(--ab-text-muted-dark);
+    }
+
+    /* 1. ab-hero */
+    .ab-hero {
+      background: linear-gradient(180deg, rgba(255, 248, 239, 0.5) 0%, rgba(255, 248, 239, 1) 100%);
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+    }
+    body.dark-mode .ab-hero {
+      background: linear-gradient(180deg, rgba(30, 25, 22, 0.5) 0%, rgba(30, 25, 22, 1) 100%);
+    }
+    .ab-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .ab-hero-text {
+      max-width: 650px;
+    }
+    .ab-hero-title {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+    .ab-hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .ab-hero-images {
+      position: relative;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ab-hero-img-main {
+      width: 80%;
+      height: 80%;
+      object-fit: cover;
+      border-radius: 2rem;
+      box-shadow: 0 20px 40px rgba(47, 36, 27, 0.15);
+      border: 6px solid #fff;
+      transform: rotate(-3deg);
+      transition: transform 0.5s ease;
+      z-index: 2;
+    }
+    body.dark-mode .ab-hero-img-main {
+      border-color: #2c241e;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    .ab-hero-img-sub {
+      position: absolute;
+      width: 45%;
+      height: 45%;
+      object-fit: cover;
+      border-radius: 1.5rem;
+      box-shadow: 0 15px 30px rgba(47, 36, 27, 0.2);
+      border: 4px solid #fff;
+      right: 0;
+      bottom: 10px;
+      transform: rotate(6deg);
+      transition: transform 0.5s ease;
+      z-index: 3;
+    }
+    body.dark-mode .ab-hero-img-sub {
+      border-color: #2c241e;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+    .ab-hero-images:hover .ab-hero-img-main {
+      transform: rotate(-1deg) scale(1.02);
+    }
+    .ab-hero-images:hover .ab-hero-img-sub {
+      transform: rotate(3deg) scale(1.05);
+    }
+    
+    /* Decorative blob background */
+    .ab-hero-blob {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(199, 122, 63, 0.1) 0%, transparent 70%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* 2. ab-founders */
+    .ab-founders {
+      background-color: #FFFDF8;
+      border-top: 1px solid var(--ab-border-light);
+      border-bottom: 1px solid var(--ab-border-light);
+    }
+    body.dark-mode .ab-founders {
+      background-color: #1a1512;
+      border-color: var(--ab-border-dark);
+    }
+    .ab-founders-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .ab-founder-frame {
+      position: relative;
+    }
+    .ab-founder-img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 2.5rem 0 2.5rem 0;
+      box-shadow: 0 25px 50px rgba(47, 36, 27, 0.12);
+    }
+    body.dark-mode .ab-founder-img {
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+    }
+    .ab-founder-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: linear-gradient(135deg, #c77a3f, #b35f2a);
+      color: white;
+      padding: 1.5rem 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 25px rgba(199, 122, 63, 0.3);
+      text-align: center;
+    }
+    body.dark-mode .ab-founder-badge {
+      background: linear-gradient(135deg, #eab67a, #c77a3f);
+      color: #1e1916;
+      box-shadow: 0 10px 25px rgba(234, 182, 122, 0.2);
+    }
+    .ab-founder-badge .num {
+      display: block;
+      font-size: 2rem;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1;
+    }
+    .ab-founder-badge .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+    .ab-founder-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      color: var(--ab-primary);
+      border-left: 3px solid var(--ab-primary);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      line-height: 1.4;
+    }
+    body.dark-mode .ab-founder-quote {
+      color: var(--ab-accent-gold);
+      border-color: var(--ab-accent-gold);
+    }
+    .ab-founder-text p {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      color: var(--ab-text-muted-light);
+    }
+    body.dark-mode .ab-founder-text p {
+      color: var(--ab-text-muted-dark);
+    }
+    .ab-founder-signature {
+      margin-top: 2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--ab-text-dark);
+    }
+    body.dark-mode .ab-founder-signature {
+      color: var(--ab-text-light);
+    }
+    .ab-founder-signature span {
+      display: block;
+      font-size: 0.85rem;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ab-primary);
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+    body.dark-mode .ab-founder-signature span {
+      color: var(--ab-accent-gold);
+    }
+
+    /* 3. ab-team */
+    .ab-team {
+      background-color: var(--ab-bg-light);
+    }
+    body.dark-mode .ab-team {
+      background-color: var(--ab-bg-dark);
+    }
+    .ab-team-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4.5rem;
+    }
+    .ab-team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .ab-team-card {
+      background-color: var(--ab-bg-card-light);
+      border: 1px solid var(--ab-border-light);
+      border-radius: 2rem;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 10px 30px rgba(47, 36, 27, 0.03);
+    }
+    body.dark-mode .ab-team-card {
+      background-color: var(--ab-bg-card-dark);
+      border-color: var(--ab-border-dark);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .ab-team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(199, 122, 63, 0.12);
+      border-color: var(--ab-primary);
+    }
+    body.dark-mode .ab-team-card:hover {
+      box-shadow: 0 20px 45px rgba(234, 182, 122, 0.08);
+      border-color: var(--ab-accent-gold);
+    }
+    .ab-team-avatar-wrapper {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      overflow: hidden;
+      border: 4px solid var(--ab-bg-light);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+    }
+    body.dark-mode .ab-team-avatar-wrapper {
+      border-color: var(--ab-bg-dark);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    .ab-team-avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .ab-team-card:hover .ab-team-avatar-wrapper img {
+      transform: scale(1.1);
+    }
+    .ab-team-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--ab-text-dark);
+      margin-bottom: 0.25rem;
+    }
+    body.dark-mode .ab-team-name {
+      color: var(--ab-text-light);
+    }
+    .ab-team-role {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ab-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    body.dark-mode .ab-team-role {
+      color: var(--ab-accent-gold);
+    }
+    .ab-team-desc {
+      font-size: 0.95rem;
+      color: var(--ab-text-muted-light);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+    body.dark-mode .ab-team-desc {
+      color: var(--ab-text-muted-dark);
+    }
+    .ab-team-skill {
+      display: inline-block;
+      font-size: 0.8rem;
+      background-color: rgba(199, 122, 63, 0.08);
+      color: var(--ab-primary);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-weight: 500;
+    }
+    body.dark-mode .ab-team-skill {
+      background-color: rgba(234, 182, 122, 0.1);
+      color: var(--ab-accent-gold);
+    }
+
+    /* 4. ab-ingredients */
+    .ab-ingredients {
+      background: linear-gradient(135deg, #2F241B 0%, #15100c 100%);
+      color: #fff;
+    }
+    body.dark-mode .ab-ingredients {
+      background: linear-gradient(135deg, #181310 0%, #0d0a08 100%);
+    }
+    .ab-ingredients-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4.5rem;
+    }
+    .ab-ingredients-header .ab-pretitle {
+      color: var(--ab-accent-gold);
+    }
+    .ab-ingredients-header .ab-title {
+      color: #fff;
+    }
+    .ab-ingredients-header .ab-subtitle {
+      color: #d4c4b7;
+    }
+    .ab-ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.5rem;
+    }
+    .ab-ingredient-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 2rem;
+      padding: 2.5rem;
+      transition: all 0.4s ease;
+    }
+    .ab-ingredient-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-5px);
+      border-color: var(--ab-accent-gold);
+    }
+    .ab-ingredient-icon {
+      font-size: 2.5rem;
+      color: var(--ab-accent-gold);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+    .ab-ingredient-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+    .ab-ingredient-desc {
+      font-size: 0.95rem;
+      color: #c2b1a3;
+      line-height: 1.6;
+    }
+
+    /* 5. ab-atelier (Process) */
+    .ab-atelier {
+      background-color: var(--ab-bg-light);
+    }
+    body.dark-mode .ab-atelier {
+      background-color: var(--ab-bg-dark);
+    }
+    .ab-atelier-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 5rem;
+    }
+    .ab-atelier-timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .ab-atelier-step {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
+    .ab-atelier-step:last-child {
+      margin-bottom: 0;
+    }
+    .ab-atelier-step.reverse {
+      direction: rtl;
+    }
+    .ab-atelier-step.reverse .ab-atelier-content {
+      direction: ltr;
+    }
+    .ab-atelier-step.reverse .ab-atelier-media {
+      direction: ltr;
+    }
+    .ab-atelier-media {
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(47, 36, 27, 0.08);
+      aspect-ratio: 4/3;
+    }
+    body.dark-mode .ab-atelier-media {
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+    .ab-atelier-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .ab-atelier-step:hover .ab-atelier-media img {
+      transform: scale(1.05);
+    }
+    .ab-atelier-content {
+      padding: 1rem;
+    }
+    .ab-atelier-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: rgba(199, 122, 63, 0.15);
+      line-height: 1;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    body.dark-mode .ab-atelier-num {
+      color: rgba(234, 182, 122, 0.12);
+    }
+    .ab-atelier-step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--ab-text-dark);
+      margin-bottom: 1rem;
+    }
+    body.dark-mode .ab-atelier-step-title {
+      color: var(--ab-text-light);
+    }
+    .ab-atelier-step-desc {
+      font-size: 1.05rem;
+      color: var(--ab-text-muted-light);
+      line-height: 1.7;
+    }
+    body.dark-mode .ab-atelier-step-desc {
+      color: var(--ab-text-muted-dark);
+    }
+
+    /* 6. ab-milestones */
+    .ab-milestones {
+      background-color: #FFFDF8;
+      border-top: 1px solid var(--ab-border-light);
+      border-bottom: 1px solid var(--ab-border-light);
+    }
+    body.dark-mode .ab-milestones {
+      background-color: #1a1512;
+      border-color: var(--ab-border-dark);
+    }
+    .ab-milestones-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 5rem;
+    }
+    .ab-milestones-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+    /* Horizontal progress line */
+    .ab-milestones-grid::before {
+      content: '';
+      position: absolute;
+      top: 110px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--ab-border-light) 15%, var(--ab-border-light) 85%, transparent 100%);
+      z-index: 1;
+    }
+    body.dark-mode .ab-milestones-grid::before {
+      background: linear-gradient(90deg, transparent 0%, var(--ab-border-dark) 15%, var(--ab-border-dark) 85%, transparent 100%);
+    }
+    .ab-milestone-card {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .ab-milestone-year {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #c77a3f, #b35f2a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1.5rem;
+    }
+    body.dark-mode .ab-milestone-year {
+      background: linear-gradient(135deg, #f6cf9c, #eab67a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .ab-milestone-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: var(--ab-primary);
+      border: 4px solid #FFFDF8;
+      margin: 0 auto 2.5rem;
+      box-shadow: 0 0 0 4px rgba(199, 122, 63, 0.15);
+      transition: all 0.3s ease;
+    }
+    body.dark-mode .ab-milestone-dot {
+      background-color: var(--ab-accent-gold);
+      border-color: #1a1512;
+      box-shadow: 0 0 0 4px rgba(234, 182, 122, 0.15);
+    }
+    .ab-milestone-card:hover .ab-milestone-dot {
+      transform: scale(1.3);
+      background-color: var(--ab-primary-hover);
+      box-shadow: 0 0 0 8px rgba(199, 122, 63, 0.25);
+    }
+    .ab-milestone-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ab-text-dark);
+      margin-bottom: 0.5rem;
+    }
+    body.dark-mode .ab-milestone-title {
+      color: var(--ab-text-light);
+    }
+    .ab-milestone-desc {
+      font-size: 0.9rem;
+      color: var(--ab-text-muted-light);
+      line-height: 1.5;
+      padding: 0 1rem;
+    }
+    body.dark-mode .ab-milestone-desc {
+      color: var(--ab-text-muted-dark);
+    }
+
+    /* 7. ab-pillars */
+    .ab-pillars {
+      background-color: var(--ab-bg-light);
+    }
+    body.dark-mode .ab-pillars {
+      background-color: var(--ab-bg-dark);
+    }
+    .ab-pillars-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4.5rem;
+    }
+    .ab-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+    .ab-pillar-card {
+      text-align: center;
+      padding: 1rem;
+    }
+    .ab-pillar-icon-box {
+      width: 80px;
+      height: 80px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(255, 243, 230, 1), rgba(245, 220, 195, 0.7));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--ab-primary);
+      margin: 0 auto 2rem;
+      box-shadow: 0 10px 25px rgba(199, 122, 63, 0.05);
+      transition: all 0.3s ease;
+    }
+    body.dark-mode .ab-pillar-icon-box {
+      background: linear-gradient(135deg, #2c241e, #1e1916);
+      color: var(--ab-accent-gold);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    .ab-pillar-card:hover .ab-pillar-icon-box {
+      transform: translateY(-5px) rotate(5deg);
+    }
+    .ab-pillar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ab-text-dark);
+      margin-bottom: 1rem;
+    }
+    body.dark-mode .ab-pillar-title {
+      color: var(--ab-text-light);
+    }
+    .ab-pillar-desc {
+      font-size: 1rem;
+      color: var(--ab-text-muted-light);
+      line-height: 1.6;
+    }
+    body.dark-mode .ab-pillar-desc {
+      color: var(--ab-text-muted-dark);
+    }
+
+    /* 8. ab-manifesto */
+    .ab-manifesto {
+      background-color: #FFFDF8;
+      border-top: 1px solid var(--ab-border-light);
+    }
+    body.dark-mode .ab-manifesto {
+      background-color: #1a1512;
+      border-color: var(--ab-border-dark);
+    }
+    .ab-manifesto-box {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255, 248, 239, 0.9), rgba(253, 237, 218, 0.5));
+      border: 1px solid var(--ab-border-light);
+      padding: 5rem 4rem;
+      border-radius: 3rem;
+      box-shadow: 0 20px 45px rgba(47, 36, 27, 0.05);
+      position: relative;
+    }
+    body.dark-mode .ab-manifesto-box {
+      background: linear-gradient(135deg, rgba(37, 30, 25, 0.9), rgba(30, 25, 22, 0.5));
+      border-color: var(--ab-border-dark);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    }
+    .ab-manifesto-badge {
+      font-size: 1.5rem;
+      color: var(--ab-primary);
+      margin-bottom: 2rem;
+      display: inline-block;
+    }
+    body.dark-mode .ab-manifesto-badge {
+      color: var(--ab-accent-gold);
+    }
+    .ab-manifesto-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--ab-text-dark);
+      margin-bottom: 3rem;
+    }
+    body.dark-mode .ab-manifesto-text {
+      color: var(--ab-text-light);
+    }
+    .ab-manifesto-sig {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      color: var(--ab-primary);
+      margin-bottom: 3rem;
+    }
+    body.dark-mode .ab-manifesto-sig {
+      color: var(--ab-accent-gold);
+    }
+    .ab-manifesto-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVE LAYOUTS */
+    @media (max-width: 1024px) {
+      .ab-section {
+        padding: 5rem 1.5rem;
+      }
+      .ab-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+      .ab-hero-text {
+        max-width: 100%;
+      }
+      .ab-hero-buttons {
+        justify-content: center;
+      }
+      .ab-hero-images {
+        height: 380px;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .ab-founders-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      .ab-founder-frame {
+        max-width: 500px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .ab-founder-img {
+        height: 400px;
+      }
+      .ab-atelier-step {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+      .ab-atelier-step.reverse {
+        direction: ltr;
+      }
+      .ab-milestones-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+      .ab-milestones-grid::before {
+        display: none;
+      }
+      .ab-milestone-dot {
+        margin-bottom: 1.5rem;
+      }
+      .ab-pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .ab-manifesto-box {
+        padding: 3.5rem 2rem;
+      }
+      .ab-manifesto-text {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .ab-hero-title {
+        font-size: 2.8rem;
+      }
+      .ab-title {
+        font-size: 2.2rem;
+      }
+      .ab-milestones-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+  <!-- ========== UNIFIED STICKY NAVBAR (brand unified with footer) ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand" id="brandLink">CookieCraft</a>
+      
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="nav-collapse" id="navCollapse">
+        <ul class="nav-menu">
+          <li class="nav-item dropdown" id="homeDropdownItem">
+            <a href="#" class="nav-link dropdown-toggle" id="homeDropdownToggle">
+              <i class="fas fa-home"></i> <span>Home</span> <i class="fas fa-chevron-down dropdown-arrow"></i>
+            </a>
+            <ul class="dropdown-menu" id="homeDropdownMenu">
+              <li><a href="index.html" class="dropdown-item"><i class="fas fa-cookie-bite"></i> Home 1</a></li>
+              <li><a href="home2.html" class="dropdown-item"><i class="fas fa-heart"></i> Home 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="about.html" class="nav-link active">About</a></li>
+          <li class="nav-item"><a href="custom.html" class="nav-link">Custom Orders</a></li>
+          <li class="nav-item"><a href="classes.html" class="nav-link">Classes</a></li>
+          <li class="nav-item"><a href="Tutorials.html" class="nav-link">Tutorials</a></li>
+          <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="right-buttons">
+          <button id="darkModeToggle" class="btn-outline" aria-label="Dark mode toggle"><i class="fas fa-moon"></i></button>
+          <button id="rtlToggle" class="btn-outline" aria-label="Toggle RTL layout"><i class="fa-solid fa-right-left"></i></button>
+          <a href="login.html" id="loginBtn" class="btn-outline btn-login" style="text-decoration: none;"><i class="fas fa-user"></i> Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECTION 1: THE ATELIER HERO -->
+  <section class="ab-section ab-hero">
+    <div class="ab-hero-blob"></div>
+    <div class="ab-container ab-hero-grid">
+      <div class="ab-hero-text">
+        <span class="ab-pretitle">The CookieCraft Heritage</span>
+        <h1 class="ab-title ab-hero-title">Where Sugar Becomes Fine Artistry</h1>
+        <p class="ab-subtitle">We are a boutique confectionary studio where baking is treated as canvas-work, and cookies are hand-painted stories. We blend classical illustration techniques with premium culinary sourcing to elevate sweet moments into memories.</p>
+        <div class="ab-hero-buttons">
+          <a href="#founders" class="btn-primary">Our Story <i class="fas fa-book-open" style="margin-left: 8px;"></i></a>
+          <a href="custom.html" class="btn-outline">Custom Design Service</a>
+        </div>
+      </div>
+      <div class="ab-hero-images">
+        <img src="./image/about_studio.png" alt="Cookiecraft Studio Decorating" class="ab-hero-img-main">
+        <img src="./image/about_handpainted.png" alt="Finished Handpainted Cookie" class="ab-hero-img-sub">
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: THE FOUNDER'S JOURNEY -->
+  <section id="founders" class="ab-section ab-founders">
+    <div class="ab-container ab-founders-grid">
+      <div class="ab-founder-frame">
+        <img src="./image/about_evelyn_chef.png" alt="Evelyn Stone Master Pastry Artist" class="ab-founder-img">
+        <div class="ab-founder-badge">
+          <span class="num">8+</span>
+          <span class="label">Years of Craft</span>
+        </div>
+      </div>
+      <div class="ab-founder-text">
+        <span class="ab-pretitle">The Heart Behind the Hearth</span>
+        <h2 class="ab-title">The Story of Evelyn Stone</h2>
+        <div class="ab-founder-quote">"A cookie should delight the eyes and inspire wonder before it ever meets the tongue."</div>
+        <p>Before discovering her calling in pastry arts, Evelyn Stone spent a decade as a classical watercolor illustrator in Paris. Her canvas changed forever when she decorated her first sugar cookie for her daughter's birthday. She realized that confections were not just food, but miniature sculptures—bite-sized canvases that could spread wonder and bring art directly into everyday lives.</p>
+        <p>In 2018, Evelyn opened the CookieCraft Studio. Combining her rigorous art background with traditional French patisserie techniques, she pioneered our signature watercolor frosting style, establishing the studio as a benchmark of modern culinary design.</p>
+        <div class="ab-founder-signature">
+          Evelyn Stone
+          <span>Founder & Master Pastry Artist</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: THE GUILD OF COOKIE ARCHITECTS -->
+  <section class="ab-section ab-team">
+    <div class="ab-container">
+      <div class="ab-team-header">
+        <span class="ab-pretitle">The Artisans</span>
+        <h2 class="ab-title">The Guild of Cookie Architects</h2>
+        <p class="ab-subtitle">Meet the specialized creators who bring imagination to life, combining years of culinary discipline with precise design sensibilities.</p>
+      </div>
+      <div class="ab-team-grid">
+        <!-- Team 1 -->
+        <div class="ab-team-card">
+          <div class="ab-team-avatar-wrapper">
+            <img src="./image/about_evelyn_avatar.png" alt="Evelyn Stone">
+          </div>
+          <h3 class="ab-team-name">Evelyn Stone</h3>
+          <span class="ab-team-role">Founder & Master Pastry Artist</span>
+          <p class="ab-team-desc">Pioneered our signature watercolor hand-painting technique, translating fine-art skills onto royal icing canvases.</p>
+          <span class="ab-team-skill">Watercolor Royal Icing</span>
+        </div>
+        <!-- Team 2 -->
+        <div class="ab-team-card">
+          <div class="ab-team-avatar-wrapper">
+            <img src="./image/about_julian.png" alt="Julian Vance">
+          </div>
+          <h3 class="ab-team-name">Julian Vance</h3>
+          <span class="ab-team-role">Flavor Alchemist</span>
+          <p class="ab-team-desc">Formulates our organic dough flavor bases, carefully infusing notes of culinary lavender, citrus zests, and custom extracts.</p>
+          <span class="ab-team-skill">Botanical Flavor Infusions</span>
+        </div>
+        <!-- Team 3 -->
+        <div class="ab-team-card">
+          <div class="ab-team-avatar-wrapper">
+            <img src="./image/about_chloe.png" alt="Chloe Chen">
+          </div>
+          <h3 class="ab-team-name">Chloe Chen</h3>
+          <span class="ab-team-role">Chief Cookie Architect</span>
+          <p class="ab-team-desc">Uses architectural CAD models to build intricate 3D cookie structures, turning dough into towering edible monuments.</p>
+          <span class="ab-team-skill">3D Sculptural Baking</span>
+        </div>
+        <!-- Team 4 -->
+        <div class="ab-team-card">
+          <div class="ab-team-avatar-wrapper">
+            <img src="./image/about_oliver.png" alt="Oliver Brooks">
+          </div>
+          <h3 class="ab-team-name">Oliver Brooks</h3>
+          <span class="ab-team-role">Studio Director & Sugar Historian</span>
+          <p class="ab-team-desc">Sources heirloom grains and rare spices globally while curating custom client design projects for luxury events.</p>
+          <span class="ab-team-skill">Ethical Global Sourcing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: THE INGREDIENT SANCTUARY -->
+  <section class="ab-section ab-ingredients">
+    <div class="ab-container">
+      <div class="ab-ingredients-header">
+        <span class="ab-pretitle">The Alchemy of Quality</span>
+        <h2 class="ab-title">The Ingredient Sanctuary</h2>
+        <p class="ab-subtitle">An extraordinary cookie is defined by the absolute purity of its elements. We source exclusively from small, sustainable estates.</p>
+      </div>
+      <div class="ab-ingredients-grid">
+        <!-- Ingredient 1 -->
+        <div class="ab-ingredient-card">
+          <div class="ab-ingredient-icon"><i class="fas fa-seedling"></i></div>
+          <h3 class="ab-ingredient-name">Madagascan Bourbon Vanilla</h3>
+          <p class="ab-ingredient-desc">Hand-pollinated orchids from single-family estates, providing sweet woody notes and rich, visible vanilla bean caviar speckled throughout our dough.</p>
+        </div>
+        <!-- Ingredient 2 -->
+        <div class="ab-ingredient-card">
+          <div class="ab-ingredient-icon"><i class="fas fa-water"></i></div>
+          <h3 class="ab-ingredient-name">Fleur de Sel de Guérande</h3>
+          <p class="ab-ingredient-desc">Rare sea salt skimmed by hand using traditional wooden rakes from salt pans in Brittany, offering a delicate crunch that balances our sweet butter base.</p>
+        </div>
+        <!-- Ingredient 3 -->
+        <div class="ab-ingredient-card">
+          <div class="ab-ingredient-icon"><i class="fa-solid fa-cow"></i></div>
+          <h3 class="ab-ingredient-name">Cultured Grass-Fed Butter</h3>
+          <p class="ab-ingredient-desc">Churned from pasture-raised Guernsey cream at local family farms, containing 84% butterfat for an extraordinarily velvety crumb and rich flavor profile.</p>
+        </div>
+        <!-- Ingredient 4 -->
+        <div class="ab-ingredient-card">
+          <div class="ab-ingredient-icon"><i class="fas fa-mortar-pestle"></i></div>
+          <h3 class="ab-ingredient-name">Heirloom Organic Flour</h3>
+          <p class="ab-ingredient-desc">Stone-milled soft white winter wheat harvested from regenerative fields, preserving natural nuttiness and yielding clean structure with a melting texture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: THE DECORATING ATELIER -->
+  <section class="ab-section ab-atelier">
+    <div class="ab-container">
+      <div class="ab-atelier-header">
+        <span class="ab-pretitle">Precision & Passion</span>
+        <h2 class="ab-title">The Sculpting Process</h2>
+        <p class="ab-subtitle">How we transform simple ingredients into edible masterpieces inside our sterile design workshop.</p>
+      </div>
+      <div class="ab-atelier-timeline">
+        <!-- Step 1 -->
+        <div class="ab-atelier-step">
+          <div class="ab-atelier-media">
+            <img src="./image/about_precision.png" alt="Precision Baking">
+          </div>
+          <div class="ab-atelier-content">
+            <span class="ab-atelier-num"></span>
+            <h3 class="ab-atelier-step-title">The Foundation: Precision Baking</h3>
+            <p class="ab-atelier-step-desc">Dough is rolled to exactly 6mm thickness to ensure a completely flat, non-spreading surface. Baked in customized convection stone ovens for a perfectly even, gold-standard crust that holds sharp, crisp edge profiles.</p>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="ab-atelier-step reverse">
+          <div class="ab-atelier-media">
+            <img src="./image/about_icing.png" alt="Icing Flooding">
+          </div>
+          <div class="ab-atelier-content">
+            <span class="ab-atelier-num"></span>
+            <h3 class="ab-atelier-step-title">The Canvas: Flooding</h3>
+            <p class="ab-atelier-step-desc">A porcelain-like base is laid down using our signature egg-white royal icing. Flooded with a precise 12-second consistency fluid that levels itself out, then cured under climate-controlled dehydrators for 18 hours to form a high-sheen satin finish.</p>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="ab-atelier-step">
+          <div class="ab-atelier-media">
+            <img src="./image/about_painting.png" alt="Hand Painting watercolor">
+          </div>
+          <div class="ab-atelier-content">
+            <span class="ab-atelier-num"></span>
+            <h3 class="ab-atelier-step-title">The Palette: Watercolor Painting</h3>
+            <p class="ab-atelier-step-desc">Our decorators use paintbrushes, calligraphy nibs, and sponges to hand-paint directly onto the dried royal icing canvas. Pigments are hand-blended using natural food dyes derived from botanical flowers, beetroot, spirulina, and turmeric.</p>
+          </div>
+        </div>
+        <!-- Step 4 -->
+        <div class="ab-atelier-step reverse">
+          <div class="ab-atelier-media">
+            <img src="./image/about_micropiping.png" alt="Micro-Piping details">
+          </div>
+          <div class="ab-atelier-content">
+            <span class="ab-atelier-num"></span>
+            <h3 class="ab-atelier-step-title">The Finish: Micro-Piping & Gilding</h3>
+            <p class="ab-atelier-step-desc">The final layers of dimensional detail are piped using fine-tip nozzles (as thin as 0.5mm) to construct laces, pearls, and outlines. Lastly, elements are finished with delicate strokes of 24k edible gold leaf or silver flakes for a luxury glow.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: CHRONICLES OF CRAFT -->
+  <section class="ab-section ab-milestones">
+    <div class="ab-container">
+      <div class="ab-milestones-header">
+        <span class="ab-pretitle">Our Growth</span>
+        <h2 class="ab-title">Chronicles of Craft</h2>
+        <p class="ab-subtitle">A journey of small batches, big dreams, and sweet breakthroughs.</p>
+      </div>
+      <div class="ab-milestones-grid">
+        <!-- Milestone 1 -->
+        <div class="ab-milestone-card">
+          <div class="ab-milestone-year">2018</div>
+          <div class="ab-milestone-dot"></div>
+          <h3 class="ab-milestone-title">Sun-Drenched Loft</h3>
+          <p class="ab-milestone-desc">Evelyn starts CookieCraft with one domestic oven and 15 custom-made brass cutters in NYC.</p>
+        </div>
+        <!-- Milestone 2 -->
+        <div class="ab-milestone-card">
+          <div class="ab-milestone-year">2020</div>
+          <div class="ab-milestone-dot"></div>
+          <h3 class="ab-milestone-title">Watercolor Revolution</h3>
+          <p class="ab-milestone-desc">We pioneer watercolor hand-painting techniques, capturing the wedding and corporate styling market.</p>
+        </div>
+        <!-- Milestone 3 -->
+        <div class="ab-milestone-card">
+          <div class="ab-milestone-year">2022</div>
+          <div class="ab-milestone-dot"></div>
+          <h3 class="ab-milestone-title">Grand Masterclass</h3>
+          <p class="ab-milestone-desc">Launching our signature baking masterclasses, sharing techniques with thousands of home decorators globally.</p>
+        </div>
+        <!-- Milestone 4 -->
+        <div class="ab-milestone-card">
+          <div class="ab-milestone-year">2025</div>
+          <div class="ab-milestone-dot"></div>
+          <h3 class="ab-milestone-title">Carbon Neutral Pledge</h3>
+          <p class="ab-milestone-desc">Transitioning to a 100% solar-powered oven kitchen and zero-plastic, biodegradable plant-fiber luxury packaging.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: PILLARS OF THE HEARTH -->
+  <section class="ab-section ab-pillars">
+    <div class="ab-container">
+      <div class="ab-pillars-header">
+        <span class="ab-pretitle">The Code of the Oven</span>
+        <h2 class="ab-title">Pillars of the Hearth</h2>
+        <p class="ab-subtitle">The four non-negotiable promises behind every crumb we bake.</p>
+      </div>
+      <div class="ab-pillars-grid">
+        <!-- Pillar 1 -->
+        <div class="ab-pillar-card">
+          <div class="ab-pillar-icon-box"><i class="fas fa-lightbulb"></i></div>
+          <h3 class="ab-pillar-title">Creative Audacity</h3>
+          <p class="ab-pillar-desc">We never say no to a design challenge. From replica portraits to scale cookie monuments, we believe sugar has no creative limits.</p>
+        </div>
+        <!-- Pillar 2 -->
+        <div class="ab-pillar-card">
+          <div class="ab-pillar-icon-box"><i class="fas fa-recycle"></i></div>
+          <h3 class="ab-pillar-title">Zero-Waste Spirit</h3>
+          <p class="ab-pillar-desc">All excess dough, egg yolks, and parchment paper are repurposed or composted in partnership with community farms.</p>
+        </div>
+        <!-- Pillar 3 -->
+        <div class="ab-pillar-card">
+          <div class="ab-pillar-icon-box"><i class="fas fa-heart"></i></div>
+          <h3 class="ab-pillar-title">Shared Flour</h3>
+          <p class="ab-pillar-desc">We believe in culinary empowerment. A portion of every custom order goes towards funding cooking workshops for local youth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: THE ARTISAN MANIFESTO -->
+  <section class="ab-section ab-manifesto">
+    <div class="ab-container">
+      <div class="ab-manifesto-box">
+        <span class="ab-manifesto-badge"><i class="fas fa-quote-left"></i></span>
+        <div class="ab-manifesto-text">
+          "We do not merely bake cookies. We curate sweet canvas confections meant to bring art, beauty, and emotional connection to the table."
+        </div>
+        <div class="ab-manifesto-sig">
+          The CookieCraft Family
+        </div>
+        <div class="ab-manifesto-buttons">
+          <a href="gallery.html" class="btn-primary">Explore Custom Gallery</a>
+          <a href="custom.html" class="btn-outline">Order Custom Cookie Art</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== UNIFIED FOOTER (brand matches navbar exactly) ========== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>CookieCraft</h3>   <!-- identical styling: font/size/gradient to .brand -->
+        <p>Artisan cookie decorating & baking studio — where every cookie tells a sweet story.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+          <li><a href="custom.html"><i class="fas fa-chevron-right"></i> Custom Orders</a></li>
+          <li><a href="classes.html"><i class="fas fa-chevron-right"></i> Classes</a></li>
+          <li><a href="Tutorials.html"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+          <li><a href="custom.html"><i class="fas fa-chevron-right"></i> Custom Orders</a></li>
+          <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact </a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col contact-info">
+        <h4>Visit & Connect</h4>
+        <p><i class="fas fa-map-marker-alt"></i> 226 Butter Lane, NYC, NY 10014</p>
+        <p><i class="fas fa-envelope"></i> hello@cookiecraftstudio.com</p>
+        <p><i class="fas fa-phone-alt"></i> +1 (212) 555-0420</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email for sweet updates" id="newsletterEmail">
+          <button class="btn-footer" id="newsletterBtn"> Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 CookieCraft Studio – Artisan Cookie Decorating. All rights reserved.</span>
+      <div class="legal-links">
+        <a href="#">Accessibility</a>
+        <a href="#">Cookie Preferences</a>
+        <a href="#">Sustainability</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // DARK MODE (localStorage)
+      const darkToggle = document.getElementById('darkModeToggle');
+      const body = document.body;
+      const updateDarkModeButton = (isDark) => {
+        if (!darkToggle) return;
+        darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        darkToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      };
+      const loadDarkMode = () => {
+        const isDark = localStorage.getItem('cookieStudio-dark') === 'enabled';
+        if (isDark) body.classList.add('dark-mode');
+        else body.classList.remove('dark-mode');
+        updateDarkModeButton(isDark);
+      };
+      if (darkToggle) {
+        darkToggle.addEventListener('click', () => {
+          const isDark = body.classList.contains('dark-mode');
+          if (isDark) {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('cookieStudio-dark', 'disabled');
+          } else {
+            body.classList.add('dark-mode');
+            localStorage.setItem('cookieStudio-dark', 'enabled');
+          }
+          updateDarkModeButton(body.classList.contains('dark-mode'));
+        });
+      }
+      loadDarkMode();
+
+      // RTL TOGGLE
+      const rtlToggle = document.getElementById('rtlToggle');
+      const setRTL = (enabled) => {
+        if (enabled) {
+          body.setAttribute('dir', 'rtl');
+          localStorage.setItem('cookieStudio-rtl', 'enabled');
+          if (rtlToggle) rtlToggle.innerHTML = '<i class="fa-solid fa-right-left"></i>';
+        } else {
+          body.setAttribute('dir', 'ltr');
+          localStorage.setItem('cookieStudio-rtl', 'disabled');
+          if (rtlToggle) rtlToggle.innerHTML = '<i class="fa-solid fa-right-left"></i>';
+        }
+      };
+      const loadRTL = () => setRTL(localStorage.getItem('cookieStudio-rtl') === 'enabled');
+      if (rtlToggle) rtlToggle.addEventListener('click', () => setRTL(body.getAttribute('dir') !== 'rtl'));
+      loadRTL();
+
+      // STICKY SCROLL
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      });
+
+      // MOBILE MENU
+      const hamburger = document.getElementById('hamburgerBtn');
+      const navCollapse = document.getElementById('navCollapse');
+      const toggleMenu = () => {
+        navCollapse.classList.toggle('active');
+        document.body.style.overflow = navCollapse.classList.contains('active') ? 'hidden' : '';
+      };
+      if (hamburger) hamburger.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+      const closeMenu = () => {
+        if (navCollapse.classList.contains('active')) {
+          navCollapse.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      };
+
+      // MOBILE DROPDOWN HANDLER
+      const toggleBtn = document.getElementById('homeDropdownToggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', (e) => {
+          if (window.innerWidth <= 1024) {
+            e.preventDefault();
+            const parentLi = document.getElementById('homeDropdownItem');
+            const menu = document.getElementById('homeDropdownMenu');
+            if (parentLi) {
+              if (parentLi.classList.contains('open')) {
+                parentLi.classList.remove('open');
+                if (menu) menu.style.display = '';
+              } else {
+                parentLi.classList.add('open');
+                if (menu) menu.style.display = 'block';
+              }
+            }
+          }
+        });
+      }
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024) {
+          const parentLi = document.getElementById('homeDropdownItem');
+          if (parentLi && parentLi.classList.contains('open')) {
+            parentLi.classList.remove('open');
+            const menu = document.getElementById('homeDropdownMenu');
+            if (menu) menu.style.display = '';
+          }
+          if (navCollapse && navCollapse.classList.contains('active')) closeMenu();
+        }
+      });
+
+      // Highlight active nav item
+      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+      const navLinks = document.querySelectorAll('.nav-menu .nav-link, .dropdown-item');
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath) {
+          link.classList.add('active');
+          if (link.classList.contains('dropdown-item')) {
+            const parentToggle = document.getElementById('homeDropdownToggle');
+            if (parentToggle) parentToggle.classList.add('active');
+          }
+        }
+      });
+
+      // DEMO LINKS PREVENT DEFAULT ALERTS (preserve interactivity)
+      const demoLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item, .footer-links a, .social-links a, .legal-links a, .brand, .btn-login');
+      demoLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          if (!href || href === '#') {
+            e.preventDefault();
+            let txt = link.innerText.trim() || 'Navigate';
+            if (txt.includes('Login')) txt = 'Login / Account';
+            alert(`🍪 CookieCraft • ${txt} — fully functional component ready for your logic.`);
+            closeMenu();
+          }
+        });
+      });
+
+      // NEWSLETTER demo
+      const newsletterBtn = document.getElementById('newsletterBtn');
+      const newsletterInput = document.getElementById('newsletterEmail');
+      if (newsletterBtn) {
+        newsletterBtn.addEventListener('click', () => {
+          const email = newsletterInput.value.trim();
+          if (!email) alert('✨ Please enter an email to receive sweet updates!');
+          else alert(`🎉 Subscribed! ${email} will get artisan news & offers.`);
+          if (newsletterInput) newsletterInput.value = '';
+        });
+      }
+      document.addEventListener('click', (event) => {
+        if (navbar && !navbar.contains(event.target) && navCollapse && navCollapse.classList.contains('active')) closeMenu();
+      });
+      window.addEventListener('load', () => {
+        document.body.style.overflow = '';
+        if (window.innerWidth > 1024) {
+          const parentLi = document.getElementById('homeDropdownItem');
+          if (parentLi) parentLi.classList.remove('open');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

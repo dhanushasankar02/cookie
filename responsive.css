@@ -1,0 +1,421 @@
+/* ==========================================================================
+   COOKIE CRAFT & LA FARINE BAKERY – UNIFIED MOBILE RESPONSIVENESS SYSTEM
+   Optimized for 320px, 480px, 768px, 1024px+ Breakpoints
+   ========================================================================== */
+
+/* Universal Box-Sizing & Viewport Protection */
+html, body {
+  overflow-x: clip !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  -webkit-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+/* Fluent Media Adjustments */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+iframe, video, embed, object {
+  max-width: 100% !important;
+}
+
+/* Wrap word overflows */
+p, h1, h2, h3, h4, h5, h6, span, a, li, address, blockquote {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Consistent Section Spacing & Protection */
+section, 
+.section, 
+.h2-collections, 
+.h2-tasting, 
+.h2-craft, 
+.h2-testimonials, 
+.h2-packaging, 
+.h2-seasonal, 
+.h2-cta, 
+.featured, 
+.process, 
+.testimonials, 
+.workshops, 
+.community, 
+.contact-section, 
+.tutorial-section, 
+.ab-section, 
+.order-page-inner {
+  padding: 5rem 2rem !important;
+  box-sizing: border-box !important;
+}
+
+/* Universal Button Scaling */
+.btn-primary, 
+.btn-outline, 
+.btn-login, 
+.btn-footer, 
+.btn-primary-tut, 
+.btn-white, 
+.btn, 
+button, 
+input[type="submit"] {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  white-space: normal !important; /* Allow wrapping of long text */
+}
+
+/* Form Protection */
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="tel"], 
+input[type="url"], 
+input[type="number"], 
+select, 
+textarea {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   BREAKPOINT: 1024px (Tablets / Small Desktops)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  /* Grids to 2 Columns */
+  .spec-grid, 
+  .gallery-grid, 
+  .ab-team-grid, 
+  .recipe-grid, 
+  .kit-grid, 
+  .video-grid,
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  
+  /* Flex / Grid Layouts Stacking */
+  .tut-hero-container, 
+  .ab-hero-grid, 
+  .ab-founders-grid, 
+  .tasting-container, 
+  .pack-container, 
+  .philosophy, 
+  .location-grid {
+    flex-direction: column !important;
+    display: flex !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 2rem !important;
+  }
+
+  .tasting-image, 
+  .tasting-text, 
+  .pack-image, 
+  .pack-text, 
+  .location-details, 
+  .map-placeholder,
+  .ab-hero-text,
+  .ab-founder-frame,
+  .ab-founder-text {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+  
+  .ab-hero-images, 
+  .tut-hero-card {
+    margin-top: 2rem !important;
+    width: 100% !important;
+    max-width: 500px !important;
+  }
+
+  /* About Founder badge placement */
+  .ab-founder-badge {
+    right: 10px !important;
+    bottom: -10px !important;
+    padding: 1rem 1.5rem !important;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT: 768px (IPad / Large Mobile)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Spacing Adjustments */
+  section, 
+  .section, 
+  .h2-collections, 
+  .h2-tasting, 
+  .h2-craft, 
+  .h2-testimonials, 
+  .h2-packaging, 
+  .h2-seasonal, 
+  .h2-cta, 
+  .featured, 
+  .process, 
+  .testimonials, 
+  .workshops, 
+  .community, 
+  .contact-section, 
+  .tutorial-section, 
+  .ab-section, 
+  .order-page-inner {
+    padding: 3.5rem 1.5rem !important;
+  }
+
+  /* Responsive Fluid Typography */
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 3.2rem) !important;
+  }
+  
+  h2 {
+    font-size: clamp(1.8rem, 5vw, 2.4rem) !important;
+  }
+
+  .hero-fullscreen h1, 
+  .hero h1, 
+  .tut-hero-title, 
+  .ab-hero-title, 
+  .hero-contact h1 {
+    font-size: 2.8rem !important;
+    line-height: 1.25 !important;
+  }
+  
+  .section-title, 
+  .timeline-heading, 
+  .spec-heading, 
+  .gallery-heading, 
+  .why-heading, 
+  .tutorial-section-title, 
+  .ab-title {
+    font-size: 2.1rem !important;
+  }
+
+  /* Core Grids Stacking */
+  .featured-grid, 
+  .collection-grid, 
+  .testi-grid, 
+  .why-grid, 
+  .features-grid, 
+  .info-strip, 
+  .info-grid,
+  .form-row, 
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  .field.full-width {
+    grid-column: span 1 !important;
+  }
+
+  /* Footer Columns Alignment & Mobile Centering */
+  .footer-container {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+    text-align: center !important;
+  }
+
+  /* Centering Footer Column Headers & Underscores */
+  .footer-col h4:after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    right: auto !important;
+  }
+
+  /* Centering Social Links, Contact Details, and Subscribe Form */
+  .social-links, 
+  .contact-info p, 
+  .newsletter-form {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .newsletter-form {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 1.2rem auto 0 !important;
+  }
+
+  .newsletter-form input {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .btn-footer {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Timelines Restyle */
+  .timeline-line {
+    display: none !important;
+  }
+  .tl-item, .tl-item.right {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    text-align: center !important;
+    margin-bottom: 2.5rem !important;
+  }
+  .tl-dot {
+    position: static !important;
+    transform: none !important;
+    margin: 0.5rem auto !important;
+  }
+  .tl-image, .tl-item.right .tl-image {
+    display: block !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .tl-card {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Workshops Cards Stacking */
+  .workshop-grid, .workshop-container {
+    flex-direction: column !important;
+    display: flex !important;
+    gap: 1.5rem !important;
+  }
+  
+  .workshop-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* About atelier steps wrapping */
+  .ab-atelier-step {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+  .ab-atelier-step.reverse {
+    flex-direction: column !important;
+  }
+  .ab-atelier-content, .ab-atelier-media {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT: 480px (Medium / Small Mobile)
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* Compact Padding */
+  section, 
+  .section, 
+  .h2-collections, 
+  .h2-tasting, 
+  .h2-craft, 
+  .h2-testimonials, 
+  .h2-packaging, 
+  .h2-seasonal, 
+  .h2-cta, 
+  .featured, 
+  .process, 
+  .testimonials, 
+  .workshops, 
+  .community, 
+  .contact-section, 
+  .tutorial-section, 
+  .ab-section, 
+  .order-page-inner {
+    padding: 2.5rem 1rem !important;
+  }
+
+  /* Micro Typography */
+  body {
+    font-size: 0.95rem !important;
+  }
+  
+  .hero-fullscreen h1, 
+  .hero h1, 
+  .tut-hero-title, 
+  .ab-hero-title, 
+  .hero-contact h1 {
+    font-size: 2.2rem !important;
+  }
+  
+  .section-title, 
+  .timeline-heading, 
+  .spec-heading, 
+  .gallery-heading, 
+  .why-heading, 
+  .tutorial-section-title, 
+  .ab-title {
+    font-size: 1.7rem !important;
+  }
+  
+  /* Containers Padding Protection */
+  .hero-glass, 
+  .tut-card-content, 
+  .ab-team-card, 
+  .form-wrapper, 
+  .faq-item {
+    padding: 1.5rem 1rem !important;
+  }
+
+  /* Remaining Multi-Column Grids Stacked */
+  .spec-grid, 
+  .gallery-grid, 
+  .ab-team-grid, 
+  .recipe-grid, 
+  .kit-grid, 
+  .video-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+  
+  /* Social Connection Cards Stacked */
+  .social-grid {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .social-card {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT: 320px (Compact Mobile)
+   ========================================================================== */
+@media (max-width: 320px) {
+  /* Logo and brand names scaling down */
+  .brand, .footer-brand h3, .nav-logo {
+    font-size: 1.15rem !important;
+  }
+  
+  /* Super Compact Typography */
+  .hero-fullscreen h1, 
+  .hero h1, 
+  .tut-hero-title, 
+  .ab-hero-title, 
+  .hero-contact h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .cookie-card, 
+  .feature-card, 
+  .why-card, 
+  .testi-card, 
+  .tut-hero-card, 
+  .ab-team-card, 
+  .info-card {
+    padding: 0.85rem !important;
+  }
+}

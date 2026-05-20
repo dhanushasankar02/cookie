@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="image/favicon.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Cookie Studio Gallery | Artisan Cookie Creations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* RTL adjustments for navbar & footer (preserved) */
+    body[dir="rtl"] .nav-menu { padding-right: 0; }
+    body[dir="rtl"] .nav-container { flex-direction: row; }
+    body[dir="rtl"] .nav-menu .nav-item .dropdown-menu { text-align: right; left: auto; right: 0; }
+    body[dir="rtl"] #homeDropdownItem .dropdown-menu { left: 0 !important; right: auto !important; }
+    body[dir="rtl"] .right-buttons { flex-direction: row-reverse; }
+    body[dir="rtl"] .brand { margin-right: 0; margin-left: 2rem; }
+    body[dir="rtl"] .nav-link i { margin-left: 6px; margin-right: 0; }
+    body[dir="rtl"] .nav-collapse { left: auto; right: -100%; border-radius: 24px 0 0 24px; }
+    body[dir="rtl"] .nav-collapse.active { left: auto; right: 0; }
+    body[dir="rtl"] .footer-col h4:after { left: auto; right: 0; }
+    body[dir="rtl"] .footer-links a i { margin-left: 8px; margin-right: 0; }
+
+    /* ========== UNIFIED BRAND STYLES (navbar & footer exact same size, font, design) ========== */
+    /* Both .brand (navbar) and .footer-brand h3 share identical typography, gradient and visual rhythm */
+    .brand, 
+    .footer-brand h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.7rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #c77a3f, #b35f2a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+      transition: opacity 0.2s ease, transform 0.2s;
+      display: inline-block;
+      line-height: 1.2;
+    }
+
+    /* Hover refinement (subtle lift) */
+    .brand:hover,
+    .footer-brand h3:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+
+    /* Dark mode gradient for both brand signatures */
+    body.dark-mode .brand,
+    body.dark-mode .footer-brand h3 {
+      background: linear-gradient(135deg, #f6cf9c, #eab67a, #d48d53);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* Navbar brand specific alignment & spacing */
+    .brand {
+      white-space: nowrap;
+      margin-right: 2rem;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    /* Footer brand specific additional spacing / margin */
+    .footer-brand h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.7rem;   /* identical to navbar brand */
+      font-weight: 800;
+    }
+
+    /* RESPONSIVE: On tablets/mobile, shrink brand size consistently across navbar & footer */
+    @media (max-width: 1024px) {
+      .brand {
+        font-size: 1.4rem;
+      }
+      .footer-brand h3 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .brand {
+        font-size: 1.3rem;
+      }
+      .footer-brand h3 {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* ----- NAVBAR STYLES (enhanced, fully functional, brand unified) ----- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 248, 240, 0.68);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(245, 215, 180, 0.5);
+      transition: all 0.3s ease;
+      padding: 0.9rem 2rem;
+    }
+    .navbar.scrolled {
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 245, 235, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom-color: rgba(215, 175, 125, 0.3);
+    }
+    body.dark-mode .navbar {
+      background: rgba(28, 24, 22, 0.75);
+      backdrop-filter: blur(12px);
+      border-bottom-color: rgba(180, 130, 80, 0.35);
+    }
+    body.dark-mode .navbar.scrolled {
+      background: rgba(18, 15, 14, 0.9);
+      box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.4);
+    }
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      list-style: none;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .nav-item { position: relative; }
+    .nav-link {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      color: #4b3527;
+      padding: 0.5rem 0;
+      transition: color 0.25s ease;
+      letter-spacing: -0.2px;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    body.dark-mode .nav-link { color: #f3e1cf; }
+    .nav-link i { font-size: 1rem; transition: transform 0.2s; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(95deg, #d9944c, #c2793e);
+      border-radius: 4px;
+      transition: width 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:hover, .nav-link.active { color: #c16f34; }
+    body.dark-mode .nav-link:hover, body.dark-mode .nav-link.active { color: #f7c894; }
+    .nav-link.active::after { width: 100%; }
+    
+    .dropdown-toggle { display: flex; align-items: center; gap: 5px; }
+    .dropdown-arrow {
+      font-size: 0.75rem;
+      margin-left: 6px;
+      transition: transform 0.2s ease;
+    }
+    .dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+    .dropdown.open .dropdown-arrow { transform: rotate(180deg); }
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: rgba(255, 250, 242, 0.98);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 0.6rem 0;
+      min-width: 180px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.25s ease;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(230, 190, 140, 0.5);
+      list-style: none;
+      z-index: 1020;
+    }
+    body.dark-mode .dropdown-menu {
+      background: rgba(30, 26, 22, 0.98);
+      border-color: #5d3f2b;
+    }
+    .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dropdown-item {
+      display: block;
+      padding: 0.55rem 1.5rem;
+      text-decoration: none;
+      color: #4b3527;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .dropdown-item i {
+      width: 1.4rem;
+      display: inline-block;
+      margin-right: 8px;
+      font-size: 0.85rem;
+      color: #c77a3f;
+    }
+    body.dark-mode .dropdown-item { color: #f0decb; }
+    body.dark-mode .dropdown-item i { color: #eab67a; }
+    .dropdown-item:hover, .dropdown-item.active { background-color: rgba(210, 160, 110, 0.2); color: #c16f34; }
+    body.dark-mode .dropdown-item:hover, body.dark-mode .dropdown-item.active { color: #f7c894; }
+
+    @media (min-width: 1025px) {
+      #homeDropdownItem .dropdown-menu { left: auto; right: 0; min-width: 170px; }
+    }
+
+    .right-buttons { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #d6a175;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      color: #b1622e;
+      font-family: inherit;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-outline i { font-size: 1rem; }
+    body.dark-mode .btn-outline { border-color: #cc9a6c; color: #f6cfaa; }
+    .btn-outline:hover { background: #e7c9af; transform: translateY(-2px); border-color: #b56f3a; }
+    body.dark-mode .btn-outline:hover { background: #402f24; color: #ffe1bd; }
+    .btn-login { gap: 8px; padding: 0.5rem 1.2rem; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 22px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1010;
+    }
+    .hamburger .bar { width: 100%; height: 2.5px; background-color: #b66730; border-radius: 4px; transition: all 0.3s; }
+    body.dark-mode .hamburger .bar { background-color: #e6b27a; }
+    .nav-collapse { display: flex; align-items: center; flex: 1; }
+
+    @media (max-width: 1024px) {
+      .navbar { padding: 0.8rem 1.5rem; }
+      .hamburger { display: flex; }
+      .nav-collapse {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        left: auto;
+        width: 85%;
+        max-width: 360px;
+        height: calc(100vh - 70px);
+        background: rgba(255, 250, 242, 0.97);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 2rem 1.8rem;
+        transition: right 0.35s ease-in-out;
+        box-shadow: -6px 0 24px rgba(0, 0, 0, 0.08);
+        border-radius: 24px 0 0 24px;
+        gap: 2rem;
+        z-index: 999;
+        overflow-y: auto;
+      }
+      body.dark-mode .nav-collapse { background: rgba(20, 17, 16, 0.96); backdrop-filter: blur(20px); }
+      .nav-collapse.active { right: 0; }
+      .nav-menu { flex-direction: column; align-items: flex-start; gap: 1.4rem; width: 100%; margin: 0; }
+      .nav-link { font-size: 1.1rem; white-space: normal; }
+      .btn-outline { font-size: 1rem; width: 100%; text-align: center; justify-content: center; }
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: transparent;
+        backdrop-filter: none;
+        padding-left: 1rem;
+        margin-top: 0.5rem;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+        border: none;
+        width: 100%;
+      }
+      .dropdown.open .dropdown-menu { display: block; }
+      .dropdown-toggle { display: flex; justify-content: space-between; width: 100%; align-items: center; }
+      .dropdown-arrow { margin-left: auto; }
+      .right-buttons { flex-direction: column; width: 100%; gap: 1rem; margin-top: 1rem; }
+      #homeDropdownItem .dropdown-menu { left: 0; right: auto; }
+    }
+
+    /* ----- FOOTER STYLES (fully cohesive) ----- */
+    .site-footer {
+      background: #f7ede2;
+      border-top: 2px solid #e9d4c0;
+      margin-top: 0;
+      padding: 3rem 2rem 1.5rem;
+      font-size: 0.9rem;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    body.dark-mode .site-footer { background: #1e1916; border-top-color: #4a3729; }
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    /* footer brand additional wrapper: no extra conflicting style */
+    .footer-brand p {
+      opacity: 0.8;
+      line-height: 1.5;
+      margin: 0.75rem 0 1rem;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .social-links { display: flex; gap: 1rem; margin-top: 0.5rem; }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(199, 122, 63, 0.12);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: #b1622e;
+      font-size: 1.2rem;
+      transition: all 0.25s;
+      text-decoration: none;
+    }
+    body.dark-mode .social-links a { background: rgba(234, 182, 122, 0.15); color: #eab67a; }
+    .social-links a:hover { background: #c77a3f; color: white; transform: translateY(-3px); }
+    body.dark-mode .social-links a:hover { background: #eab67a; color: #1e1916; }
+    .footer-col h4 {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.2px;
+      position: relative;
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .footer-col h4:after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: #c77a3f;
+      border-radius: 4px;
+    }
+    body.dark-mode .footer-col h4:after { background: #eab67a; }
+    .footer-links { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: 0.7rem; }
+    .footer-links a {
+      text-decoration: none;
+      color: #4b3527;
+      transition: color 0.2s, padding-left 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    body.dark-mode .footer-links a { color: #e2cfbc; }
+    .footer-links a i { font-size: 0.75rem; color: #c77a3f; width: 20px; }
+    .footer-links a:hover { color: #c16f34; padding-left: 4px; }
+    body.dark-mode .footer-links a:hover { color: #f6cfaa; }
+    .contact-info p { display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .contact-info i { width: 24px; color: #c77a3f; font-size: 1rem; }
+    body.dark-mode .contact-info i { color: #eab67a; }
+    .newsletter-form { display: flex; flex-wrap: wrap; margin-top: 1rem; gap: 0.5rem; }
+    .newsletter-form input {
+      flex: 1;
+      min-width: 140px;
+      padding: 0.7rem 1rem;
+      border-radius: 60px;
+      border: 1px solid #e2cfbc;
+      background: white;
+      font-family: inherit;
+      font-size: 0.85rem;
+      outline: none;
+      transition: 0.2s;
+    }
+    body.dark-mode .newsletter-form input { background: #2c2621; border-color: #5d3f2b; color: #f0e2d4; }
+    .newsletter-form input:focus { border-color: #c77a3f; box-shadow: 0 0 0 2px rgba(199, 122, 63, 0.2); }
+    .btn-footer {
+      background: #c77a3f;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-footer:hover { background: #ad5f2c; transform: scale(0.97); }
+    body.dark-mode .btn-footer { background: #d99254; color: #251f1a; }
+    body.dark-mode .btn-footer:hover { background: #f0b27a; }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.8rem;
+      border-top: 1px solid #e0cfbe;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    body.dark-mode .footer-bottom { border-top-color: #3a2c22; }
+    .legal-links { display: flex; gap: 1.2rem; }
+    .legal-links a { text-decoration: none; color: #6b4d36; transition: color 0.2s; }
+    body.dark-mode .legal-links a { color: #c6aa8c; }
+    .legal-links a:hover { color: #c77a3f; }
+
+    @media (max-width: 780px) {
+      .footer-container { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 520px) {
+      .footer-container { grid-template-columns: 1fr; text-align: center; }
+      .footer-col h4:after { left: 50% !important; transform: translateX(-50%); right: auto !important; }
+      .social-links { justify-content: center; }
+      .contact-info p { justify-content: center; }
+      .newsletter-form { justify-content: center; }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --cream: #FFF8EF;
+      --warm-white: #FFFDF9;
+      --cookie-brown: #5C3A1E;
+      --cookie-brown-light: #7E5836;
+      --golden: #D9A13B;
+      --caramel: #C47E3B;
+      --blush-light: #F7E5D6;
+      --text-dark: #2F241B;
+      --text-muted: #8C6E50;
+      --border-light: #EFE0D0;
+      --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.02);
+      --shadow-hover: 0 28px 40px -16px rgba(92, 58, 30, 0.18);
+    }
+
+    body.dark-mode {
+      --cream: #1e1916;
+      --warm-white: #251f1a;
+      --cookie-brown: #eab67a;
+      --cookie-brown-light: #d48d53;
+      --golden: #eab67a;
+      --caramel: #d48d53;
+      --blush-light: #2c241e;
+      --text-dark: #f0e2d4;
+      --text-muted: #bbaaa0;
+      --border-light: rgba(93, 63, 43, 0.4);
+      --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.4);
+      --shadow-hover: 0 28px 40px -16px rgba(0,0,0,0.6);
+    }
+
+    body.dark-mode .cta-section {
+      background: linear-gradient(115deg, #2a221d 0%, #1e1916 100%);
+    }
+
+    body.dark-mode .cta-btn {
+      color: #1e1916;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    /* custom container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* sections spacing */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    /* hero full background */
+    .hero-section {
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(30, 20, 12, 0.7), rgba(15, 10, 5, 0.6)), url('./image/New flagship bakery.jpg');
+      background-size: cover;
+      background-position: center 35%;
+      background-attachment: scroll; /* Optimized from fixed for smooth scrolling */
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero-overlay {
+      max-width: 820px;
+      margin: 0 auto;
+      color: white;
+      animation: fadeUp 0.9s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: rgba(255,248,225,0.2);
+      backdrop-filter: blur(6px);
+      padding: 6px 22px;
+      border-radius: 60px;
+      margin-bottom: 28px;
+      font-weight: 500;
+      border: 1px solid rgba(217, 161, 59, 0.6);
+    }
+
+    .hero-section h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+    }
+
+    .hero-section h1 span {
+      color: var(--golden);
+      font-style: italic;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      max-width: 580px;
+      margin: 0 auto;
+      color: rgba(255,250,240,0.92);
+      font-weight: 300;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      margin-top: 40px;
+      background: var(--golden);
+      color: var(--cookie-brown);
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.25s;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    .hero-btn:hover {
+      background: #EAB354;
+      transform: scale(0.97);
+      color: #2D1F10;
+    }
+
+    /* section headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-header .pre-title {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--golden);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem;
+      font-weight: 600;
+      color: var(--cookie-brown);
+    }
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 12px auto 0;
+    }
+
+    /* GALLERY GRID (image heavy) */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 28px;
+    }
+    .gallery-item {
+      background: var(--warm-white);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .gallery-img {
+      width: 100% !important;
+      height: 220px !important;
+      object-fit: cover !important;
+      transition: transform 0.4s;
+      will-change: transform;
+    }
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.02);
+    }
+    .gallery-caption {
+      padding: 16px 16px 20px;
+      text-align: center;
+    }
+    .gallery-caption h4 {
+      font-weight: 600;
+      color: var(--cookie-brown);
+      margin-bottom: 6px;
+    }
+    .gallery-caption p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* process & craft (two column) */
+    .two-col {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: center;
+    }
+    .col-text {
+      flex: 1;
+    }
+    .col-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--cookie-brown);
+    }
+    .col-text p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .col-img {
+      flex: 1;
+    }
+    .col-img img {
+      width: 100%;
+      border-radius: 32px;
+      box-shadow: var(--shadow-md);
+      max-height: 380px;
+      object-fit: cover;
+    }
+
+    /* flavor cards */
+    .flavor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+      justify-content: center;
+      gap: 30px;
+    }
+    .flavor-card,
+    .studio-card {
+      background: var(--warm-white);
+      border-radius: 28px;
+      overflow: hidden;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .flavor-card:hover,
+    .studio-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--golden);
+      box-shadow: var(--shadow-hover);
+    }
+    .flavor-img,
+    .studio-card img {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      will-change: transform;
+      display: block;
+    }
+
+    .flavor-card h3,
+    .studio-card h4 {
+      font-size: 1.25rem;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: var(--cookie-brown);
+      padding: 0 16px;
+    }
+    .flavor-card p,
+    .studio-card .content p {
+      padding: 0 16px 24px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+      flex-grow: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .studio-card .content {
+      padding: 0;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    /* behind the scenes mini collage */
+    .studio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+      justify-content: center;
+      gap: 24px;
+    }
+
+    /* testimonials */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+    .testimonial {
+      background: var(--warm-white);
+      border-radius: 28px;
+      padding: 28px 24px;
+      border: 1px solid var(--border-light);
+      transition: 0.2s;
+    }
+    .testimonial:hover {
+      border-color: var(--golden);
+    }
+    .quote-icon {
+      font-size: 2.8rem;
+      color: var(--golden);
+      opacity: 0.5;
+      margin-bottom: 12px;
+    }
+    .testimonial p {
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .client {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .client img {
+      width: 48px !important;
+      height: 48px !important;
+      border-radius: 50% !important;
+      object-fit: cover !important;
+    }
+    .client span {
+      font-weight: 700;
+      color: var(--cookie-brown);
+    }
+
+    /* custom order cta */
+    .cta-section {
+      background: linear-gradient(115deg, #FCF3E6 0%, #F7E9DA 100%);
+      border-radius: 48px;
+      text-align: center;
+      padding: 60px 32px;
+      margin: 40px 0 20px;
+    }
+    .cta-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--cookie-brown);
+      color: white;
+      padding: 12px 36px;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: 0.2s;
+    }
+    .cta-btn:hover {
+      background: var(--golden);
+      color: var(--cookie-brown);
+      transform: scale(0.97);
+    }
+
+    /* footer minimal */
+    .simple-footer {
+      text-align: center;
+      padding: 36px 24px;
+      background: #EEDECB;
+      color: var(--cookie-brown);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 760px) {
+      section { padding: 56px 0; }
+      .section-header h2 { font-size: 1.8rem; }
+      .two-col { flex-direction: column; }
+    }
+  </style>
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+  <!-- ========== UNIFIED STICKY NAVBAR (brand unified with footer) ========== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="brand" id="brandLink">CookieCraft</a>
+        
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+  
+        <div class="nav-collapse" id="navCollapse">
+          <ul class="nav-menu">
+            <li class="nav-item dropdown" id="homeDropdownItem">
+              <a href="#" class="nav-link dropdown-toggle" id="homeDropdownToggle">
+               <span>Home</span> <i class="fas fa-chevron-down dropdown-arrow"></i>
+              </a>
+              <ul class="dropdown-menu" id="homeDropdownMenu">
+                <li><a href="index.html" class="dropdown-item"> Home 1 </a></li>
+                <li><a href="home2.html" class="dropdown-item"> Home 2 </a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="custom.html" class="nav-link">Custom Orders</a></li>
+            <li class="nav-item"><a href="classes.html" class="nav-link">Classes</a></li>
+            <li class="nav-item"><a href="Tutorials.html" class="nav-link">Tutorials</a></li>
+            <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+  
+          <div class="right-buttons">
+            <button id="darkModeToggle" class="btn-outline" aria-label="Dark mode toggle"><i class="fas fa-moon"></i></button>
+            <button id="rtlToggle" class="btn-outline" aria-label="Toggle RTL layout"><i class="fa-solid fa-right-left"></i></button>
+            <a href="login.html" id="loginBtn" class="btn-outline btn-login" style="text-decoration: none;"><i class="fas fa-user"></i> Login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+<!-- SECTION 1: HERO FULL BACKGROUND IMAGE -->
+<section class="hero-section">
+  <div class="hero-overlay">
+    <div class="hero-badge"> artisanal cookie studio</div>
+    <h1>Where cookies become <span>edible art</span></h1>
+    <p>Handcrafted, decorated with love, and baked to perfection — explore our gallery of sweet masterpieces.</p>
+    
+  </div>
+</section>
+
+<!-- SECTION 2: GALLERY SHOWCASE (6+ cookie images) -->
+<section id="gallery-main">
+  <div class="container">
+    <div class="section-header">
+      <div class="pre-title">sweet inspiration</div>
+      <h2>Cookie Art Gallery</h2>
+      <p>From elegant royal icing to rustic chunky cookies — each creation tells a unique story.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img class="gallery-img" src="./image/Classic Chocolate Chunk.jpg" alt="Chocolate chip cookie stack" loading="lazy" decoding="async">
+        <div class="gallery-caption"><h4>Classic comfort</h4><p>Brown butter sea salt & dark chocolate</p></div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="./image/Wedding Collection.jpg" alt="Iced sugar cookies" loading="lazy" decoding="async">
+        <div class="gallery-caption"><h4>Royal icing blooms</h4><p>Spring floral collection</p></div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="./image/Baby Shower Collection.jpg" alt="Heart cookies" loading="lazy" decoding="async">
+        <div class="gallery-caption"><h4>Love letter cookies</h4><p>Valentine's day special</p></div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="./image/Corporate Collection.jpg" alt="Gingerbread cookies" loading="lazy" decoding="async">
+        <div class="gallery-caption"><h4>Spiced gingerbread</h4><p>Winter wonderland set</p></div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="./image/Red Velvet Dream.jpg" alt="Stuffed cookies" loading="lazy" decoding="async">
+        <div class="gallery-caption"><h4>Stuffed surprise</h4><p>Nutella & marshmallow dream</p></div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="./image/Matcha Macadamia.jpg" alt="Matcha cookie" loading="lazy" decoding="async">
+        <div class="gallery-caption"><h4>Matcha white chocolate</h4><p>Earthy & elegant</p></div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="./image/Premium Packaging.jpg" alt="Cookie closeup" loading="lazy" decoding="async">
+        <div class="gallery-caption"><h4>Brown butter pecan</h4><p>Crunchy caramel drizzle</p></div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="./image/Tasting Room Ingredients.jpg" alt="Double chocolate cookie" loading="lazy" decoding="async">
+        <div class="gallery-caption"><h4>Double fudge</h4><p>Deep cocoa & chocolate chunks</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: ARTISAN COOKIE CRAFT (process description + image) -->
+<section>
+  <div class="container">
+    <div class="two-col">
+      <div class="col-text">
+        <div class="pre-title" style="font-size:11px; letter-spacing: 3px;">slow & intentional</div>
+        <h3>The art of cookie craftsmanship</h3>
+        <p>Every batch begins with European-style butter, single-origin vanilla, and organic flour. Our small-batch process includes long fermentation for flavour depth, hand-rolling, and meticulous decoration using natural colours and fine tools.</p>
+        <p>From lattice pie-crust cookies to hand-piped lettering, each piece is a testament to 20+ years of pastry artistry.</p>
+        <p style="margin-top: 12px;"><strong> Custom cookie boxes for weddings, birthdays, or corporate gifts.</strong></p>
+      </div>
+      <div class="col-img">
+        <img src="./image/philosophy-image.jpg" alt="Baker rolling cookie dough" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: SIGNATURE FLAVOR PALETTE (cards with images) -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="pre-title">flavour explorations</div>
+      <h2>Our signature palette</h2>
+      <p>Seasonal rotations and beloved classics — every cookie tells a taste story.</p>
+    </div>
+    <div class="flavor-grid">
+      <div class="flavor-card">
+        <img class="flavor-img" src="./image/insta1.jpg" alt="Salted caramel cookie" loading="lazy" decoding="async">
+        <h3>Salted Caramel Crunch</h3>
+        <p>Flakey sea salt, dulce de leche, dark chocolate.</p>
+      </div>
+      <div class="flavor-card">
+        <img class="flavor-img" src="./image/Ganache Cake.jpg" alt="Double chocolate cookie" loading="lazy" decoding="async">
+        <h3>Midnight Fudge</h3>
+        <p>Triple cocoa & creamy ganache filling.</p>
+      </div>
+      <div class="flavor-card">
+        <img class="flavor-img" src="./image/insta3.jpg" alt="Raspberry thumbprint" loading="lazy" decoding="async">
+        <h3>Raspberry Rose</h3>
+        <p>Buttery shortbread, fruit conserve & rose petals.</p>
+      </div>
+      <div class="flavor-card">
+        <img class="flavor-img" src="./image/insta5.jpg" alt="Snickerdoodle" loading="lazy" decoding="async">
+        <h3>Cinnamon Snickerdoodle</h3>
+        <p>Old-fashioned tangy cream of tartar, cinnamon sugar.</p>
+      </div>
+      <div class="flavor-card">
+        <img class="flavor-img" src="./image/Red Velvet Dream.jpg" alt="Red velvet cookie" loading="lazy" decoding="async">
+        <h3>Red Velvet Dream</h3>
+        <p>Vibrant cocoa dough, white chocolate chips & sweet cream cheese filling.</p>
+      </div>
+      <div class="flavor-card">
+        <img class="flavor-img" src="./image/Matcha Macadamia.jpg" alt="Matcha cookie" loading="lazy" decoding="async">
+        <h3>Matcha Macadamia</h3>
+        <p>Premium Uji matcha, toasted macadamia nuts & white chocolate chunks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: BEHIND THE SCENES / STUDIO DIARIES (gallery-like) -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="pre-title">inside the studio</div>
+      <h2>From our kitchen to your heart</h2>
+      <p>Moments of flour, frosting, and pure joy — a peek behind the scenes at Cookie Studio.</p>
+    </div>
+    <div class="studio-grid">
+      <div class="studio-card">
+        <img src="./image/insta2.jpg" alt="Cookie cutters and tools" loading="lazy" decoding="async">
+        <div class="content"><h4>Hand-carved moulds</h4><p>Custom wooden stamps for unique patterns.</p></div>
+      </div>
+      <div class="studio-card">
+        <img src="./image/insta4.jpg" alt="Icing session" loading="lazy" decoding="async">
+        <div class="content"><h4>Royal icing artistry</h4><p>Each cookie is a miniature canvas for our decorators.</p></div>
+      </div>
+      <div class="studio-card">
+        <img src="./image/Butter Croissants.jpg" alt="Fresh batch out of oven" loading="lazy" decoding="async">
+        <div class="content"><h4>Fresh from the oven</h4><p>Golden edges, soft centers — baked to order.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: CLIENT LOVE / TESTIMONIALS + images -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="pre-title">sweet feedback</div>
+      <h2>What cookie lovers say</h2>
+      <p>Hundreds of delighted clients and custom events.</p>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <div class="quote-icon">“</div>
+        <p>The custom sugar cookies for my daughter's birthday were pure magic — intricate designs and absolutely delicious. Everyone asked where we got them!</p>
+        <div class="client">
+          <img src="./image/Sarah Jenkins.jpg" alt="client avatar" loading="lazy" decoding="async">
+          <span>— Priya S., Mumbai</span>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="quote-icon">“</div>
+        <p>Cookie Studio created an edible wedding favor that matched our floral theme perfectly. Guests still talk about the lemon-thyme shortbread.</p>
+        <div class="client">
+          <img src="./image/Michael Thompson.jpg" alt="client avatar" loading="lazy" decoding="async">
+          <span>— Rohan & Neha</span>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="quote-icon">“</div>
+        <p>I ordered a gluten-free cookie box for a corporate event, and the team went above and beyond with packaging and taste. Highly recommend.</p>
+        <div class="client">
+          <img src="./image/Emily Rodriguez.jpg" alt="client avatar" loading="lazy" decoding="async">
+          <span>— Anjali Mehta</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: CUSTOM COOKIE ORDERS & GALLERY INQUIRY -->
+<section style="padding-bottom: 60px;">
+  <div class="container">
+    <div class="cta-section">
+      <h3> Create your own cookie story </h3>
+      <p>From corporate branding cookies to wedding favours, baby showers, or holiday gifts — we bring your vision to life.</p>
+      <p style="margin: 12px 0;"><strong> 100% custom designs • 48h rush available • nationwide shipping</strong></p>
+      <a href="#" class="cta-btn" id="requestQuoteBtn"> Request a custom quote</a>
+      <p style="margin-top: 24px; font-size: 13px;">Send us your moodboard or theme, and our pastry artists will reply within 24h.</p>
+    </div>
+  </div>
+</section>
+
+  <!-- ========== UNIFIED FOOTER (brand matches navbar exactly) ========== -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <h3>CookieCraft</h3>   <!-- identical styling: font/size/gradient to .brand -->
+          <p>Artisan cookie decorating & baking studio — where every cookie tells a sweet story.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+  
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+            <li><a href="custom.html"><i class="fas fa-chevron-right"></i> Custom Orders</a></li>
+            <li><a href="classes.html"><i class="fas fa-chevron-right"></i> Classes</a></li>
+            <li><a href="Tutorials.html"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+          </ul>
+        </div>
+  
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+            <li><a href="custom.html"><i class="fas fa-chevron-right"></i> Custom Orders</a></li>
+            <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact </a></li>
+          </ul>
+        </div>
+  
+        <div class="footer-col contact-info">
+          <h4>Visit & Connect</h4>
+          <p><i class="fas fa-map-marker-alt"></i> 226 Butter Lane, NYC, NY 10014</p>
+          <p><i class="fas fa-envelope"></i> hello@cookiecraftstudio.com</p>
+          <p><i class="fas fa-phone-alt"></i> +1 (212) 555-0420</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email for sweet updates" id="newsletterEmail">
+            <button class="btn-footer" id="newsletterBtn"> Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 CookieCraft Studio – Artisan Cookie Decorating. All rights reserved.</span>
+        <div class="legal-links">
+          <a href="#">Accessibility</a>
+          <a href="#">Cookie Preferences</a>
+          <a href="#">Sustainability</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+    (function() {
+      // Smooth scroll for hero button
+      document.querySelector('.hero-btn')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector('#gallery-main');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      // alert for custom quote (simulate contact)
+      const quoteBtn = document.getElementById('requestQuoteBtn');
+      if(quoteBtn) {
+        quoteBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert("✨ Thank you for reaching out! Our cookie concierge will contact you within 24h with design ideas & pricing. Meanwhile browse our gallery for inspiration.");
+        });
+      }
+
+// DARK MODE (localStorage)
+      const darkToggle = document.getElementById('darkModeToggle');
+      const body = document.body;
+      const updateDarkModeButton = (isDark) => {
+        if (!darkToggle) return;
+        darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        darkToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      };
+      const loadDarkMode = () => {
+        const isDark = localStorage.getItem('cookieStudio-dark') === 'enabled';
+        if (isDark) body.classList.add('dark-mode');
+        else body.classList.remove('dark-mode');
+        updateDarkModeButton(isDark);
+      };
+      if (darkToggle) {
+        darkToggle.addEventListener('click', () => {
+          const isDark = body.classList.contains('dark-mode');
+          if (isDark) {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('cookieStudio-dark', 'disabled');
+          } else {
+            body.classList.add('dark-mode');
+            localStorage.setItem('cookieStudio-dark', 'enabled');
+          }
+          updateDarkModeButton(body.classList.contains('dark-mode'));
+        });
+      }
+      loadDarkMode();
+
+      // RTL TOGGLE
+      const rtlToggle = document.getElementById('rtlToggle');
+      const setRTL = (enabled) => {
+        if (enabled) {
+          body.setAttribute('dir', 'rtl');
+          localStorage.setItem('cookieStudio-rtl', 'enabled');
+          if (rtlToggle) rtlToggle.innerHTML = '<i class="fa-solid fa-right-left"></i>';
+        } else {
+          body.setAttribute('dir', 'ltr');
+          localStorage.setItem('cookieStudio-rtl', 'disabled');
+          if (rtlToggle) rtlToggle.innerHTML = '<i class="fa-solid fa-right-left"></i>';
+        }
+      };
+      const loadRTL = () => setRTL(localStorage.getItem('cookieStudio-rtl') === 'enabled');
+      if (rtlToggle) rtlToggle.addEventListener('click', () => setRTL(body.getAttribute('dir') !== 'rtl'));
+      loadRTL();
+
+      // STICKY SCROLL
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      });
+
+      // MOBILE MENU
+      const hamburger = document.getElementById('hamburgerBtn');
+      const navCollapse = document.getElementById('navCollapse');
+      const toggleMenu = () => {
+        navCollapse.classList.toggle('active');
+        document.body.style.overflow = navCollapse.classList.contains('active') ? 'hidden' : '';
+      };
+      if (hamburger) hamburger.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+      const closeMenu = () => {
+        if (navCollapse.classList.contains('active')) {
+          navCollapse.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      };
+
+      // MOBILE DROPDOWN HANDLER
+      const toggleBtn = document.getElementById('homeDropdownToggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', (e) => {
+          if (window.innerWidth <= 1024) {
+            e.preventDefault();
+            const parentLi = document.getElementById('homeDropdownItem');
+            const menu = document.getElementById('homeDropdownMenu');
+            if (parentLi) {
+              if (parentLi.classList.contains('open')) {
+                parentLi.classList.remove('open');
+                if (menu) menu.style.display = '';
+              } else {
+                parentLi.classList.add('open');
+                if (menu) menu.style.display = 'block';
+              }
+            }
+          }
+        });
+      }
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024) {
+          const parentLi = document.getElementById('homeDropdownItem');
+          if (parentLi && parentLi.classList.contains('open')) {
+            parentLi.classList.remove('open');
+            const menu = document.getElementById('homeDropdownMenu');
+            if (menu) menu.style.display = '';
+          }
+          if (navCollapse && navCollapse.classList.contains('active')) closeMenu();
+        }
+      });
+
+      // Highlight active nav item
+      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+      const navLinks = document.querySelectorAll('.nav-menu .nav-link, .dropdown-item');
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath) {
+          link.classList.add('active');
+          if (link.classList.contains('dropdown-item')) {
+            const parentToggle = document.getElementById('homeDropdownToggle');
+            if (parentToggle) parentToggle.classList.add('active');
+          }
+        }
+      });
+
+      // DEMO LINKS PREVENT DEFAULT ALERTS (preserve interactivity)
+      const demoLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item, .footer-links a, .social-links a, .legal-links a, .brand, .btn-login');
+      demoLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          if (!href || href === '#') {
+            e.preventDefault();
+            let txt = link.innerText.trim() || 'Navigate';
+            if (txt.includes('Login')) txt = 'Login / Account';
+            alert(`🍪 CookieCraft • ${txt} — fully functional component ready for your logic.`);
+            closeMenu();
+          }
+        });
+      });
+
+      // NEWSLETTER demo
+      const newsletterBtn = document.getElementById('newsletterBtn');
+      const newsletterInput = document.getElementById('newsletterEmail');
+      if (newsletterBtn) {
+        newsletterBtn.addEventListener('click', () => {
+          const email = newsletterInput.value.trim();
+          if (!email) alert('✨ Please enter an email to receive sweet updates!');
+          else alert(`🎉 Subscribed! ${email} will get artisan news & offers.`);
+          if (newsletterInput) newsletterInput.value = '';
+        });
+      }
+      document.addEventListener('click', (event) => {
+        if (navbar && !navbar.contains(event.target) && navCollapse && navCollapse.classList.contains('active')) closeMenu();
+      });
+      window.addEventListener('load', () => {
+        document.body.style.overflow = '';
+        if (window.innerWidth > 1024) {
+          const parentLi = document.getElementById('homeDropdownItem');
+          if (parentLi) parentLi.classList.remove('open');
+        }
+
+        // Empty and broken image fallback handler
+        const fallbackImage = './image/Classic Chocolate Chunk.jpg';
+        document.querySelectorAll('img').forEach(img => {
+          // If src is empty or has a blank value, fill it
+          if (!img.getAttribute('src') || img.getAttribute('src').trim() === '') {
+            img.src = fallbackImage;
+          }
+          // If the image fails to load, replace it with fallback
+          img.addEventListener('error', () => {
+            img.src = fallbackImage;
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
