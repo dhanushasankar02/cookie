@@ -440,8 +440,8 @@
 <body class="register-page">
   <!-- Sticky top-right: Dark Mode + RTL -->
   <div class="sticky-controls">
-    <div class="control-btn" id="darkModeToggle" title="Dark Mode">ðŸŒ™</div>
-    <div class="control-btn" id="rtlToggle" title="RTL Mode">â‡„</div>
+    <div class="control-btn" id="darkModeToggle" title="Dark Mode">🌙</div>
+    <div class="control-btn" id="rtlToggle" title="RTL Mode">⇄</div>
   </div>
 
   <div class="register-container">
@@ -494,7 +494,7 @@
           <span class="error-message">Passwords do not match.</span>
         </div>
 
-        <button type="submit" class="register-btn">Sign up â†’</button>
+        <button type="submit" class="register-btn">Sign up →</button>
 
         <div class="divider">or sign up with</div>
 
@@ -622,7 +622,7 @@
         }
 
         if (isValid) {
-          alert(`ðŸŽ‰ Welcome ${firstNameVal}!\nYour account has been created.\n(Registration demo â€” no backend.)`);
+          alert(`🎉 Welcome ${firstNameVal}!\nYour account has been created.\n(Registration demo — no backend.)`);
           form.reset();
         }
       });
@@ -633,11 +633,11 @@
 
       googleBtn?.addEventListener('click', (e) => {
         e.preventDefault();
-        alert('ðŸ” Google Sign-Up demo â€” OAuth integration would be added.');
+        alert('🔐 Google Sign-Up demo — OAuth integration would be added.');
       });
       appleBtn?.addEventListener('click', (e) => {
         e.preventDefault();
-        alert('ðŸŽ Apple Sign-Up demo â€” OAuth integration would be added.');
+        alert('🍎 Apple Sign-Up demo — OAuth integration would be added.');
       });
 
       // DARK MODE (localStorage)
@@ -645,7 +645,7 @@
       const body = document.body;
       const updateDarkModeButton = (isDark) => {
         if (!darkToggle) return;
-        darkToggle.innerHTML = isDark ? 'â˜€ï¸' : 'ðŸŒ™';
+        darkToggle.innerHTML = isDark ? '☀️' : '🌙';
         darkToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
       };
       const loadDarkMode = () => {
@@ -681,7 +681,7 @@
         } else {
           body.setAttribute('dir', 'ltr');
           localStorage.setItem('cookieStudio-rtl', 'disabled');
-          if (rtlToggle) rtlToggle.innerHTML = 'â‡„';
+          if (rtlToggle) rtlToggle.innerHTML = '⇄';
           if (card) card.style.direction = 'ltr';
         }
       };

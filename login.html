@@ -458,8 +458,8 @@
 <body class="login-page">
   <!-- Sticky top-right buttons: Dark Mode + RTL -->
   <div class="sticky-controls">
-    <div class="control-btn" id="darkModeToggle" title="Dark Mode">ðŸŒ™</div>
-    <div class="control-btn" id="rtlToggle" title="RTL Mode">â‡„</div>
+    <div class="control-btn" id="darkModeToggle" title="Dark Mode">🌙</div>
+    <div class="control-btn" id="rtlToggle" title="RTL Mode">⇄</div>
   </div>
 
   <div class="login-container">
@@ -480,7 +480,7 @@
         <div class="input-group">
           <label for="password">Password</label>
           <div class="password-wrapper">
-            <input type="password" id="password" class="input-field" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" autocomplete="current-password" />
+            <input type="password" id="password" class="input-field" placeholder="••••••••" autocomplete="current-password" />
             <button type="button" class="toggle-password" id="togglePassword" aria-label="Show password">
               <i class="far fa-eye-slash"></i>
             </button>
@@ -509,10 +509,10 @@
         </div>
 
         <div class="signup-prompt">
-          Donâ€™t have an account? <a href="register.html" id="signupLink">Create account</a>
+          Don’t have an account? <a href="register.html" id="signupLink">Create account</a>
         </div>
         <div class="demo-note">
-          âœ¨ Demo: any email + password (min 1 char)
+          ✨ Demo: any email + password (min 1 char)
         </div>
       </form>
     </div>
@@ -576,7 +576,7 @@
         }
 
         if (isValid) {
-          alert(`âœ¨ Welcome back!\nYou've successfully signed in as ${emailVal}\n(Login demo â€” no backend required)`);
+          alert(`✨ Welcome back!\nYou've successfully signed in as ${emailVal}\n(Login demo — no backend required)`);
         }
       });
 
@@ -584,7 +584,7 @@
       if (forgotLink) {
         forgotLink.addEventListener('click', (e) => {
           e.preventDefault();
-          alert('ðŸ“§ Password reset link sent to your registered email (demo).');
+          alert('📧 Password reset link sent to your registered email (demo).');
         });
       }
 
@@ -593,13 +593,13 @@
       if (googleBtn) {
         googleBtn.addEventListener('click', (e) => {
           e.preventDefault();
-          alert('ðŸ” Google Sign-In demo â€” OAuth integration would be added here.');
+          alert('🔐 Google Sign-In demo — OAuth integration would be added here.');
         });
       }
       if (appleBtn) {
         appleBtn.addEventListener('click', (e) => {
           e.preventDefault();
-          alert('ðŸŽ Apple Sign-In demo â€” OAuth integration would be added here.');
+          alert('🍎 Apple Sign-In demo — OAuth integration would be added here.');
         });
       }
 
@@ -608,7 +608,7 @@
       const body = document.body;
       const updateDarkModeButton = (isDark) => {
         if (!darkToggle) return;
-        darkToggle.innerHTML = isDark ? 'â˜€ï¸' : 'ðŸŒ™';
+        darkToggle.innerHTML = isDark ? '☀️' : '🌙';
         darkToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
       };
       const loadDarkMode = () => {
@@ -644,7 +644,7 @@
         } else {
           body.setAttribute('dir', 'ltr');
           localStorage.setItem('cookieStudio-rtl', 'disabled');
-          if (rtlToggle) rtlToggle.innerHTML = 'â‡„';
+          if (rtlToggle) rtlToggle.innerHTML = '⇄';
           if (card) card.style.direction = 'ltr';
         }
       };
