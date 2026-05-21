@@ -168,8 +168,10 @@
       transition: width 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
     .nav-link:hover::after { width: 100%; }
-    .nav-link:hover, .nav-link.active { color: #c16f34; }
-    body.dark-mode .nav-link:hover, body.dark-mode .nav-link.active { color: #f7c894; }
+    .nav-link:hover { color: #c16f34; }
+    .nav-link.active { color: #c0392b; font-weight: 700; } /* Distinct active color */
+    body.dark-mode .nav-link:hover { color: #f7c894; }
+    body.dark-mode .nav-link.active { color: #ff6b81; font-weight: 700; } /* Distinct active color */
     .nav-link.active::after { width: 100%; }
     
     .dropdown-toggle { display: flex; align-items: center; gap: 5px; }
@@ -1050,7 +1052,7 @@
           <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="./custom.html" class="nav-link">Custom Orders</a></li>
           <li class="nav-item"><a href="./classes.html" class="nav-link">Classes</a></li>
-          <li class="nav-item"><a href="./tutorials.html" class="nav-link">Tutorials</a></li>
+          <li class="nav-item"><a href="./Tutorials.html" class="nav-link">Tutorials</a></li>
           <li class="nav-item"><a href="./gallery.html" class="nav-link">Gallery</a></li>
           <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
         </ul>
@@ -1349,7 +1351,7 @@
           <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
           <li><a href="custom.html"><i class="fas fa-chevron-right"></i> Custom Orders</a></li>
           <li><a href="classes.html"><i class="fas fa-chevron-right"></i> Classes</a></li>
-          <li><a href="tutorials.html"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+          <li><a href="Tutorials.html"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
         </ul>
       </div>
 

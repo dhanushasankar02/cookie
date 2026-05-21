@@ -166,8 +166,10 @@
       transition: width 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
     .nav-link:hover::after { width: 100%; }
-    .nav-link:hover, .nav-link.active { color: #c16f34; }
-    body.dark-mode .nav-link:hover, body.dark-mode .nav-link.active { color: #f7c894; }
+    .nav-link:hover { color: #c16f34; }
+    .nav-link.active { color: #c0392b; font-weight: 700; } /* Distinct active color */
+    body.dark-mode .nav-link:hover { color: #f7c894; }
+    body.dark-mode .nav-link.active { color: #ff6b81; font-weight: 700; } /* Distinct active color */
     
     .dropdown-toggle { display: flex; align-items: center; gap: 5px; cursor: pointer; }
     .dropdown-toggle::after {
@@ -743,7 +745,7 @@
       
       <div class="error-actions">
         <a href="index.html" class="btn-primary">Back to Kitchen <i class="fas fa-home"></i></a>
-        <a href="tutorials.html" class="btn-outline">Decorating Tutorials <i class="fas fa-paint-brush"></i></a>
+        <a href="Tutorials.html" class="btn-outline">Decorating Tutorials <i class="fas fa-paint-brush"></i></a>
       </div>
     </div>
   </section>
