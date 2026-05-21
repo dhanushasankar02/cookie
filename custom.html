@@ -1083,7 +1083,601 @@
     }
 
     /* No hidden hr and footer since we want our unified footer to display beautifully */
-  </style>
+  
+    /* --- NEW CREATIVE CUSTOM PAGE CSS --- */
+    .creative-main {
+      background-color: var(--cream, #FAF6EE);
+      overflow-x: hidden;
+      font-family: 'DM Sans', sans-serif;
+    }
+    
+    /* Marquee */
+    .marquee-container {
+      width: 100%;
+      background: linear-gradient(90deg, #c77a3f, #eab67a);
+      color: #fff;
+      padding: 15px 0;
+      overflow: hidden;
+      display: flex;
+      white-space: nowrap;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+    .marquee-content {
+      display: flex;
+      animation: marquee 20s linear infinite;
+    }
+    .marquee-content span { padding: 0 30px; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* Hero */
+    .creative-hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5% 8%;
+      position: relative;
+      background: var(--cream, #FAF6EE);
+    }
+    body.dark-mode .creative-hero { background: var(--cream, #1e1916); }
+    
+    .hero-glass-panel {
+      flex: 1;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(20px);
+      padding: 50px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+      z-index: 10;
+    }
+    body.dark-mode .hero-glass-panel {
+      background: rgba(40, 30, 25, 0.5);
+      border-color: rgba(255,255,255,0.05);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    }
+    
+    .badge-new {
+      display: inline-block;
+      background: #c77a3f;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+    
+    .glitch-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      line-height: 1.1;
+      color: #2F241B;
+      margin-bottom: 25px;
+      position: relative;
+    }
+    body.dark-mode .glitch-text { color: #f0e2d4; }
+    
+    .hero-glass-panel p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #5d4a3d;
+      margin-bottom: 40px;
+    }
+    body.dark-mode .hero-glass-panel p { color: #d4c4b7; }
+    
+    .action-group { display: flex; gap: 20px; flex-wrap: wrap; }
+    
+    .btn-creative-primary {
+      background: linear-gradient(135deg, #c77a3f, #b35f2a);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(199, 122, 63, 0.3);
+    }
+    .btn-creative-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(199, 122, 63, 0.4); color: white; }
+    
+    .btn-creative-secondary {
+      background: transparent;
+      color: #b35f2a;
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      border: 2px solid #c77a3f;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    body.dark-mode .btn-creative-secondary { color: #eab67a; border-color: #eab67a; }
+    .btn-creative-secondary:hover { background: #c77a3f; color: white; }
+    body.dark-mode .btn-creative-secondary:hover { background: #eab67a; color: #1e1916; }
+
+    .hero-visual {
+      flex: 1;
+      position: relative;
+      height: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .blob-bg {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(135deg, #f7ede2, #f0dfce);
+      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      animation: morph 8s ease-in-out infinite alternate;
+      z-index: 1;
+    }
+    body.dark-mode .blob-bg { background: linear-gradient(135deg, #3a2c22, #2c211a); }
+    
+    @keyframes morph { 0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; } 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; } }
+    
+    .floating-cookie {
+      position: absolute;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+      z-index: 2;
+      border: 6px solid white;
+      animation: float 6s ease-in-out infinite;
+    }
+    body.dark-mode .floating-cookie { border-color: #251f1a; box-shadow: 0 25px 50px rgba(0,0,0,0.4); }
+    
+    .floating-cookie img { width: 100%; height: 100%; object-fit: cover; }
+    
+    .cookie-1 { width: 280px; height: 280px; top: 10%; right: 10%; animation-delay: 0s; }
+    .cookie-2 { width: 180px; height: 180px; bottom: 15%; right: 40%; animation-delay: 1.5s; }
+    .cookie-3 { width: 140px; height: 140px; top: 40%; left: 10%; animation-delay: 3s; }
+    
+    @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
+
+    /* Tiers */
+    .creative-tiers {
+      padding: 100px 5%;
+      background: #fff;
+    }
+    body.dark-mode .creative-tiers { background: #16120f; }
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 60px;
+      color: #2F241B;
+    }
+    body.dark-mode .section-title { color: #f0e2d4; }
+    
+    .tiers-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .tier-card {
+      background: var(--cream, #FAF6EE);
+      border-radius: 30px;
+      padding: 50px 40px;
+      position: relative;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    body.dark-mode .tier-card { background: #251e19; border-color: rgba(255,255,255,0.05); }
+    
+    .tier-card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(199,122,63,0.15); }
+    body.dark-mode .tier-card:hover { box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+    
+    .featured-tier {
+      background: linear-gradient(145deg, #ffffff, #fdf5eb);
+      transform: scale(1.05);
+      border: 2px solid #eab67a;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    }
+    body.dark-mode .featured-tier {
+      background: linear-gradient(145deg, #2a221d, #1e1916);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .featured-tier:hover { transform: scale(1.05) translateY(-10px); }
+    
+    .tier-badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #c77a3f;
+      color: white;
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    
+    .tier-icon {
+      font-size: 2.5rem;
+      color: #c77a3f;
+      margin-bottom: 25px;
+    }
+    
+    .tier-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #2F241B;
+      margin-bottom: 15px;
+    }
+    body.dark-mode .tier-card h3 { color: #f0e2d4; }
+    
+    .tier-card p {
+      color: #6b5545;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      font-size: 0.95rem;
+    }
+    body.dark-mode .tier-card p { color: #bbaaa0; }
+    
+    .tier-features {
+      list-style: none;
+      margin-bottom: 40px;
+      padding-left: 0;
+    }
+    .tier-features li {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #2F241B;
+      font-weight: 500;
+    }
+    body.dark-mode .tier-features li { color: #e2cfbc; }
+    .tier-features li i { color: #c77a3f; }
+    
+    .tier-btn {
+      width: 100%;
+      padding: 16px;
+      border-radius: 50px;
+      background: transparent;
+      border: 2px solid #c77a3f;
+      color: #c77a3f;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: inherit;
+    }
+    .tier-btn:hover { background: #c77a3f; color: white; }
+    .tier-btn.primary { background: #c77a3f; color: white; }
+    .tier-btn.primary:hover { background: #b35f2a; border-color: #b35f2a; }
+    
+    /* Masonry Gallery */
+    .creative-gallery {
+      padding: 100px 5%;
+      background: var(--cream, #FAF6EE);
+    }
+    body.dark-mode .creative-gallery { background: #1e1916; }
+    
+    .masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-auto-rows: 250px;
+      gap: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .masonry-item {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .masonry-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .masonry-item:hover img { transform: scale(1.1); }
+    
+    .masonry-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .masonry-item:hover::after { opacity: 1; }
+    
+    .masonry-item.tall { grid-row: span 2; }
+    .masonry-item.wide { grid-column: span 2; }
+    
+    @media (max-width: 900px) {
+      .creative-hero { flex-direction: column; text-align: center; padding-top: 120px; }
+      .hero-glass-panel { padding: 30px; margin-bottom: 40px; }
+      .action-group { justify-content: center; }
+      .glitch-text { font-size: 3rem; }
+      .hero-visual { width: 100%; height: 400px; }
+      .blob-bg { width: 350px; height: 350px; }
+      .cookie-1 { width: 200px; height: 200px; }
+      .cookie-2 { width: 120px; height: 120px; right: 20%; }
+      .cookie-3 { width: 100px; height: 100px; }
+      .featured-tier { transform: scale(1); }
+      .featured-tier:hover { transform: translateY(-10px); }
+      .masonry-item.wide { grid-column: span 1; }
+    }
+    @media (max-width: 600px) {
+      .glitch-text { font-size: 2.5rem; }
+      .hero-visual { display: none; }
+      .btn-creative-primary, .btn-creative-secondary { width: 100%; justify-content: center; }
+      .masonry-item.tall { grid-row: span 1; }
+    }
+
+    /* Flavor Palette Section */
+    .creative-flavors {
+      padding: 80px 5%;
+      background: var(--warm-white, #FFFDF8);
+      position: relative;
+    }
+    body.dark-mode .creative-flavors { background: #251f1a; }
+    
+    .flavor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .flavor-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid rgba(199, 122, 63, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    body.dark-mode .flavor-card { background: #1e1916; border-color: rgba(234, 182, 122, 0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+    
+    .flavor-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(199, 122, 63, 0.2);
+    }
+    
+    .flavor-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .flavor-card:hover .flavor-icon { transform: scale(1.2) rotate(5deg); }
+    
+    .flavor-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #2F241B;
+      margin-bottom: 10px;
+    }
+    body.dark-mode .flavor-title { color: #f0e2d4; }
+    
+    .flavor-desc {
+      color: #6b5545;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    body.dark-mode .flavor-desc { color: #bbaaa0; }
+
+    /* Packaging Options Section */
+    .creative-packaging {
+      padding: 100px 5%;
+      background: linear-gradient(135deg, #fdf5eb, #f7ede2);
+      text-align: center;
+    }
+    body.dark-mode .creative-packaging { background: linear-gradient(135deg, #2a221d, #1e1916); }
+
+    .packaging-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .pack-item {
+      flex: 1;
+      min-width: 250px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      padding: 40px 20px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.8);
+      transition: all 0.3s ease;
+    }
+    body.dark-mode .pack-item { background: rgba(40, 30, 25, 0.4); border-color: rgba(255,255,255,0.05); }
+
+    .pack-item:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-5px);
+    }
+    body.dark-mode .pack-item:hover { background: rgba(50, 40, 35, 0.6); }
+
+    .pack-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #fff;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    body.dark-mode .pack-img { border-color: #3a2c22; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+
+    .pack-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: #2F241B;
+      margin-bottom: 10px;
+    }
+    body.dark-mode .pack-title { color: #f0e2d4; }
+
+    /* The Artisan's Workshop Section */
+    .artisan-workshop {
+      padding: 120px 5%;
+      background: linear-gradient(rgba(30, 25, 22, 0.8), rgba(30, 25, 22, 0.9)), url('./images/about 2.jpg') center/cover fixed;
+      color: #f0e2d4;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .workshop-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .workshop-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 24px;
+      color: #eab67a;
+    }
+    .workshop-desc {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      color: #d4c4b7;
+    }
+    .workshop-stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .stat-item h4 {
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      color: #c77a3f;
+      margin-bottom: 5px;
+    }
+    .stat-item p {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #eab67a;
+    }
+    @media (max-width: 768px) {
+      .workshop-title { font-size: 2.5rem; }
+      .workshop-stats { gap: 30px; }
+      .stat-item h4 { font-size: 2.2rem; }
+    }
+
+    /* Curated Pairings Section */
+    .curated-pairings {
+      padding: 100px 5%;
+      background: var(--cream, #FAF6EE);
+    }
+    body.dark-mode .curated-pairings { background: #1e1916; }
+    .pairings-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .pairings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .pairing-card {
+      background: #fff;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+      border: 1px solid rgba(199, 122, 63, 0.1);
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    body.dark-mode .pairing-card {
+      background: #251f1a;
+      border-color: rgba(234, 182, 122, 0.1);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    }
+    .pairing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 45px rgba(199, 122, 63, 0.15);
+    }
+    .pairing-img {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .pairing-content {
+      padding: 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .pairing-tag {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #c77a3f;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    .pairing-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #2F241B;
+      margin-bottom: 15px;
+    }
+    body.dark-mode .pairing-title { color: #f0e2d4; }
+    .pairing-desc {
+      color: #6b5545;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    body.dark-mode .pairing-desc { color: #bbaaa0; }
+    .pairing-btn {
+      align-self: flex-start;
+      background: transparent;
+      color: #c77a3f;
+      border: none;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.3s;
+    }
+    .pairing-btn:hover { gap: 12px; }
+
+</style>
   <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
@@ -1127,196 +1721,178 @@
     </div>
   </nav>
 
-<!-- FULLSCREEN HERO SECTION -->
-<section class="hero-fullscreen">
-  <div class="hero-content">
-    <div class="hero-badge">âœ¨ Artisan Crafted âœ¨</div>
-    <h1>Custom bakes that tell <em>your story</em></h1>
-    <p class="hero-sub">From intimate birthdays to grand celebrations â€” every order is hand-sculpted with heritage grains, local butter, and boundless love.</p>
-    <a href="#custom-order-start" class="hero-scroll" id="heroScrollLink">â†“ Design your dream</a>
-  </div>
-</section>
-
-<!-- MAIN CONTENT (NO NAVBAR, NO FOOTER) -->
-<div class="main-container">
-
-  <!-- 6 CUSTOM ORDER SECTIONS (Bespoke Features) -->
-  <div id="custom-order-start">
-    <div class="section-header">
-      <div class="pre-title">Bespoke Bakery Experience</div>
-      <h2>6 ways to personalize your order</h2>
-      <p>Every element is yours to choose â€” we turn cravings into edible art.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card"><div class="feature-icon">ðŸ°</div><h3>1. Flavor & Base</h3><p>Classic vanilla bean, dark chocolate, red velvet, matcha lavender, carrot cake, or gluten-free almond.</p><span class="feature-tag">12+ signatures</span></div>
-      <div class="feature-card"><div class="feature-icon">ðŸŽ¨</div><h3>2. Fillings & Frosting</h3><p>Swiss meringue, silky ganache, cream cheese, lemon curd, salted caramel, or vegan buttercream.</p><span class="feature-tag">Custom recipe</span></div>
-      <div class="feature-card"><div class="feature-icon">ðŸ“</div><h3>3. Size & Servings</h3><p>From 6" intimate cakes to towering 3-tier masterpieces, cupcake towers, and party loaves.</p><span class="feature-tag">4â€“150 servings</span></div>
-      <div class="feature-card"><div class="feature-icon">ðŸŒ¸</div><h3>4. Decor & Theme</h3><p>Hand-piped flowers, gold leaf, watercolour effects, monograms, or seasonal edible blooms.</p><span class="feature-tag">Any occasion</span></div>
-
+<main class="creative-main">
+  <!-- Dynamic Marquee -->
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <span>✨ Elevate Your Celebrations ✨ Custom Artistry ✨ Unique Flavors ✨ Bespoke Designs ✨ Handcrafted with Love ✨</span>
+      <span>✨ Elevate Your Celebrations ✨ Custom Artistry ✨ Unique Flavors ✨ Bespoke Designs ✨ Handcrafted with Love ✨</span>
     </div>
   </div>
 
-  <!-- ARTISAN PROCESS (7th section) -->
-  <div class="artisan-process-section">
-    <div class="section-header" style="margin-bottom: 20px;">
-      <div class="pre-title">From our heart to your table</div>
-      <h2>How a custom order comes to life</h2>
-      <p>Every bespoke creation follows our signature 4-step artisan journey</p>
-    </div>
-    <div class="process-steps">
-      <div class="step-item"><div class="step-number">1</div><h4>Consult & design</h4><p>Share your vision via form or call â€“ weâ€™ll discuss flavours, aesthetics & dietary.</p></div>
-      <div class="step-item"><div class="step-number">2</div><h4>Artisan prep</h4><p>Our bakers source fresh, organic ingredients and begin the slow.</p></div>
-      <div class="step-item"><div class="step-number">3</div><h4>Handcrafted magic</h4><p>We sculpt, bake, and decorate entirely by hand â€” no shortcuts, only love.</p></div>
-      <div class="step-item"><div class="step-number">4</div><h4>Fresh delivery/pickup</h4><p>Packaged in eco-friendly boxes, delivered chilled or ready to impress.</p></div>
-    </div>
-  </div>
-
-  <!-- ORDER FORM SECTION -->
-  <div class="order-page-inner">
-    <div class="info-strip">
-      <div class="info-card"><div class="info-card-icon">ðŸŽ‚</div><div class="info-card-title">Custom Bakes</div><div class="info-card-desc">Full creative freedom â€” share your vision</div></div>
-      <div class="info-card"><div class="info-card-icon">â°</div><div class="info-card-title">48hr Notice</div><div class="info-card-desc">We craft everything from scratch</div></div>
-      <div class="info-card"><div class="info-card-icon">ðŸšš</div><div class="info-card-title">Pickup / Delivery</div><div class="info-card-desc">Free delivery above â‚¹1500</div></div>
-    </div>
-    <p class="section-label">âœ¨ Start your custom order âœ¨</p>
-    <form class="order-form" id="orderForm" novalidate>
-      <div class="form-row">
-        <div class="field" id="field-name"><label for="name">Full Name <span class="req">*</span></label><input type="text" id="name" placeholder="e.g. Ananya Sharma"/><span class="error-text">Please enter your name.</span></div>
-        <div class="field" id="field-phone"><label for="phone">Phone <span class="req">*</span></label><input type="tel" id="phone" placeholder="+91 98765 43210"/><span class="error-text">Valid phone number required.</span></div>
+  <!-- Hero Interactive -->
+  <section class="creative-hero">
+    <div class="hero-glass-panel">
+      <div class="badge-new">Your Vision, Baked to Perfection</div>
+      <h1 class="glitch-text" data-text="Edible Masterpieces">Edible Masterpieces</h1>
+      <p>Transforming your wildest ideas into breathtaking, mouth-watering cookie art. Whether it's a corporate gala, an intimate wedding, or a grand birthday bash, we craft cookies that steal the show.</p>
+      <div class="action-group">
+        <a href="#order-canvas" class="btn-creative-primary">Start Your Canvas</a>
+        <a href="#gallery" class="btn-creative-secondary">View Inspiration <i class="fas fa-arrow-right"></i></a>
       </div>
-      <div class="field" id="field-email"><label for="email">Email <span class="req">*</span></label><input type="email" id="email" placeholder="hello@example.com"/><span class="error-text">Enter a valid email.</span></div>
-      <div class="field" id="field-details"><label for="details">Order Details <span class="req">*</span></label><textarea id="details" placeholder="Tell us flavour, theme, dietary needs, preferred pickup date..."></textarea><span class="error-text">Please describe your order.</span></div>
-      <div class="field" id="field-quantity"><label for="quantity">Quantity <span class="req">*</span></label>
-        <div class="qty-wrapper"><button type="button" class="qty-btn" id="qtyMinus">âˆ’</button><input type="number" id="quantity" min="1" max="500" value="1" readonly/><button type="button" class="qty-btn" id="qtyPlus">+</button></div>
-        <span class="error-text">Minimum quantity 1.</span>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-cookie cookie-1"><img src="./images/about 3.jpg" alt="Custom Cookie"></div>
+      <div class="floating-cookie cookie-2"><img src="./images/gallery 7.jpg" alt="Custom Cookie"></div>
+      <div class="floating-cookie cookie-3"><img src="./images/gallery 1.jpg" alt="Custom Cookie"></div>
+      <div class="blob-bg"></div>
+    </div>
+  </section>
+
+  <!-- Interactive Tiers -->
+  <section class="creative-tiers" id="order-canvas">
+    <h2 class="section-title">The Art of Customization</h2>
+    <div class="tiers-wrapper">
+      <div class="tier-card">
+        <div class="tier-icon"><i class="fas fa-paint-brush"></i></div>
+        <h3>The Classic</h3>
+        <p>Perfect for birthdays and small gatherings. Includes up to 3 custom shapes and 2 colors.</p>
+        <ul class="tier-features">
+           <li><i class="fas fa-check"></i> 3 Custom Shapes</li>
+           <li><i class="fas fa-check"></i> 2 Hand-mixed Colors</li>
+           <li><i class="fas fa-check"></i> Standard Packaging</li>
+           <li><i class="fas fa-check"></i> Individual Ribbon Tying</li>
+        </ul>
+        <button class="tier-btn">Select Classic</button>
       </div>
-      <div class="field"><label>Delivery Preference</label><div class="delivery-options"><div class="delivery-option"><input type="radio" name="delivery" id="pickup" value="pickup" checked/><label for="pickup">ðŸª Pickup</label></div><div class="delivery-option"><input type="radio" name="delivery" id="deliveryOpt" value="delivery"/><label for="deliveryOpt">ðŸšš Delivery</label></div></div></div>
-      <button type="submit" class="submit-btn">âœ¦ Confirm custom order âœ¦</button>
-    </form>
-    <div class="success-msg" id="successMsg"><div class="success-icon">ðŸŽ‰</div><h3>Order Received!</h3><p>Thank you! Our pastry team will reach out within 24h to finalise design & delivery. Get ready for something delicious!</p></div>
-  </div>
-
-  <!-- ========== TWO ADDITIONAL SECTIONS (no navbar/footer required) ========== -->
-  <!-- NEW SECTION 1: Artisan difference / heritage -->
-  <div class="artisan-difference">
-    <div class="section-header">
-      <div class="pre-title">slow & intentional</div>
-      <h2>The artisan difference</h2>
-      <p>We honor traditional baking methods, small batches, and the finest ingredients.</p>
+      <div class="tier-card featured-tier">
+        <div class="tier-badge">Most Popular</div>
+        <div class="tier-icon"><i class="fas fa-crown"></i></div>
+        <h3>The Signature</h3>
+        <p>Our most requested package. Ideal for weddings and corporate events. Up to 6 shapes.</p>
+        <ul class="tier-features">
+           <li><i class="fas fa-check"></i> 6 Custom Shapes</li>
+           <li><i class="fas fa-check"></i> Unlimited Colors</li>
+           <li><i class="fas fa-check"></i> Metallic Gold/Silver Accents</li>
+           <li><i class="fas fa-check"></i> Premium Gift Boxes</li>
+        </ul>
+        <button class="tier-btn primary">Select Signature</button>
+      </div>
+      <div class="tier-card">
+        <div class="tier-icon"><i class="fas fa-gem"></i></div>
+        <h3>The Extravagant</h3>
+        <p>No limits. 3D structures, hand-painted portraits, and luxury flavor profiles and presentation options.</p>
+        <ul class="tier-features">
+           <li><i class="fas fa-check"></i> Unlimited Shapes & Colors</li>
+           <li><i class="fas fa-check"></i> Hand-Painted Portraits</li>
+           <li><i class="fas fa-check"></i> Luxury Flavor Profiles</li>
+           <li><i class="fas fa-check"></i> Individual Ribbon Tying</li>
+        </ul>
+        <button class="tier-btn">Select Extravagant</button>
+      </div>
     </div>
-    <div class="diff-grid">
-      <div class="diff-item"><div class="diff-icon">ðŸŒ¾</div><h3>Stone-ground flour</h3><p>Locally milled, nutrient-rich grains for deeper flavor and texture.</p></div>
-      <div class="diff-item"><div class="diff-icon">ðŸ§ˆ</div><h3>Cultured butter</h3><p>European-style, slow-churned for flaky, golden pastries.</p></div>
-      <div class="diff-item"><div class="diff-icon">ðŸ¯</div><h3>Raw honey & maple</h3><p>Unrefined sweeteners from regional farms, no preservatives.</p></div>
+  </section>
+
+  <!-- Masonry Gallery Inspiration -->
+  <section class="creative-gallery" id="gallery">
+    <h2 class="section-title">Endless Possibilities</h2>
+    <div class="masonry-grid">
+      <div class="masonry-item tall"><img src="./images/classes 11.jpg" alt="Inspiration 1"></div>
+      <div class="masonry-item"><img src="./images/gallery 8.jpg" alt="Inspiration 2"></div>
+      <div class="masonry-item wide"><img src="./images/about 5.jpg" alt="Inspiration 3"></div>
+      <div class="masonry-item"><img src="./images/tutorials 9.jpg" alt="Inspiration 4"></div>
+      <div class="masonry-item"><img src="./images/gallery 4.jpg" alt="Inspiration 6"></div>
     </div>
-  </div>
+  </section>
 
-  <!-- NEW SECTION 2: Testimonials & kind words -->
-  <div class="testimonials-section">
-    <div class="section-header">
-      <div class="pre-title">community love</div>
-      <h2>What our patrons say</h2>
-      <p>Real stories from birthdays, weddings, and everyday indulgences.</p>
+  <!-- The Flavor Palette -->
+  <section class="creative-flavors">
+    <h2 class="section-title">Exclusive Flavor Palette</h2>
+    <div class="flavor-grid">
+      <div class="flavor-card">
+        <div class="flavor-icon"></div>
+        <h3 class="flavor-title">Lavender Honey</h3>
+        <p class="flavor-desc">Delicate floral notes blended with wild honey for a sophisticated, aromatic finish.</p>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-icon"></div>
+        <h3 class="flavor-title">Matcha White Choc</h3>
+        <p class="flavor-desc">Premium ceremonial matcha paired with creamy white chocolate chunks.</p>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-icon"></div>
+        <h3 class="flavor-title">Earl Grey Shortbread</h3>
+        <p class="flavor-desc">Buttery shortbread infused with bergamot and real Earl Grey tea leaves.</p>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-icon"></div>
+        <h3 class="flavor-title">Lemon Rosemary</h3>
+        <p class="flavor-desc">A refreshing citrus burst perfectly balanced with earthy rosemary hints.</p>
+      </div>
     </div>
-    <div class="testimonial-grid">
-      <div class="testimonial-card"><div class="quote">â€œ</div><p class="testimonial-text">La Farine crafted a stunning 3-tier wedding cake that tasted as dreamy as it looked. Guests are still talking about the pistachio.</p><div class="client-name">â€” Meera K., Delhi</div></div>
-      <div class="testimonial-card"><div class="quote">â€œ</div><p class="testimonial-text">The attention to detail in my daughterâ€™s unicorn-themed cake was beyond imagination. Allergy-friendly and delicious.</p><div class="client-name">â€” Anjali Sharma</div></div>
-      <div class="testimonial-card"><div class="quote">â€œ</div><p class="testimonial-text">Best sourdough in town. Their custom order process is seamless â€” I sent a mood board and they brought it to life!</p><div class="client-name">â€” Rohan Mehta</div></div>
+  </section>
+
+  <!-- The Artisan's Workshop -->
+  <section class="artisan-workshop">
+    <div class="workshop-content">
+      <h2 class="workshop-title">Inside The Artisan's Workshop</h2>
+      <p class="workshop-desc">Every custom order is a labor of love. From sketching the initial concept to hand-mixing royal icing and meticulously piping each detail, our studio transforms premium ingredients into fleeting masterpieces. We don't just bake; we sculpt, paint, and create art you can taste.</p>
+      <div class="workshop-stats">
+        <div class="stat-item">
+          <h4>48h</h4>
+          <p>Avg. Crafting Time</p>
+        </div>
+        <div class="stat-item">
+          <h4>100%</h4>
+          <p>Hand-Piped</p>
+        </div>
+        <div class="stat-item">
+          <h4>∞</h4>
+          <p>Design Possibilities</p>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- SIGNATURE MENU (formerly menu page, now fully integrated) -->
-  <div style="margin: 48px 0 20px;">
-    <div class="section-header">
-      <div class="pre-title">signature collection</div>
-      <h2>Baked fresh daily</h2>
-      <p>Explore our beloved classics â€” available for custom orders or Ã  la carte</p>
+  <!-- Curated Pairings -->
+  <section class="curated-pairings">
+    <div class="pairings-header">
+      <h2 class="section-title">Perfect Pairings</h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.6;">Elevate your event by pairing our bespoke cookies with the perfect beverage. A symphony of flavors awaits to delight your guests.</p>
     </div>
-    <div class="menu-grid">
-      <div class="menu-card"><div class="menu-img">ðŸž</div><div class="menu-content"><div class="menu-title">Wild Sourdough</div><div class="menu-desc">Tangy, crusty artisan loaf, fermented .</div><div class="menu-price">â‚¹380</div><button class="order-now-btn" data-product="Wild Sourdough">Order Now â†’</button></div></div>
-      <div class="menu-card"><div class="menu-img">ðŸ¥</div><div class="menu-content"><div class="menu-title">Butter Croissant</div><div class="menu-desc">Golden, flaky layers with French .</div><div class="menu-price">â‚¹210</div><button class="order-now-btn" data-product="Butter Croissant">Order Now â†’</button></div></div>
-      <div class="menu-card"><div class="menu-img">ðŸ°</div><div class="menu-content"><div class="menu-title">Red Velvet Cake</div><div class="menu-desc">Cream cheese frosting, velvety.</div><div class="menu-price">â‚¹1250 (full)</div><button class="order-now-btn" data-product="Red Velvet Cake">Order Now â†’</button></div></div>
-      <div class="menu-card"><div class="menu-img">ðŸ‹</div><div class="menu-content"><div class="menu-title">Lemon Tart</div><div class="menu-desc">Tangy curd, crisp pastry & meringue.</div><div class="menu-price">â‚¹320</div><button class="order-now-btn" data-product="Lemon Tart">Order Now â†’</button></div></div>
-      
+    <div class="pairings-grid">
+      <div class="pairing-card">
+        <img src="./images/classes 3.jpg" alt="Champagne Pairing" class="pairing-img">
+        <div class="pairing-content">
+          <div class="pairing-tag">Weddings & Galas</div>
+          <h3 class="pairing-title">Champagne & Signature</h3>
+          <p class="pairing-desc">The crisp, effervescent notes of a dry Champagne perfectly cut through the rich, buttery sweetness of our Signature vanilla bean cookies.</p>
+          <button class="pairing-btn">Discover Pairing <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="pairing-card">
+        <img src="./images/gallery 7.jpg" alt="Espresso Pairing" class="pairing-img">
+        <div class="pairing-content">
+          <div class="pairing-tag">Corporate Events</div>
+          <h3 class="pairing-title">Espresso & Dark Cocoa</h3>
+          <p class="pairing-desc">A bold pairing. The robust intensity of artisanal espresso enhances the deep, complex flavors of our dark chocolate sculpted cookies.</p>
+          <button class="pairing-btn">Discover Pairing <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="pairing-card">
+        <img src="./images/tutorials 9.jpg" alt="Tea Pairing" class="pairing-img">
+        <div class="pairing-content">
+          <div class="pairing-tag">Bridal Showers</div>
+          <h3 class="pairing-title">Earl Grey & Lemon</h3>
+          <p class="pairing-desc">A delicate and sophisticated match. The citrusy bergamot in Earl Grey tea sings alongside our Lemon Rosemary custom creations.</p>
+          <button class="pairing-btn">Discover Pairing <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
 
-<script>
-  (function() {
-    // Hero scroll to custom order start section
-    const heroLink = document.getElementById('heroScrollLink');
-    if(heroLink) {
-      heroLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.getElementById('custom-order-start');
-        if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    }
-
-    // Quantity stepper
-    const qtyInput = document.getElementById('quantity');
-    const plusBtn = document.getElementById('qtyPlus');
-    const minusBtn = document.getElementById('qtyMinus');
-    if(plusBtn && minusBtn && qtyInput) {
-      plusBtn.addEventListener('click', () => { let v = parseInt(qtyInput.value) || 1; if(v < 500) qtyInput.value = v + 1; });
-      minusBtn.addEventListener('click', () => { let v = parseInt(qtyInput.value) || 1; if(v > 1) qtyInput.value = v - 1; });
-    }
-
-    // Form validation & success
-    function setError(fieldId, show) { const el = document.getElementById('field-'+fieldId); if(el) el.classList.toggle('has-error', show); }
-    function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-    function isValidPhone(v) { return /^[\d\s\+\-\(\)]{7,15}$/.test(v.trim()); }
-
-    const form = document.getElementById('orderForm');
-    const successDiv = document.getElementById('successMsg');
-    if(form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const details = document.getElementById('details').value.trim();
-        const qty = parseInt(qtyInput ? qtyInput.value : 1);
-        let valid = true;
-
-        if(!name) { setError('name', true); valid = false; } else setError('name', false);
-        if(!isValidPhone(phone)) { setError('phone', true); valid = false; } else setError('phone', false);
-        if(!isValidEmail(email)) { setError('email', true); valid = false; } else setError('email', false);
-        if(!details) { setError('details', true); valid = false; } else setError('details', false);
-        if(!qty || qty < 1) { setError('quantity', true); valid = false; } else setError('quantity', false);
-
-        if(!valid) return;
-        form.style.display = 'none';
-        if(successDiv) {
-          successDiv.classList.add('visible');
-          successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      });
-    }
-
-    // Menu "Order Now" buttons: scroll to order form + prefill details with product
-    const menuBtns = document.querySelectorAll('.order-now-btn');
-    const detailsField = document.getElementById('details');
-    menuBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const product = btn.getAttribute('data-product') || 'item from menu';
-        const formSection = document.querySelector('.order-page-inner');
-        if(formSection) formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        if(detailsField && product) {
-          let currentVal = detailsField.value.trim();
-          let prefix = `I'm interested in: ${product}. `;
-          if(currentVal === '') detailsField.value = prefix;
-          else if(!currentVal.includes(product)) detailsField.value = prefix + currentVal;
-          detailsField.focus();
-        }
-      });
-    });
-  })();
-</script>
-
-  <!-- ========== UNIFIED FOOTER (brand matches navbar exactly) ========== -->
-  <footer class="site-footer">
+<footer class="site-footer">
     <div class="footer-container">
       <div class="footer-brand">
         <h3>CookieCraft</h3>   <!-- identical styling: font/size/gradient to .brand -->
@@ -1432,13 +2008,13 @@
       const navCollapse = document.getElementById('navCollapse');
       const toggleMenu = () => {
         navCollapse.classList.toggle('active');
-        document.body.style.overflow = navCollapse.classList.contains('active') ? 'hidden' : '';
+        // body overflow hidden removed to keep navbar sticky
       };
       if (hamburger) hamburger.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
       const closeMenu = () => {
         if (navCollapse.classList.contains('active')) {
           navCollapse.classList.remove('active');
-          document.body.style.overflow = '';
+          // body overflow reset removed
         }
       };
 
@@ -1519,7 +2095,7 @@
         if (navbar && !navbar.contains(event.target) && navCollapse && navCollapse.classList.contains('active')) closeMenu();
       });
       window.addEventListener('load', () => {
-        document.body.style.overflow = '';
+        // body overflow reset removed
         if (window.innerWidth > 1024) {
           const parentLi = document.getElementById('homeDropdownItem');
           if (parentLi) parentLi.classList.remove('open');

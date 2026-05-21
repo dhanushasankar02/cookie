@@ -554,7 +554,7 @@
           <li class="nav-item"><a href="#" class="nav-link">About</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Custom Orders</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Classes</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Tutorials</a></li>
+          <li class="nav-item"><a href="tutorials.html" class="nav-link">Tutorials</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Gallery</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
         </ul>
@@ -687,13 +687,13 @@
       const navCollapse = document.getElementById('navCollapse');
       const toggleMenu = () => {
         navCollapse.classList.toggle('active');
-        document.body.style.overflow = navCollapse.classList.contains('active') ? 'hidden' : '';
+        // body overflow hidden removed to keep navbar sticky
       };
       if (hamburger) hamburger.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
       const closeMenu = () => {
         if (navCollapse.classList.contains('active')) {
           navCollapse.classList.remove('active');
-          document.body.style.overflow = '';
+          // body overflow reset removed
         }
       };
 
@@ -760,7 +760,7 @@
         if (navbar && !navbar.contains(event.target) && navCollapse && navCollapse.classList.contains('active')) closeMenu();
       });
       window.addEventListener('load', () => {
-        document.body.style.overflow = '';
+        // body overflow reset removed
         if (window.innerWidth > 1024) {
           const parentLi = document.getElementById('homeDropdownItem');
           if (parentLi) parentLi.classList.remove('open');
