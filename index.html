@@ -533,8 +533,8 @@
 
     /* 1. Hero Section */
     .hero-section { position: relative; height: 90vh; min-height: 600px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 0 2rem; }
-    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,248,239,0.85), rgba(245,215,180,0.65)), url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat; z-index: -1; }
-    body.dark-mode .hero-bg { background: linear-gradient(135deg, rgba(30,25,22,0.9), rgba(60,40,25,0.8)), url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat; }
+    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,248,239,0.85), rgba(245,215,180,0.65)), url('./images/gallery\ 13.jpg') center/cover no-repeat; z-index: -1; }
+    body.dark-mode .hero-bg { background: linear-gradient(135deg, rgba(30,25,22,0.9), rgba(60,40,25,0.8)), url('./images/classes\ 5.jpg') center/cover no-repeat; }
     .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(135deg, #c77a3f, #8e471b); -webkit-background-clip: text; color: transparent; animation: fadeInUp 1s ease-out; }
     body.dark-mode .hero-content h1 { background: linear-gradient(135deg, #f6cf9c, #d48d53); -webkit-background-clip: text; color: transparent; }
     .hero-content p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; color: #4b3527; animation: fadeInUp 1s ease-out 0.2s backwards; }
@@ -586,7 +586,7 @@
     body.dark-mode .step p { color: #bbaaa0; }
 
     /* 5. Parallax Promo */
-    .promo { position: relative; padding: 8rem 2rem; text-align: center; background: url('https://images.unsplash.com/photo-1557308536-ee471ef2c390?q=80&w=2000&auto=format&fit=crop') center/cover fixed; color: white; }
+    .promo { position: relative; padding: 8rem 2rem; text-align: center; background: url('./images/about\ 7.jpg') center/cover fixed; color: white; }
     .promo::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(47, 36, 27, 0.75); }
     .promo-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
     .promo-content h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 1rem; }
@@ -618,7 +618,8 @@
     body.dark-mode .workshop-content h2 { color: #eab67a; }
     .workshop-content p { margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.7; color: #5d4a3d; }
     body.dark-mode .workshop-content p { color: #d4c4b7; }
-    .workshop-image { flex: 1; min-height: 400px; background: url('https://images.unsplash.com/photo-1556910103-1c02745a8059?q=80&w=2000&auto=format&fit=crop') center/cover; }
+    .workshop-image { flex: 1; min-height: 400px; display: flex; }
+    .workshop-image img { width: 100%; height: 100%; object-fit: cover; }
 
     /* 8. Instagram / Community */
     .community { padding: 6rem 2rem; text-align: center; }
@@ -689,7 +690,7 @@
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="custom.html" class="nav-link">Custom Orders</a></li>
           <li class="nav-item"><a href="classes.html" class="nav-link">Classes</a></li>
-          <li class="nav-item"><a href="Tutorials.html" class="nav-link">Tutorials</a></li>
+          <li class="nav-item"><a href="tutorials.html" class="nav-link">Tutorials</a></li>
           <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
@@ -722,7 +723,7 @@
       <a href="#" class="btn-primary" style="padding: 0.8rem 2rem; font-size: 1rem;">Read Our Story</a>
     </div>
     <div class="philosophy-image">
-      <img src="./image/index_philosophy.png" alt="Artisan Cookie Baking">
+      <img src="./images/tutorials 4.jpg" alt="Artisan Cookie Baking">
     </div>
   </section>
 
@@ -733,7 +734,7 @@
       <!-- Cookie 1 -->
       <div class="cookie-card">
         <div class="cookie-img-wrapper">
-          <img src="./image/index_cookie1.png" alt="Classic Chocolate Chunk">
+          <img src="./images/contact bg.png" alt="Classic Chocolate Chunk">
         </div>
         <h3>Golden Chocolate Chunk</h3>
         <p>Our iconic classic, loaded with pools of dark Belgian chocolate and sprinkled with flaky sea salt.</p>
@@ -743,7 +744,7 @@
       <!-- Cookie 2 -->
       <div class="cookie-card">
         <div class="cookie-img-wrapper">
-          <img src="./image/index_cookie2.png" alt="Red Velvet Dream">
+          <img src="./images/gallery 12.jpg" alt="Red Velvet Dream">
         </div>
         <h3>Red Velvet Dream</h3>
         <p>Rich, cocoa-infused red velvet dough stuffed with a molten cream cheese frosting center.</p>
@@ -753,7 +754,7 @@
       <!-- Cookie 3 -->
       <div class="cookie-card">
         <div class="cookie-img-wrapper">
-          <img src="./image/index_cookie3.png" alt="Matcha Macadamia">
+          <img src="./images/gallery 7.jpg" alt="Matcha Macadamia">
         </div>
         <h3>Matcha Macadamia</h3>
         <p>Earthy premium matcha green tea perfectly paired with roasted macadamia nuts and white chocolate.</p>
@@ -806,35 +807,14 @@
       <div class="testi-card">
         <i class="fas fa-quote-left"></i>
         <p>"Honestly, the best cookies I have ever had. The chocolate chunk has the perfect ratio of chocolate to dough, and that sea salt finish is divine!"</p>
-        <div class="testi-author">
-          <img src="./image/index_sarah.png" alt="Sarah J.">
-          <div>
-            <h5>Sarah Jenkins</h5>
-            <span>Verified Buyer</span>
-          </div>
-        </div>
       </div>
       <div class="testi-card">
         <i class="fas fa-quote-left"></i>
         <p>"CookieCraft catered my wedding dessert table and it was a massive hit. The custom designs were beautiful and they tasted even better."</p>
-        <div class="testi-author">
-          <img src="./image/index_michael.png" alt="Michael T.">
-          <div>
-            <h5>Michael Thompson</h5>
-            <span>Event Client</span>
-          </div>
-        </div>
       </div>
       <div class="testi-card">
         <i class="fas fa-quote-left"></i>
         <p>"I order a box every month for my office team. It’s the highlight of our meetings. The seasonal flavors are always incredibly inventive."</p>
-        <div class="testi-author">
-          <img src="./image/index_emily.png" alt="Emily R.">
-          <div>
-            <h5>Emily Rodriguez</h5>
-            <span>Corporate Partner</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -847,7 +827,9 @@
         <p>Join our exclusive Cookie Decorating Masterclasses. Whether you're a beginner looking for a fun weekend activity or a passionate home baker wanting to refine your royal icing skills, our hands-on workshops are perfect for you.</p>
         <a href="#" class="btn-primary" style="align-self: flex-start;">Book a Class</a>
       </div>
-      <div class="workshop-image"></div>
+      <div class="workshop-image">
+        <img src="./images/about 6.jpg" alt="Cookie Decorating Masterclass">
+      </div>
     </div>
   </section>
 
@@ -857,23 +839,23 @@
     <p style="color: #6b5545; font-size: 1.1rem; margin-top: -2rem;">Follow us on Instagram for daily sweet inspiration</p>
     <div class="insta-grid">
       <div class="insta-item">
-        <img src="./image/index_insta1.png" alt="Insta 1">
+        <img src="./images/classes 2.jpg" alt="Insta 1">
         <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
       </div>
       <div class="insta-item">
-        <img src="./image/index_insta2.png" alt="Insta 2">
+        <img src="./images/classes 7.jpg" alt="Insta 2">
         <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
       </div>
       <div class="insta-item">
-        <img src="./image/index_insta3.png" alt="Insta 3">
+        <img src="./images/gallery 13.jpg" alt="Insta 3">
         <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
       </div>
       <div class="insta-item">
-        <img src="./image/index_insta4.png" alt="Insta 4">
+        <img src="./images/tutorials 3.jpg" alt="Insta 4">
         <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
       </div>
       <div class="insta-item">
-        <img src="./image/index_insta5.png" alt="Insta 5">
+        <img src="./images/gallery 5.jpg" alt="Insta 5">
         <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
       </div>
     </div>
@@ -900,7 +882,7 @@
           <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
           <li><a href="custom.html"><i class="fas fa-chevron-right"></i> Custom Orders</a></li>
           <li><a href="classes.html"><i class="fas fa-chevron-right"></i> Classes</a></li>
-          <li><a href="Tutorials.html"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+          <li><a href="tutorials.html"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
         </ul>
       </div>
 
