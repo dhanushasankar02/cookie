@@ -17,7 +17,7 @@
     body[dir="rtl"] .right-buttons { flex-direction: row-reverse; }
     body[dir="rtl"] .brand { margin-right: 0; margin-left: 2rem; }
     body[dir="rtl"] .nav-link i { margin-left: 6px; margin-right: 0; }
-    body[dir="rtl"] .nav-collapse { left: auto; right: -100%; border-radius: 24px 0 0 24px; }
+    body[dir="rtl"] .nav-collapse { left: auto; right: -100%; border-radius: 0 0 0 24px; margin-top: -1px; }
     body[dir="rtl"] .nav-collapse.active { left: auto; right: 0; }
     body[dir="rtl"] .footer-col h4:after { left: auto; right: 0; }
     body[dir="rtl"] .footer-links a i { margin-left: 8px; margin-right: 0; }
@@ -123,8 +123,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: relative;
-    }
+      }
     .nav-menu {
       display: flex;
       align-items: center;
@@ -265,9 +264,7 @@
     @media (max-width: 1024px) {
       .navbar { padding: 0.8rem 1.5rem; }
       .hamburger { display: flex; }
-      .nav-collapse {
-        position: fixed;
-        top: 70px;
+      .nav-collapse { position: absolute; top: 100%;
         right: -100%;
         left: auto;
         width: 85%;
@@ -281,7 +278,7 @@
         padding: 2rem 1.8rem;
         transition: right 0.35s ease-in-out;
         box-shadow: -6px 0 24px rgba(0, 0, 0, 0.08);
-        border-radius: 24px 0 0 24px;
+        border-radius: 0 0 0 24px; margin-top: -1px;
         gap: 2rem;
         z-index: 999;
         overflow-y: auto;
@@ -930,35 +927,35 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img class="gallery-img" src="./images/gallery 1.jpg" alt="Chocolate chip cookie stack" loading="lazy" decoding="async">
+        <img class="gallery-img" src="./images/gallery 1.jpg" alt="Chocolate chip cookie stack" decoding="async">
         <div class="gallery-caption"><h4>Classic comfort</h4><p>Brown butter sea salt & dark chocolate</p></div>
       </div>
       <div class="gallery-item">
-        <img class="gallery-img" src="./images/gallery 2.jpg" alt="Iced sugar cookies" loading="lazy" decoding="async">
+        <img class="gallery-img" src="./images/gallery 2.jpg" alt="Iced sugar cookies" decoding="async">
         <div class="gallery-caption"><h4>Royal icing blooms</h4><p>Spring floral collection</p></div>
       </div>
       <div class="gallery-item">
-        <img class="gallery-img" src="./images/gallery 3.jpg" alt="Heart cookies" loading="lazy" decoding="async">
+        <img class="gallery-img" src="./images/gallery 3.jpg" alt="Heart cookies" decoding="async">
         <div class="gallery-caption"><h4>Love letter cookies</h4><p>Valentine's day special</p></div>
       </div>
       <div class="gallery-item">
-        <img class="gallery-img" src="./images/gallery 4.jpg" alt="Gingerbread cookies" loading="lazy" decoding="async">
+        <img class="gallery-img" src="./images/gallery 4.jpg" alt="Gingerbread cookies" decoding="async">
         <div class="gallery-caption"><h4>Spiced gingerbread</h4><p>Winter wonderland set</p></div>
       </div>
       <div class="gallery-item">
-        <img class="gallery-img" src="./images/gallery 5.jpg" alt="Stuffed cookies" loading="lazy" decoding="async">
+        <img class="gallery-img" src="./images/gallery 5.jpg" alt="Stuffed cookies" decoding="async">
         <div class="gallery-caption"><h4>Stuffed surprise</h4><p>Nutella & marshmallow dream</p></div>
       </div>
       <div class="gallery-item">
-        <img class="gallery-img" src="./images/gallery 6.jpg" alt="Matcha cookie" loading="lazy" decoding="async">
+        <img class="gallery-img" src="./images/gallery 6.jpg" alt="Matcha cookie" decoding="async">
         <div class="gallery-caption"><h4>Matcha white chocolate</h4><p>Earthy & elegant</p></div>
       </div>
       <div class="gallery-item">
-        <img class="gallery-img" src="./images/gallery 7.jpg" alt="Cookie closeup" loading="lazy" decoding="async">
+        <img class="gallery-img" src="./images/gallery 7.jpg" alt="Cookie closeup" decoding="async">
         <div class="gallery-caption"><h4>Brown butter pecan</h4><p>Crunchy caramel drizzle</p></div>
       </div>
       <div class="gallery-item">
-        <img class="gallery-img" src="./images/gallery 8.jpg" alt="Double chocolate cookie" loading="lazy" decoding="async">
+        <img class="gallery-img" src="./images/gallery 8.jpg" alt="Double chocolate cookie" decoding="async">
         <div class="gallery-caption"><h4>Double fudge</h4><p>Deep cocoa & chocolate chunks</p></div>
       </div>
     </div>
@@ -977,7 +974,7 @@
         <p style="margin-top: 12px;"><strong> Custom cookie boxes for weddings, birthdays, or corporate gifts.</strong></p>
       </div>
       <div class="col-img">
-        <img src="./images/gallery 9.jpg" alt="Baker rolling cookie dough" loading="lazy" decoding="async">
+        <img src="./images/gallery 9.jpg" alt="Baker rolling cookie dough" decoding="async">
       </div>
     </div>
   </div>
@@ -993,32 +990,32 @@
     </div>
     <div class="flavor-grid">
       <div class="flavor-card">
-        <img class="flavor-img" src="./images/gallery 10.jpg" alt="Salted caramel cookie" loading="lazy" decoding="async">
+        <img class="flavor-img" src="./images/gallery 10.jpg" alt="Salted caramel cookie" decoding="async">
         <h3>Salted Caramel Crunch</h3>
         <p>Flakey sea salt, dulce de leche, dark chocolate.</p>
       </div>
       <div class="flavor-card">
-        <img class="flavor-img" src="./images/gallery 11.jpg" alt="Double chocolate cookie" loading="lazy" decoding="async">
+        <img class="flavor-img" src="./images/gallery 11.jpg" alt="Double chocolate cookie" decoding="async">
         <h3>Midnight Fudge</h3>
         <p>Triple cocoa & creamy ganache filling.</p>
       </div>
       <div class="flavor-card">
-        <img class="flavor-img" src="./images/gallery 12.jpg" alt="Raspberry thumbprint" loading="lazy" decoding="async">
+        <img class="flavor-img" src="./images/gallery 12.jpg" alt="Raspberry thumbprint" decoding="async">
         <h3>Raspberry Rose</h3>
         <p>Buttery shortbread, fruit conserve & rose petals.</p>
       </div>
       <div class="flavor-card">
-        <img class="flavor-img" src="./images/gallery 13.jpg" alt="Snickerdoodle" loading="lazy" decoding="async">
+        <img class="flavor-img" src="./images/gallery 13.jpg" alt="Snickerdoodle" decoding="async">
         <h3>Cinnamon Snickerdoodle</h3>
         <p>Old-fashioned tangy cream of tartar, cinnamon sugar.</p>
       </div>
       <div class="flavor-card">
-        <img class="flavor-img" src="./images/gallery 14.jpg" alt="Red velvet cookie" loading="lazy" decoding="async">
+        <img class="flavor-img" src="./images/gallery 14.jpg" alt="Red velvet cookie" decoding="async">
         <h3>Red Velvet Dream</h3>
         <p>Vibrant cocoa dough, white chocolate chips & sweet cream cheese filling.</p>
       </div>
       <div class="flavor-card">
-        <img class="flavor-img" src="./images/gallery 15.jpg" alt="Matcha cookie" loading="lazy" decoding="async">
+        <img class="flavor-img" src="./images/gallery 15.jpg" alt="Matcha cookie" decoding="async">
         <h3>Matcha Macadamia</h3>
         <p>Premium Uji matcha, toasted macadamia nuts & white chocolate chunks.</p>
       </div>
@@ -1036,15 +1033,15 @@
     </div>
     <div class="studio-grid">
       <div class="studio-card">
-        <img src="./images/gallery 16.jpg" alt="Cookie cutters and tools" loading="lazy" decoding="async">
+        <img src="./images/gallery 16.jpg" alt="Cookie cutters and tools" decoding="async">
         <div class="content"><h4>Hand-carved moulds</h4><p>Custom wooden stamps for unique patterns.</p></div>
       </div>
       <div class="studio-card">
-        <img src="./images/gallery 17.jpg" alt="Icing session" loading="lazy" decoding="async">
+        <img src="./images/gallery 17.jpg" alt="Icing session" decoding="async">
         <div class="content"><h4>Royal icing artistry</h4><p>Each cookie is a miniature canvas for our decorators.</p></div>
       </div>
       <div class="studio-card">
-        <img src="./images/gallery 5.jpg" alt="Fresh batch out of oven" loading="lazy" decoding="async">
+        <img src="./images/gallery 5.jpg" alt="Fresh batch out of oven" decoding="async">
         <div class="content"><h4>Fresh from the oven</h4><p>Golden edges, soft centers — baked to order.</p></div>
       </div>
     </div>
@@ -1332,3 +1329,5 @@
   </script>
 </body>
 </html>
+
+

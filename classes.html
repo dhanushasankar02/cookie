@@ -24,7 +24,7 @@
     body[dir="rtl"] .right-buttons { flex-direction: row-reverse; }
     body[dir="rtl"] .brand { margin-right: 0; margin-left: 2rem; }
     body[dir="rtl"] .nav-link i { margin-left: 6px; margin-right: 0; }
-    body[dir="rtl"] .nav-collapse { left: auto; right: -100%; border-radius: 24px 0 0 24px; }
+    body[dir="rtl"] .nav-collapse { left: auto; right: -100%; border-radius: 0 0 0 24px; margin-top: -1px; }
     body[dir="rtl"] .nav-collapse.active { left: auto; right: 0; }
     body[dir="rtl"] .footer-col h4:after { left: auto; right: 0; }
     body[dir="rtl"] .footer-links a i { margin-left: 8px; margin-right: 0; }
@@ -130,7 +130,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: relative;
+      
     }
     .nav-menu {
       display: flex;
@@ -272,9 +272,7 @@
     @media (max-width: 1024px) {
       .navbar { padding: 0.8rem 1.5rem; }
       .hamburger { display: flex; }
-      .nav-collapse {
-        position: fixed;
-        top: 70px;
+      .nav-collapse { position: absolute; top: 100%;
         right: -100%;
         left: auto;
         width: 85%;
@@ -288,7 +286,7 @@
         padding: 2rem 1.8rem;
         transition: right 0.35s ease-in-out;
         box-shadow: -6px 0 24px rgba(0, 0, 0, 0.08);
-        border-radius: 24px 0 0 24px;
+        border-radius: 0 0 0 24px; margin-top: -1px;
         gap: 2rem;
         z-index: 999;
         overflow-y: auto;
@@ -1045,16 +1043,16 @@
               <i class="fas fa-home"></i> <span>Home</span> <i class="fas fa-chevron-down dropdown-arrow"></i>
             </a>
             <ul class="dropdown-menu" id="homeDropdownMenu">
-              <li><a href="index.html" class="dropdown-item"><i class="fas fa-cookie-bite"></i> Home 1</a></li>
-              <li><a href="home2.html" class="dropdown-item"><i class="fas fa-heart"></i> Home 2</a></li>
+              <li><a href="./index.html" class="dropdown-item"><i class="fas fa-cookie-bite"></i> Home 1</a></li>
+              <li><a href="./home2.html" class="dropdown-item"><i class="fas fa-heart"></i> Home 2</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="custom.html" class="nav-link">Custom Orders</a></li>
-          <li class="nav-item"><a href="classes.html" class="nav-link">Classes</a></li>
-          <li class="nav-item"><a href="tutorials.html" class="nav-link">Tutorials</a></li>
-          <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="./custom.html" class="nav-link">Custom Orders</a></li>
+          <li class="nav-item"><a href="./classes.html" class="nav-link">Classes</a></li>
+          <li class="nav-item"><a href="./tutorials.html" class="nav-link">Tutorials</a></li>
+          <li class="nav-item"><a href="./gallery.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
         </ul>
 
         <div class="right-buttons">
