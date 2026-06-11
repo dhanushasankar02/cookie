@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="image/favicon.png" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Login | CookieCraft</title>
@@ -438,7 +438,8 @@
         top: 12px;
         right: 12px;
         gap: 8px;
-      }
+      text-decoration: none;
+    }
       .control-btn {
         width: 42px;
         height: 42px;
@@ -458,8 +459,8 @@
 <body class="login-page">
   <!-- Sticky top-right buttons: Dark Mode + RTL -->
   <div class="sticky-controls">
-    <div class="control-btn" id="darkModeToggle" title="Dark Mode">🌙</div>
-    <div class="control-btn" id="rtlToggle" title="RTL Mode">⇄</div>
+    <div class="control-btn" id="darkModeToggle" title="Dark Mode" style="width:auto; padding:0 15px; font-size:1rem; gap:8px;">🌙 Dark Mode</div>
+    <div class="control-btn" id="rtlToggle" title="RTL Mode" style="width:auto; padding:0 15px; font-size:1rem; gap:8px;">⇄ RTL Mode</div>
   </div>
 
   <div class="login-container">
@@ -608,7 +609,7 @@
       const body = document.body;
       const updateDarkModeButton = (isDark) => {
         if (!darkToggle) return;
-        darkToggle.innerHTML = isDark ? '☀️' : '🌙';
+        darkToggle.innerHTML = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
         darkToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
       };
       const loadDarkMode = () => {
@@ -639,12 +640,12 @@
         if (enabled) {
           body.setAttribute('dir', 'rtl');
           localStorage.setItem('cookieStudio-rtl', 'enabled');
-          if (rtlToggle) rtlToggle.innerHTML = 'LTR';
+          if (rtlToggle) rtlToggle.innerHTML = 'LTR Mode';
           if (card) card.style.direction = 'rtl';
         } else {
           body.setAttribute('dir', 'ltr');
           localStorage.setItem('cookieStudio-rtl', 'disabled');
-          if (rtlToggle) rtlToggle.innerHTML = '⇄';
+          if (rtlToggle) rtlToggle.innerHTML = '⇄ RTL Mode';
           if (card) card.style.direction = 'ltr';
         }
       };
@@ -655,3 +656,5 @@
   </script>
 </body>
 </html>
+
+

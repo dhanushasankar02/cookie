@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="image/favicon.png" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Cookie Studio Gallery | Artisan Cookie Creations</title>
@@ -212,10 +212,10 @@
       display: inline-block;
       margin-right: 8px;
       font-size: 0.85rem;
-      color: #c77a3f;
+      color: inherit; opacity: 0.7;
     }
     body.dark-mode .dropdown-item { color: #f0decb; }
-    body.dark-mode .dropdown-item i { color: #eab67a; }
+    body.dark-mode .dropdown-item i { color: inherit; opacity: 0.7; }
     .dropdown-item:hover { background-color: rgba(210, 160, 110, 0.2); color: #c16f34; }
     .dropdown-item.active { background-color: rgba(210, 160, 110, 0.2); color: red; }
     body.dark-mode .dropdown-item:hover { color: #f7c894; }
@@ -242,6 +242,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      text-decoration: none;
     }
     .btn-outline i { font-size: 1rem; }
     body.dark-mode .btn-outline { border-color: #cc9a6c; color: #f6cfaa; }
@@ -343,16 +344,16 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(199, 122, 63, 0.12);
+      background: rgba(0, 0, 0, 0.1);
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      color: #b1622e;
+      color: inherit; opacity: 0.7;
       font-size: 1.2rem;
       transition: all 0.25s;
       text-decoration: none;
     }
-    body.dark-mode .social-links a { background: rgba(234, 182, 122, 0.15); color: #eab67a; }
+    body.dark-mode .social-links a { background: rgba(0, 0, 0, 0.1); color: inherit; opacity: 0.7; }
     .social-links a:hover { background: #c77a3f; color: white; transform: translateY(-3px); }
     body.dark-mode .social-links a:hover { background: #eab67a; color: #1e1916; }
     .footer-col h4 {
@@ -384,14 +385,15 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none;
     }
     body.dark-mode .footer-links a { color: #e2cfbc; }
-    .footer-links a i { font-size: 0.75rem; color: #c77a3f; width: 20px; }
+    .footer-links a i { font-size: 0.75rem; color: inherit; opacity: 0.7; width: 20px; }
     .footer-links a:hover { color: #c16f34; padding-left: 4px; }
     body.dark-mode .footer-links a:hover { color: #f6cfaa; }
     .contact-info p { display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; flex-wrap: wrap; }
-    .contact-info i { width: 24px; color: #c77a3f; font-size: 1rem; }
-    body.dark-mode .contact-info i { color: #eab67a; }
+    .contact-info i { width: 24px; color: inherit; opacity: 0.7; font-size: 1rem; }
+    body.dark-mode .contact-info i { color: inherit; opacity: 0.7; }
     .newsletter-form { display: flex; flex-wrap: wrap; margin-top: 1rem; gap: 0.5rem; }
     .newsletter-form input {
       flex: 1;
@@ -406,7 +408,7 @@
       transition: 0.2s;
     }
     body.dark-mode .newsletter-form input { background: #2c2621; border-color: #5d3f2b; color: #f0e2d4; }
-    .newsletter-form input:focus { border-color: #c77a3f; box-shadow: 0 0 0 2px rgba(199, 122, 63, 0.2); }
+    .newsletter-form input:focus { border-color: inherit; opacity: 0.7; box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08); }
     .btn-footer {
       background: #c77a3f;
       border: none;
@@ -439,7 +441,7 @@
     .legal-links { display: flex; gap: 1.2rem; }
     .legal-links a { text-decoration: none; color: #6b4d36; transition: color 0.2s; }
     body.dark-mode .legal-links a { color: #c6aa8c; }
-    .legal-links a:hover { color: #c77a3f; }
+    .legal-links a:hover { color: inherit; opacity: 0.7; }
 
     @media (max-width: 780px) {
       .footer-container { grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -903,7 +905,7 @@
           </ul>
   
           <div class="right-buttons">
-            <button id="darkModeToggle" class="btn-outline" aria-label="Dark mode toggle"><i class="fas fa-moon"></i></button>
+            <button id="darkModeToggle" class="btn-outline" aria-label="Dark mode toggle"><i class="fas fa-moon"></i> Dark Mode</button>
             <button id="rtlToggle" class="btn-outline" aria-label="Toggle RTL layout"><i class="fa-solid fa-right-left"></i></button>
             <a href="login.html" id="loginBtn" class="btn-outline btn-login" style="text-decoration: none;"><i class="fas fa-user"></i> Login</a>
           </div>
@@ -931,36 +933,36 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/gallery 1.jpg" alt="Chocolate chip cookie stack" decoding="async">
-        <div class="gallery-caption"><h4>Classic comfort</h4><p>Brown butter sea salt & dark chocolate</p></div>
+        <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/gallery 7.jpg" alt="Victorian Royal Icing Cookie" decoding="async">
+        <div class="gallery-caption"><h4>Victorian Lace</h4><p>Intricate royal icing piping</p></div>
       </div>
       <div class="gallery-item">
         <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/gallery 2.jpg" alt="Iced sugar cookies" decoding="async">
-        <div class="gallery-caption"><h4>Royal icing blooms</h4><p>Spring floral collection</p></div>
+        <div class="gallery-caption"><h4>Spring Blooms</h4><p>Floral baby shower collection</p></div>
       </div>
       <div class="gallery-item">
         <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/gallery 3.jpg" alt="Heart cookies" decoding="async">
-        <div class="gallery-caption"><h4>Love letter cookies</h4><p>Valentine's day special</p></div>
+        <div class="gallery-caption"><h4>Love Letters</h4><p>Hand-scripted Valentine's special</p></div>
       </div>
       <div class="gallery-item">
-        <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/gallery 4.jpg" alt="Gingerbread cookies" decoding="async">
-        <div class="gallery-caption"><h4>Spiced gingerbread</h4><p>Winter wonderland set</p></div>
+        <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/tutorials 4.jpg" alt="Lace piping cookie" decoding="async">
+        <div class="gallery-caption"><h4>Filigree Borders</h4><p>Delicate suspended icing details</p></div>
       </div>
       <div class="gallery-item">
-        <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/gallery 5.jpg" alt="Stuffed cookies" decoding="async">
-        <div class="gallery-caption"><h4>Stuffed surprise</h4><p>Nutella & marshmallow dream</p></div>
+        <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/classes 10.jpg" alt="Wedding Collection" decoding="async">
+        <div class="gallery-caption"><h4>Wedding Elegance</h4><p>Bespoke bridal cookie art</p></div>
       </div>
       <div class="gallery-item">
-        <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/gallery 6.jpg" alt="Matcha cookie" decoding="async">
-        <div class="gallery-caption"><h4>Matcha white chocolate</h4><p>Earthy & elegant</p></div>
+        <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/about 1.jpg" alt="Watercolor cookie painting" decoding="async">
+        <div class="gallery-caption"><h4>Edible Canvas</h4><p>Watercolor botanical painting</p></div>
       </div>
       <div class="gallery-item">
-        <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/gallery 7.jpg" alt="Cookie closeup" decoding="async">
-        <div class="gallery-caption"><h4>Brown butter pecan</h4><p>Crunchy caramel drizzle</p></div>
+        <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/about 2.jpg" alt="Handpainted Cookie" decoding="async">
+        <div class="gallery-caption"><h4>Handpainted Masterpiece</h4><p>Food coloring and lemon extract</p></div>
       </div>
       <div class="gallery-item">
-        <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/gallery 8.jpg" alt="Double chocolate cookie" decoding="async">
-        <div class="gallery-caption"><h4>Double fudge</h4><p>Deep cocoa & chocolate chunks</p></div>
+        <img loading="eager" fetchpriority="high" class="gallery-img" src="./images/tutorials 3.jpg" alt="Botanical cookie art" decoding="async">
+        <div class="gallery-caption"><h4>Botanical Portraits</h4><p>Detailed flora & fauna</p></div>
       </div>
     </div>
   </div>
@@ -1170,7 +1172,7 @@
       const body = document.body;
       const updateDarkModeButton = (isDark) => {
         if (!darkToggle) return;
-        darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i> Light Mode' : '<i class="fas fa-moon"></i> Dark Mode';
         darkToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
       };
       const loadDarkMode = () => {
@@ -1333,5 +1335,7 @@
   </script>
 </body>
 </html>
+
+
 
 

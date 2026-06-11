@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="image/favicon.png" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>CookieCraft | Artisan Cookie Studio â€” Cohesive Brand Design</title>
@@ -251,10 +251,10 @@
       display: inline-block;
       margin-right: 8px;
       font-size: 0.85rem;
-      color: #c77a3f;
+      color: inherit; opacity: 0.7;
     }
     body.dark-mode .dropdown-item { color: #f0decb; }
-    body.dark-mode .dropdown-item i { color: #eab67a; }
+    body.dark-mode .dropdown-item i { color: inherit; opacity: 0.7; }
     .dropdown-item:hover { background-color: rgba(210, 160, 110, 0.2); color: #c16f34; }
     .dropdown-item.active { background-color: rgba(210, 160, 110, 0.2); color: red; }
     body.dark-mode .dropdown-item:hover { color: #f7c894; }
@@ -281,6 +281,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      text-decoration: none;
     }
     .btn-outline i { font-size: 1rem; }
     body.dark-mode .btn-outline { border-color: #cc9a6c; color: #f6cfaa; }
@@ -302,19 +303,20 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      text-decoration: none;
     }
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(199, 122, 63, 0.4);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
       color: #fff;
     }
     body.dark-mode .btn-primary {
       background: linear-gradient(135deg, #eab67a, #c77a3f);
       color: #1e1916;
-      box-shadow: 0 10px 20px rgba(234, 182, 122, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
     body.dark-mode .btn-primary:hover {
-      box-shadow: 0 12px 25px rgba(234, 182, 122, 0.3);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
     }
 
     .ab-hero-buttons .btn-outline,
@@ -416,16 +418,16 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(199, 122, 63, 0.12);
+      background: rgba(0, 0, 0, 0.1);
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      color: #b1622e;
+      color: inherit; opacity: 0.7;
       font-size: 1.2rem;
       transition: all 0.25s;
       text-decoration: none;
     }
-    body.dark-mode .social-links a { background: rgba(234, 182, 122, 0.15); color: #eab67a; }
+    body.dark-mode .social-links a { background: rgba(0, 0, 0, 0.1); color: inherit; opacity: 0.7; }
     .social-links a:hover { background: #c77a3f; color: white; transform: translateY(-3px); }
     body.dark-mode .social-links a:hover { background: #eab67a; color: #1e1916; }
     .footer-col h4 {
@@ -457,14 +459,15 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none;
     }
     body.dark-mode .footer-links a { color: #e2cfbc; }
-    .footer-links a i { font-size: 0.75rem; color: #c77a3f; width: 20px; }
+    .footer-links a i { font-size: 0.75rem; color: inherit; opacity: 0.7; width: 20px; }
     .footer-links a:hover { color: #c16f34; padding-left: 4px; }
     body.dark-mode .footer-links a:hover { color: #f6cfaa; }
     .contact-info p { display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; flex-wrap: wrap; }
-    .contact-info i { width: 24px; color: #c77a3f; font-size: 1rem; }
-    body.dark-mode .contact-info i { color: #eab67a; }
+    .contact-info i { width: 24px; color: inherit; opacity: 0.7; font-size: 1rem; }
+    body.dark-mode .contact-info i { color: inherit; opacity: 0.7; }
     .newsletter-form { display: flex; flex-wrap: wrap; margin-top: 1rem; gap: 0.5rem; }
     .newsletter-form input {
       flex: 1;
@@ -479,7 +482,7 @@
       transition: 0.2s;
     }
     body.dark-mode .newsletter-form input { background: #2c2621; border-color: #5d3f2b; color: #f0e2d4; }
-    .newsletter-form input:focus { border-color: #c77a3f; box-shadow: 0 0 0 2px rgba(199, 122, 63, 0.2); }
+    .newsletter-form input:focus { border-color: inherit; opacity: 0.7; box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08); }
     .btn-footer {
       background: #c77a3f;
       border: none;
@@ -512,7 +515,7 @@
     .legal-links { display: flex; gap: 1.2rem; }
     .legal-links a { text-decoration: none; color: #6b4d36; transition: color 0.2s; }
     body.dark-mode .legal-links a { color: #c6aa8c; }
-    .legal-links a:hover { color: #c77a3f; }
+    .legal-links a:hover { color: inherit; opacity: 0.7; }
 
     @media (max-width: 780px) {
       .footer-container { grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -639,9 +642,10 @@
       justify-content: center;
     }
     .ab-hero-img-main {
-      width: 80%;
-      height: 80%;
-      object-fit: cover;
+      display: block;
+      width: 80% !important;
+      height: 80% !important;
+      object-fit: cover !important;
       border-radius: 2rem;
       box-shadow: 0 20px 40px rgba(47, 36, 27, 0.15);
       border: 6px solid #fff;
@@ -655,9 +659,10 @@
     }
     .ab-hero-img-sub {
       position: absolute;
-      width: 45%;
-      height: 45%;
-      object-fit: cover;
+      display: block;
+      width: 45% !important;
+      height: 45% !important;
+      object-fit: cover !important;
       border-radius: 1.5rem;
       box-shadow: 0 15px 30px rgba(47, 36, 27, 0.2);
       border: 4px solid #fff;
@@ -685,7 +690,7 @@
       left: 10%;
       width: 350px;
       height: 350px;
-      background: radial-gradient(circle, rgba(199, 122, 63, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, transparent 70%);
       z-index: 1;
       pointer-events: none;
     }
@@ -710,9 +715,10 @@
       position: relative;
     }
     .ab-founder-img {
-      width: 100%;
-      height: 520px;
-      object-fit: cover;
+      display: block;
+      width: 100% !important;
+      height: 520px !important;
+      object-fit: cover !important;
       border-radius: 2.5rem 0 2.5rem 0;
       box-shadow: 0 25px 50px rgba(47, 36, 27, 0.12);
     }
@@ -727,13 +733,13 @@
       color: white;
       padding: 1.5rem 2rem;
       border-radius: 1.5rem;
-      box-shadow: 0 10px 25px rgba(199, 122, 63, 0.3);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
       text-align: center;
     }
     body.dark-mode .ab-founder-badge {
       background: linear-gradient(135deg, #eab67a, #c77a3f);
       color: #1e1916;
-      box-shadow: 0 10px 25px rgba(234, 182, 122, 0.2);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
     .ab-founder-badge .num {
       display: block;
@@ -817,6 +823,9 @@
       text-align: center;
       transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
       box-shadow: 0 10px 30px rgba(47, 36, 27, 0.03);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     body.dark-mode .ab-team-card {
       background-color: var(--ab-bg-card-dark);
@@ -825,11 +834,11 @@
     }
     .ab-team-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 45px rgba(199, 122, 63, 0.12);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
       border-color: var(--ab-primary);
     }
     body.dark-mode .ab-team-card:hover {
-      box-shadow: 0 20px 45px rgba(234, 182, 122, 0.08);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
       border-color: var(--ab-accent-gold);
     }
     .ab-team-avatar-wrapper {
@@ -846,9 +855,10 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
     .ab-team-avatar-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
       transition: transform 0.5s ease;
     }
     .ab-team-card:hover .ab-team-avatar-wrapper img {
@@ -871,7 +881,10 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 1rem;
-      display: block;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 2.8rem;
     }
     body.dark-mode .ab-team-role {
       color: var(--ab-accent-gold);
@@ -879,8 +892,9 @@
     .ab-team-desc {
       font-size: 0.95rem;
       color: var(--ab-text-muted-light);
-      line-height: 1.5;
+      line-height: 1.6;
       margin-bottom: 1.5rem;
+      flex-grow: 1;
     }
     body.dark-mode .ab-team-desc {
       color: var(--ab-text-muted-dark);
@@ -888,14 +902,14 @@
     .ab-team-skill {
       display: inline-block;
       font-size: 0.8rem;
-      background-color: rgba(199, 122, 63, 0.08);
+      background-color: rgba(0, 0, 0, 0.1);
       color: var(--ab-primary);
       padding: 0.4rem 1rem;
       border-radius: 50px;
       font-weight: 500;
     }
     body.dark-mode .ab-team-skill {
-      background-color: rgba(234, 182, 122, 0.1);
+      background-color: rgba(0, 0, 0, 0.1);
       color: var(--ab-accent-gold);
     }
 
@@ -940,7 +954,8 @@
     }
     .ab-ingredient-icon {
       font-size: 2.5rem;
-      color: var(--ab-accent-gold);
+      color: inherit;
+      opacity: 0.7;
       margin-bottom: 1.5rem;
       display: inline-block;
     }
@@ -1004,9 +1019,10 @@
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     }
     .ab-atelier-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
       transition: transform 0.6s ease;
     }
     .ab-atelier-step:hover .ab-atelier-media img {
@@ -1019,13 +1035,13 @@
       font-family: 'Poppins', sans-serif;
       font-size: 3.5rem;
       font-weight: 800;
-      color: rgba(199, 122, 63, 0.15);
+      color: rgba(0, 0, 0, 0.1);
       line-height: 1;
       margin-bottom: 1rem;
       display: block;
     }
     body.dark-mode .ab-atelier-num {
-      color: rgba(234, 182, 122, 0.12);
+      color: rgba(0, 0, 0, 0.1);
     }
     .ab-atelier-step-title {
       font-family: 'Playfair Display', serif;
@@ -1109,18 +1125,18 @@
       background-color: var(--ab-primary);
       border: 4px solid #FFFDF8;
       margin: 0 auto 2.5rem;
-      box-shadow: 0 0 0 4px rgba(199, 122, 63, 0.15);
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08);
       transition: all 0.3s ease;
     }
     body.dark-mode .ab-milestone-dot {
       background-color: var(--ab-accent-gold);
       border-color: #1a1512;
-      box-shadow: 0 0 0 4px rgba(234, 182, 122, 0.15);
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2);
     }
     .ab-milestone-card:hover .ab-milestone-dot {
       transform: scale(1.3);
       background-color: var(--ab-primary-hover);
-      box-shadow: 0 0 0 8px rgba(199, 122, 63, 0.25);
+      box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.08);
     }
     .ab-milestone-title {
       font-family: 'Playfair Display', serif;
@@ -1174,7 +1190,7 @@
       font-size: 2rem;
       color: var(--ab-primary);
       margin: 0 auto 2rem;
-      box-shadow: 0 10px 25px rgba(199, 122, 63, 0.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
       transition: all 0.3s ease;
     }
     body.dark-mode .ab-pillar-icon-box {
@@ -1267,18 +1283,23 @@
     }
 
     /* RESPONSIVE LAYOUTS */
-    @media (max-width: 1024px) {
-      .ab-section {
-        padding: 5rem 1.5rem;
-      }
-      .ab-hero-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
-      }
-      .ab-hero-text {
-        max-width: 100%;
-      }
+      @media (max-width: 1024px) {
+        .ab-section {
+          padding: 5rem 1.5rem;
+        }
+        .ab-hero {
+          padding-top: 8rem;
+          padding-bottom: 4rem;
+        }
+        .ab-hero-grid {
+          grid-template-columns: 1fr;
+          gap: 4.5rem;
+          text-align: center;
+        }
+        .ab-hero-text {
+          max-width: 100%;
+          padding-bottom: 1rem;
+        }
       .ab-hero-buttons {
         justify-content: center;
       }
@@ -1378,7 +1399,7 @@
         </ul>
 
         <div class="right-buttons">
-          <button id="darkModeToggle" class="btn-outline" aria-label="Dark mode toggle"><i class="fas fa-moon"></i></button>
+          <button id="darkModeToggle" class="btn-outline" aria-label="Dark mode toggle"><i class="fas fa-moon"></i> Dark Mode</button>
           <button id="rtlToggle" class="btn-outline" aria-label="Toggle RTL layout"><i class="fa-solid fa-right-left"></i></button>
           <a href="login.html" id="loginBtn" class="btn-outline btn-login" style="text-decoration: none;"><i class="fas fa-user"></i> Login</a>
         </div>
@@ -1400,7 +1421,7 @@
         </div>
       </div>
       <div class="ab-hero-images">
-        <img loading="eager" fetchpriority="high" src="./images/about 1.jpg" alt="Cookiecraft Studio Decorating" class="ab-hero-img-main">
+        <img loading="eager" fetchpriority="high" src="./images/about 7.jpg" alt="Cookiecraft Studio Decorating" class="ab-hero-img-main">
         <img loading="eager" fetchpriority="high" src="./images/about 2.jpg" alt="Finished Handpainted Cookie" class="ab-hero-img-sub">
       </div>
     </div>
@@ -1424,7 +1445,7 @@
         <p>In 2018, Evelyn opened the CookieCraft Studio. Combining her rigorous art background with traditional French patisserie techniques, she pioneered our signature watercolor frosting style, establishing the studio as a benchmark of modern culinary design.</p>
         <div class="ab-founder-signature">
           Evelyn Stone
-          <span>Founder & Master Pastry Artist</span>
+          <span>Founder & Master Pastry</span>
         </div>
       </div>
     </div>
@@ -1445,7 +1466,7 @@
             <img loading="eager" fetchpriority="high" src="./images/Evelyn Stone.jpg" alt="Evelyn Stone">
           </div>
           <h3 class="ab-team-name">Evelyn Stone</h3>
-          <span class="ab-team-role">Founder & Master Pastry Artist</span>
+          <span class="ab-team-role">Founder & Master Pastry</span>
           <p class="ab-team-desc">Pioneered our signature watercolor hand-painting technique, translating fine-art skills onto royal icing canvases.</p>
           <span class="ab-team-skill">Watercolor Royal Icing</span>
         </div>
@@ -1475,7 +1496,7 @@
             <img loading="eager" fetchpriority="high" src="./images/Oliver Brooks.jpg" alt="Oliver Brooks">
           </div>
           <h3 class="ab-team-name">Oliver Brooks</h3>
-          <span class="ab-team-role">Studio Director & Sugar Historian</span>
+          <span class="ab-team-role">Studio Director & Sugar</span>
           <p class="ab-team-desc">Sources heirloom grains and rare spices globally while curating custom client design projects for luxury events.</p>
           <span class="ab-team-skill">Ethical Global Sourcing</span>
         </div>
@@ -1494,25 +1515,25 @@
       <div class="ab-ingredients-grid">
         <!-- Ingredient 1 -->
         <div class="ab-ingredient-card">
-          <div class="ab-ingredient-icon"><i class="fas fa-seedling"></i></div>
+          <div class="ab-ingredient-icon"><i class="fas fa-leaf"></i></div>
           <h3 class="ab-ingredient-name">Madagascan Bourbon Vanilla</h3>
           <p class="ab-ingredient-desc">Hand-pollinated orchids from single-family estates, providing sweet woody notes and rich, visible vanilla bean caviar speckled throughout our dough.</p>
         </div>
         <!-- Ingredient 2 -->
         <div class="ab-ingredient-card">
-          <div class="ab-ingredient-icon"><i class="fas fa-water"></i></div>
+          <div class="ab-ingredient-icon"><i class="fas fa-snowflake"></i></div>
           <h3 class="ab-ingredient-name">Fleur de Sel de Guacrande</h3>
           <p class="ab-ingredient-desc">Rare sea salt skimmed by hand using traditional wooden rakes from salt pans in Brittany, offering a delicate crunch that balances our sweet butter base.</p>
         </div>
         <!-- Ingredient 3 -->
         <div class="ab-ingredient-card">
-          <div class="ab-ingredient-icon"><i class="fa-solid fa-cow"></i></div>
+          <div class="ab-ingredient-icon"><i class="fas fa-cheese"></i></div>
           <h3 class="ab-ingredient-name">Cultured Grass-Fed Butter</h3>
           <p class="ab-ingredient-desc">Churned from pasture-raised Guernsey cream at local family farms, containing 84% butterfat for an extraordinarily velvety crumb and rich flavor profile.</p>
         </div>
         <!-- Ingredient 4 -->
         <div class="ab-ingredient-card">
-          <div class="ab-ingredient-icon"><i class="fas fa-mortar-pestle"></i></div>
+          <div class="ab-ingredient-icon"><i class="fas fa-wheat-awn"></i></div>
           <h3 class="ab-ingredient-name">Heirloom Organic Flour</h3>
           <p class="ab-ingredient-desc">Stone-milled soft white winter wheat harvested from regenerative fields, preserving natural nuttiness and yielding clean structure with a melting texture.</p>
         </div>
@@ -1532,7 +1553,7 @@
         <!-- Step 1 -->
         <div class="ab-atelier-step">
           <div class="ab-atelier-media">
-            <img loading="eager" fetchpriority="high" src="./images/about 5.jpg" alt="Precision Baking">
+            <img loading="eager" fetchpriority="high" src="./images/gallery 5.jpg" alt="Precision Baking">
           </div>
           <div class="ab-atelier-content">
             <span class="ab-atelier-num"></span>
@@ -1541,9 +1562,9 @@
           </div>
         </div>
         <!-- Step 2 -->
-        <div class="ab-atelier-step reverse">
+        <div class="ab-atelier-step">
           <div class="ab-atelier-media">
-            <img loading="eager" fetchpriority="high" src="./images/about 6.jpg" alt="Icing Flooding">
+            <img loading="eager" fetchpriority="high" src="./images/gallery 17.jpg" alt="Icing Flooding">
           </div>
           <div class="ab-atelier-content">
             <span class="ab-atelier-num"></span>
@@ -1554,7 +1575,7 @@
         <!-- Step 3 -->
         <div class="ab-atelier-step">
           <div class="ab-atelier-media">
-            <img loading="eager" fetchpriority="high" src="./images/about 7.jpg" alt="Hand Painting watercolor">
+            <img loading="eager" fetchpriority="high" src="./images/about 1.jpg" alt="Hand Painting watercolor">
           </div>
           <div class="ab-atelier-content">
             <span class="ab-atelier-num"></span>
@@ -1563,9 +1584,9 @@
           </div>
         </div>
         <!-- Step 4 -->
-        <div class="ab-atelier-step reverse">
+        <div class="ab-atelier-step">
           <div class="ab-atelier-media">
-            <img loading="eager" fetchpriority="high" src="./images/about 8.jpg" alt="Micro-Piping details">
+            <img loading="eager" fetchpriority="high" src="./images/tutorials 4.jpg" alt="Micro-Piping details">
           </div>
           <div class="ab-atelier-content">
             <span class="ab-atelier-num"></span>
@@ -1732,7 +1753,7 @@
       const body = document.body;
       const updateDarkModeButton = (isDark) => {
         if (!darkToggle) return;
-        darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i> Light Mode' : '<i class="fas fa-moon"></i> Dark Mode';
         darkToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
       };
       const loadDarkMode = () => {
@@ -1882,3 +1903,5 @@
   </script>
 </body>
 </html>
+
+

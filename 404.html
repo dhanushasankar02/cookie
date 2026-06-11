@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="image/favicon.png" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>CookieCraft | Page Not Found (404)</title>
@@ -221,10 +221,10 @@
       display: inline-block;
       margin-right: 8px;
       font-size: 0.85rem;
-      color: #c77a3f;
+      color: inherit; opacity: 0.7;
     }
     body.dark-mode .dropdown-item { color: #f0decb; }
-    body.dark-mode .dropdown-item i { color: #eab67a; }
+    body.dark-mode .dropdown-item i { color: inherit; opacity: 0.7; }
     .dropdown-item:hover { background-color: rgba(210, 160, 110, 0.2); color: #c16f34; }
     body.dark-mode .dropdown-item:hover { color: #f7c894; }
 
@@ -249,6 +249,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      text-decoration: none;
     }
     .btn-outline i { font-size: 1rem; }
     body.dark-mode .btn-outline { border-color: #cc9a6c; color: #f6cfaa; }
@@ -531,20 +532,20 @@
       border-radius: 50px;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 20px rgba(199, 122, 63, 0.3);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
       cursor: pointer;
     }
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 25px rgba(199, 122, 63, 0.4);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
     }
     body.dark-mode .btn-primary {
       background: linear-gradient(135deg, #eab67a, #c77a3f);
       color: #1e1916;
-      box-shadow: 0 10px 20px rgba(234, 182, 122, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
     body.dark-mode .btn-primary:hover {
-      box-shadow: 0 15px 25px rgba(234, 182, 122, 0.3);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
     }
 
     .error-actions .btn-primary {
@@ -566,9 +567,9 @@
     }
 
     @keyframes pulseBtn {
-      0% { box-shadow: 0 0 0 0 rgba(199, 122, 63, 0.4); }
-      70% { box-shadow: 0 0 0 12px rgba(199, 122, 63, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(199, 122, 63, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08); }
+      70% { box-shadow: 0 0 0 12px rgba(0, 0, 0, 0.08); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08); }
     }
 
     @media (max-width: 600px) {
@@ -608,16 +609,16 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(199, 122, 63, 0.12);
+      background: rgba(0, 0, 0, 0.1);
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      color: #b1622e;
+      color: inherit; opacity: 0.7;
       font-size: 1.2rem;
       transition: all 0.25s;
       text-decoration: none;
     }
-    body.dark-mode .social-links a { background: rgba(234, 182, 122, 0.15); color: #eab67a; }
+    body.dark-mode .social-links a { background: rgba(0, 0, 0, 0.1); color: inherit; opacity: 0.7; }
     .social-links a:hover { background: #c77a3f; color: white; transform: translateY(-3px); }
     body.dark-mode .social-links a:hover { background: #eab67a; color: #1e1916; }
     
@@ -651,15 +652,16 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none;
     }
     body.dark-mode .footer-links a { color: #e2cfbc; }
-    .footer-links a i { font-size: 0.75rem; color: #c77a3f; width: 20px; }
+    .footer-links a i { font-size: 0.75rem; color: inherit; opacity: 0.7; width: 20px; }
     .footer-links a:hover { color: #c16f34; padding-left: 4px; }
     body.dark-mode .footer-links a:hover { color: #f6cfaa; }
     
     .contact-info p { display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; flex-wrap: wrap; }
-    .contact-info i { width: 24px; color: #c77a3f; font-size: 1rem; }
-    body.dark-mode .contact-info i { color: #eab67a; }
+    .contact-info i { width: 24px; color: inherit; opacity: 0.7; font-size: 1rem; }
+    body.dark-mode .contact-info i { color: inherit; opacity: 0.7; }
     
     .newsletter-form { display: flex; flex-wrap: wrap; margin-top: 1rem; gap: 0.5rem; }
     .newsletter-form input {
@@ -675,7 +677,7 @@
       transition: 0.2s;
     }
     body.dark-mode .newsletter-form input { background: #2c2621; border-color: #5d3f2b; color: #f0e2d4; }
-    .newsletter-form input:focus { border-color: #c77a3f; box-shadow: 0 0 0 2px rgba(199, 122, 63, 0.2); }
+    .newsletter-form input:focus { border-color: inherit; opacity: 0.7; box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08); }
     
     .footer-bottom {
       text-align: center;
@@ -692,7 +694,7 @@
     .legal-links { display: flex; gap: 1.2rem; }
     .legal-links a { text-decoration: none; color: #6b4d36; transition: color 0.2s; }
     body.dark-mode .legal-links a { color: #c6aa8c; }
-    .legal-links a:hover { color: #c77a3f; }
+    .legal-links a:hover { color: inherit; opacity: 0.7; }
 
     @media (max-width: 780px) {
       .footer-container { grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -758,7 +760,7 @@
       const body = document.body;
       const updateDarkModeButton = (isDark) => {
         if (!darkToggle) return;
-        darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i> Light Mode' : '<i class="fas fa-moon"></i> Dark Mode';
         darkToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
       };
       const loadDarkMode = () => {
@@ -894,4 +896,6 @@
   </script>
 </body>
 </html>
+
+
 

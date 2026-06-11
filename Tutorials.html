@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="image/favicon.png" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>CookieCraft | Artisan Cookie Studio â€” Cohesive Brand Design</title>
@@ -235,10 +235,10 @@
       display: inline-block;
       margin-right: 8px;
       font-size: 0.85rem;
-      color: #c77a3f;
+      color: inherit; opacity: 0.7;
     }
     body.dark-mode .dropdown-item { color: #f0decb; }
-    body.dark-mode .dropdown-item i { color: #eab67a; }
+    body.dark-mode .dropdown-item i { color: inherit; opacity: 0.7; }
     .dropdown-item:hover { background-color: rgba(210, 160, 110, 0.2); color: #c16f34; }
     .dropdown-item.active { background-color: rgba(210, 160, 110, 0.2); color: red; }
     body.dark-mode .dropdown-item:hover { color: #f7c894; }
@@ -265,6 +265,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      text-decoration: none;
     }
     .btn-outline i { font-size: 1rem; }
     body.dark-mode .btn-outline { border-color: #cc9a6c; color: #f6cfaa; }
@@ -366,16 +367,16 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(199, 122, 63, 0.12);
+      background: rgba(0, 0, 0, 0.1);
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      color: #b1622e;
+      color: inherit; opacity: 0.7;
       font-size: 1.2rem;
       transition: all 0.25s;
       text-decoration: none;
     }
-    body.dark-mode .social-links a { background: rgba(234, 182, 122, 0.15); color: #eab67a; }
+    body.dark-mode .social-links a { background: rgba(0, 0, 0, 0.1); color: inherit; opacity: 0.7; }
     .social-links a:hover { background: #c77a3f; color: white; transform: translateY(-3px); }
     body.dark-mode .social-links a:hover { background: #eab67a; color: #1e1916; }
     .footer-col h4 {
@@ -407,14 +408,15 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none;
     }
     body.dark-mode .footer-links a { color: #e2cfbc; }
-    .footer-links a i { font-size: 0.75rem; color: #c77a3f; width: 20px; }
+    .footer-links a i { font-size: 0.75rem; color: inherit; opacity: 0.7; width: 20px; }
     .footer-links a:hover { color: #c16f34; padding-left: 4px; }
     body.dark-mode .footer-links a:hover { color: #f6cfaa; }
     .contact-info p { display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; flex-wrap: wrap; }
-    .contact-info i { width: 24px; color: #c77a3f; font-size: 1rem; }
-    body.dark-mode .contact-info i { color: #eab67a; }
+    .contact-info i { width: 24px; color: inherit; opacity: 0.7; font-size: 1rem; }
+    body.dark-mode .contact-info i { color: inherit; opacity: 0.7; }
     .newsletter-form { display: flex; flex-wrap: wrap; margin-top: 1rem; gap: 0.5rem; }
     .newsletter-form input {
       flex: 1;
@@ -429,7 +431,7 @@
       transition: 0.2s;
     }
     body.dark-mode .newsletter-form input { background: #2c2621; border-color: #5d3f2b; color: #f0e2d4; }
-    .newsletter-form input:focus { border-color: #c77a3f; box-shadow: 0 0 0 2px rgba(199, 122, 63, 0.2); }
+    .newsletter-form input:focus { border-color: inherit; opacity: 0.7; box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08); }
     .btn-footer {
       background: #c77a3f;
       border: none;
@@ -462,7 +464,7 @@
     .legal-links { display: flex; gap: 1.2rem; }
     .legal-links a { text-decoration: none; color: #6b4d36; transition: color 0.2s; }
     body.dark-mode .legal-links a { color: #c6aa8c; }
-    .legal-links a:hover { color: #c77a3f; }
+    .legal-links a:hover { color: inherit; opacity: 0.7; }
 
     @media (max-width: 780px) {
       .footer-container { grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -544,7 +546,7 @@
     .tut-hero-badge {
       display: inline-block;
       padding: 0.4rem 1rem;
-      background: rgba(199, 122, 63, 0.1);
+      background: rgba(0, 0, 0, 0.1);
       color: var(--secondary-cookie);
       border-radius: 30px;
       font-weight: 600;
@@ -584,20 +586,20 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 10px 20px rgba(199, 122, 63, 0.25);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
       border: none;
       cursor: pointer;
       transition: all 0.3s ease;
     }
     .btn-primary-tut:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 25px rgba(199, 122, 63, 0.35);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
       background: linear-gradient(135deg, #b35f2a, #994c1a);
     }
     body.dark-mode .btn-primary-tut {
       background: linear-gradient(135deg, #eab67a, #d48d53);
       color: #1e1916;
-      box-shadow: 0 10px 20px rgba(234, 182, 122, 0.15);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
     body.dark-mode .btn-primary-tut:hover {
       background: linear-gradient(135deg, #d48d53, #bf7c43);
@@ -727,8 +729,8 @@
       margin-bottom: 3rem;
     }
     .explorer-tab {
-      background: rgba(199, 122, 63, 0.05);
-      border: 1px solid rgba(199, 122, 63, 0.15);
+      background: rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
       color: var(--text-cookie);
       padding: 0.8rem 1.8rem;
       border-radius: 50px;
@@ -739,13 +741,14 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none;
     }
     .explorer-tab i {
       font-size: 0.95rem;
     }
     body.dark-mode .explorer-tab {
       background: rgba(93, 63, 43, 0.25);
-      border-color: rgba(234, 182, 122, 0.25);
+      border-color: rgba(0, 0, 0, 0.1);
       color: #f0e2d4;
     }
     .explorer-tab:hover, .explorer-tab.active {
@@ -886,7 +889,7 @@
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease-out, opacity 0.3s;
-      background: rgba(199, 122, 63, 0.04);
+      background: rgba(0, 0, 0, 0.1);
       border-radius: 12px;
       padding: 0;
       margin-bottom: 0;
@@ -894,7 +897,7 @@
     }
     body.dark-mode .card-checklist-content {
       background: rgba(93, 63, 43, 0.35);
-      border: 1px solid rgba(234, 182, 122, 0.18);
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
     .card-checklist-content.open {
       max-height: 250px;
@@ -1037,18 +1040,18 @@
     }
     body.dark-mode .step-indicator {
       background: #1e1916;
-      border-color: rgba(234, 182, 122, 0.4);
+      border-color: rgba(0, 0, 0, 0.1);
       color: #eab67a;
     }
     .step-indicator.active {
       background: var(--primary-cookie);
       border-color: var(--primary-cookie);
       color: white;
-      box-shadow: 0 0 0 6px rgba(199, 122, 63, 0.15);
+      box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.08);
     }
     body.dark-mode .step-indicator.active {
       color: #1e1916;
-      box-shadow: 0 0 0 6px rgba(234, 182, 122, 0.15);
+      box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.2);
     }
     .step-indicator.completed {
       background: var(--accent-mint);
@@ -1152,7 +1155,7 @@
       color: var(--text-cookie);
     }
     .btn-step-nav:hover:not(:disabled) {
-      background: rgba(199, 122, 63, 0.08);
+      background: rgba(0, 0, 0, 0.1);
       border-color: var(--primary-cookie);
     }
     .btn-step-nav:disabled {
@@ -1247,7 +1250,7 @@
       border-radius: 50%;
       background: var(--primary-cookie);
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(199, 122, 63, 0.35);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
       transition: transform 0.1s;
     }
     .calc-slider::-webkit-slider-thumb:hover {
@@ -1260,8 +1263,8 @@
       margin-bottom: 2rem;
     }
     .calc-ing-item {
-      background: rgba(199, 122, 63, 0.04);
-      border: 1px solid rgba(199, 122, 63, 0.1);
+      background: rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 16px;
       padding: 1.1rem;
       display: flex;
@@ -1296,6 +1299,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      text-decoration: none;
     }
     .btn-calc-action:hover {
       background: var(--secondary-cookie);
@@ -1351,7 +1355,7 @@
     }
     .trouble-item.active {
       border-color: var(--primary-cookie);
-      box-shadow: 0 10px 25px rgba(199, 122, 63, 0.06);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
     .trouble-item.active .trouble-toggle-icon {
       transform: rotate(180deg);
@@ -1483,6 +1487,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      text-decoration: none;
     }
     .btn-download-stencil:hover {
       background: var(--primary-cookie);
@@ -1574,7 +1579,7 @@
     }
 
     .submit-challenge-box {
-      background: linear-gradient(135deg, rgba(199, 122, 63, 0.05), rgba(179, 95, 42, 0.05));
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
       border: 1px dashed var(--primary-cookie);
       border-radius: 24px;
       padding: 2.5rem;
@@ -1665,7 +1670,7 @@
     }
     .btn-submit-creation:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(199, 122, 63, 0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     }
     body.dark-mode .btn-submit-creation {
       color: #1e1916;
@@ -1800,7 +1805,7 @@
         </ul>
 
         <div class="right-buttons">
-          <button id="darkModeToggle" class="btn-outline" aria-label="Dark mode toggle"><i class="fas fa-moon"></i></button>
+          <button id="darkModeToggle" class="btn-outline" aria-label="Dark mode toggle"><i class="fas fa-moon"></i> Dark Mode</button>
           <button id="rtlToggle" class="btn-outline" aria-label="Toggle RTL layout"><i class="fa-solid fa-right-left"></i></button>
           <a href="login.html" id="loginBtn" class="btn-outline btn-login" style="text-decoration: none;"><i class="fas fa-user"></i> Login</a>
         </div>
@@ -2041,7 +2046,7 @@
 
       <div class="step-content-box" id="stepContentBox">
         <div class="step-image-side">
-          <img loading="eager" fetchpriority="high" id="stepImage" src="./images/tutorials 8.jpg" alt="Bake & Shape step">
+          <img loading="eager" fetchpriority="high" id="stepImage" src="./images/about 5.jpg" alt="Bake & Shape step">
         </div>
         <div class="step-text-side">
           <span class="step-number-tag" id="stepNumber">Step 1 of 4</span>
@@ -2114,7 +2119,7 @@
             <span class="calc-ing-val" id="valEggs">1 yolk</span>
             <span class="calc-ing-name">Large Egg yolk</span>
           </div>
-          <div class="calc-ing-item" style="grid-column: span 2;">
+          <div class="calc-ing-item" style="grid-column: 1 / -1;">
             <span class="calc-ing-val" id="valExtract">2.0 tsp</span>
             <span class="calc-ing-name">Pure Vanilla Extract</span>
           </div>
@@ -2201,7 +2206,7 @@
       <div class="stencil-card">
         <div class="stencil-blueprint">
           <div class="blueprint-lines"></div>
-          <i class="fas fa-birthday-cake blueprint-art"></i>
+          <img src="./images/gallery 7.jpg" alt="Victorian Carousel" style="width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 2; opacity: 0.9;">
         </div>
         <h3 class="stencil-title">Victorian Carousel Template</h3>
         <div class="stencil-meta">
@@ -2215,7 +2220,7 @@
       <div class="stencil-card">
         <div class="stencil-blueprint">
           <div class="blueprint-lines"></div>
-          <i class="fas fa-leaf blueprint-art"></i>
+          <img src="./images/tutorials 3.jpg" alt="Botanical Garland" style="width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 2; opacity: 0.9;">
         </div>
         <h3 class="stencil-title">Botanical Garland Frames</h3>
         <div class="stencil-meta">
@@ -2229,7 +2234,7 @@
       <div class="stencil-card">
         <div class="stencil-blueprint">
           <div class="blueprint-lines"></div>
-          <i class="fas fa-paw blueprint-art"></i>
+          <img src="./images/gallery 2.jpg" alt="Woodland Animals" style="width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 2; opacity: 0.9;">
         </div>
         <h3 class="stencil-title">Cute Woodland Animals</h3>
         <div class="stencil-meta">
@@ -2369,7 +2374,7 @@
       const body = document.body;
       const updateDarkModeButton = (isDark) => {
         if (!darkToggle) return;
-        darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i> Light Mode' : '<i class="fas fa-moon"></i> Dark Mode';
         darkToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
       };
       const loadDarkMode = () => {
@@ -2461,7 +2466,7 @@
           desc: "Start with our signature no-spread vanilla cookie recipe. Chill the rolled cookie sheets for at least 30 minutes before cutting to ensure crisp edges that do not warp during baking. Bake at 350Â°F (175Â°C) for 10-12 minutes until barely golden on the bottom.",
           tipTitle: "Pro-Tip from Chef Sarah:",
           tipContent: "Roll your cookie dough between two sheets of parchment paper with 1/4-inch guides to guarantee perfectly uniform thickness.",
-          image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?q=80&w=600"
+          image: "./images/about 5.jpg"
         },
         {
           number: "Step 2 of 4",
@@ -2469,7 +2474,7 @@
           desc: "Outline the outer edge with piping consistency royal icing (toothpaste thickness). Let it set for 2 minutes, then use flood consistency royal icing (shampoo thickness) to flood the interior. Tap gently on the counter to pop surface air bubbles, then use a scribe tool to pop any remaining pockets.",
           tipTitle: "Pro-Tip from Chef Sarah:",
           tipContent: "Allow flooded cookies to dry under a table fan for the first 30 minutes. This creates a beautifully glossy shell with no cratering.",
-          image: "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=600"
+          image: "./images/gallery 17.jpg"
         },
         {
           number: "Step 3 of 4",
@@ -2477,7 +2482,7 @@
           desc: "Using a small PTP-1 tip and stiff piping icing, gently hover the piping bag above the surface to pipe a grid structure. Hovering creates straight, tensioned suspension lines rather than dragging the tip, which causes squiggles.",
           tipTitle: "Pro-Tip from Chef Sarah:",
           tipContent: "Keep a damp towel nearby to wipe the piping tip constantly. Dried sugar at the tip ruins line thickness and consistency.",
-          image: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=800"
+          image: "./images/tutorials 4.jpg"
         },
         {
           number: "Step 4 of 4",
@@ -2485,7 +2490,7 @@
           desc: "Mix metallic gold luster powder with high-proof grain spirits or lemon extract to create paint. Brush the paint onto the raised lace details. The alcohol evaporates in seconds, leaving behind a brilliant, food-safe metallic paint.",
           tipTitle: "Pro-Tip from Chef Sarah:",
           tipContent: "Do not paint too thick. A light hand looks cleaner, and too much liquid will erode the royal icing underneath.",
-          image: "https://images.unsplash.com/photo-1542826438-bd32f43d626f?q=80&w=600"
+          image: "./images/about 1.jpg"
         }
       ];
 
@@ -2907,3 +2912,5 @@
   </script>
 </body>
 </html>
+
+

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="image/favicon.png" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>La Farine Bakery | Artisan Custom Orders</title>
@@ -236,10 +236,10 @@
       display: inline-block;
       margin-right: 8px;
       font-size: 0.85rem;
-      color: #c77a3f;
+      color: inherit; opacity: 0.7;
     }
     body.dark-mode .dropdown-item { color: #f0decb; }
-    body.dark-mode .dropdown-item i { color: #eab67a; }
+    body.dark-mode .dropdown-item i { color: inherit; opacity: 0.7; }
     .dropdown-item:hover { background-color: rgba(210, 160, 110, 0.2); color: #c16f34; }
     .dropdown-item.active { background-color: rgba(210, 160, 110, 0.2); color: red; }
     body.dark-mode .dropdown-item:hover { color: #f7c894; }
@@ -266,6 +266,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      text-decoration: none;
     }
     .btn-outline i { font-size: 1rem; }
     body.dark-mode .btn-outline { border-color: #cc9a6c; color: #f6cfaa; }
@@ -367,16 +368,16 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(199, 122, 63, 0.12);
+      background: rgba(0, 0, 0, 0.1);
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      color: #b1622e;
+      color: inherit; opacity: 0.7;
       font-size: 1.2rem;
       transition: all 0.25s;
       text-decoration: none;
     }
-    body.dark-mode .social-links a { background: rgba(234, 182, 122, 0.15); color: #eab67a; }
+    body.dark-mode .social-links a { background: rgba(0, 0, 0, 0.1); color: inherit; opacity: 0.7; }
     .social-links a:hover { background: #c77a3f; color: white; transform: translateY(-3px); }
     body.dark-mode .social-links a:hover { background: #eab67a; color: #1e1916; }
     .footer-col h4 {
@@ -408,14 +409,15 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none;
     }
     body.dark-mode .footer-links a { color: #e2cfbc; }
-    .footer-links a i { font-size: 0.75rem; color: #c77a3f; width: 20px; }
+    .footer-links a i { font-size: 0.75rem; color: inherit; opacity: 0.7; width: 20px; }
     .footer-links a:hover { color: #c16f34; padding-left: 4px; }
     body.dark-mode .footer-links a:hover { color: #f6cfaa; }
     .contact-info p { display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; flex-wrap: wrap; }
-    .contact-info i { width: 24px; color: #c77a3f; font-size: 1rem; }
-    body.dark-mode .contact-info i { color: #eab67a; }
+    .contact-info i { width: 24px; color: inherit; opacity: 0.7; font-size: 1rem; }
+    body.dark-mode .contact-info i { color: inherit; opacity: 0.7; }
     .newsletter-form { display: flex; flex-wrap: wrap; margin-top: 1rem; gap: 0.5rem; }
     .newsletter-form input {
       flex: 1;
@@ -430,7 +432,7 @@
       transition: 0.2s;
     }
     body.dark-mode .newsletter-form input { background: #2c2621; border-color: #5d3f2b; color: #f0e2d4; }
-    .newsletter-form input:focus { border-color: #c77a3f; box-shadow: 0 0 0 2px rgba(199, 122, 63, 0.2); }
+    .newsletter-form input:focus { border-color: inherit; opacity: 0.7; box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08); }
     .btn-footer {
       background: #c77a3f;
       border: none;
@@ -463,7 +465,7 @@
     .legal-links { display: flex; gap: 1.2rem; }
     .legal-links a { text-decoration: none; color: #6b4d36; transition: color 0.2s; }
     body.dark-mode .legal-links a { color: #c6aa8c; }
-    .legal-links a:hover { color: #c77a3f; }
+    .legal-links a:hover { color: inherit; opacity: 0.7; }
 
     @media (max-width: 780px) {
       .footer-container { grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -1124,9 +1126,11 @@
       justify-content: space-between;
       padding: 5% 8%;
       position: relative;
-      background: var(--cream, #FAF6EE);
+      background: linear-gradient(rgba(250, 246, 238, 0.8), rgba(250, 246, 238, 0.9)), url('./images/classes\\ 10.jpg') center/cover no-repeat;
     }
-    body.dark-mode .creative-hero { background: var(--cream, #1e1916); }
+    body.dark-mode .creative-hero { 
+      background: linear-gradient(rgba(30, 25, 22, 0.85), rgba(30, 25, 22, 0.95)), url('./images/classes\\ 10.jpg') center/cover no-repeat;
+    }
     
     .hero-glass-panel {
       flex: 1;
@@ -1187,9 +1191,9 @@
       font-weight: 600;
       font-size: 1.05rem;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 20px rgba(199, 122, 63, 0.3);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     }
-    .btn-creative-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(199, 122, 63, 0.4); color: white; }
+    .btn-creative-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); color: white; }
     
     .btn-creative-secondary {
       background: transparent;
@@ -1242,7 +1246,7 @@
     }
     body.dark-mode .floating-cookie { border-color: #251f1a; box-shadow: 0 25px 50px rgba(0,0,0,0.4); }
     
-    .floating-cookie img { width: 100%; height: 100%; object-fit: cover; }
+    .floating-cookie img { width: 100% !important; height: 100% !important; object-fit: cover !important; }
     
     .cookie-1 { width: 280px; height: 280px; top: 10%; right: 10%; animation-delay: 0s; }
     .cookie-2 { width: 180px; height: 180px; bottom: 15%; right: 40%; animation-delay: 1.5s; }
@@ -1284,7 +1288,7 @@
     }
     body.dark-mode .tier-card { background: #251e19; border-color: rgba(255,255,255,0.05); }
     
-    .tier-card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(199,122,63,0.15); }
+    .tier-card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08); }
     body.dark-mode .tier-card:hover { box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
     
     .featured-tier {
@@ -1316,7 +1320,7 @@
     
     .tier-icon {
       font-size: 2.5rem;
-      color: #c77a3f;
+      color: inherit; opacity: 0.7;
       margin-bottom: 25px;
     }
     
@@ -1350,7 +1354,7 @@
       font-weight: 500;
     }
     body.dark-mode .tier-features li { color: #e2cfbc; }
-    .tier-features li i { color: #c77a3f; }
+    .tier-features li i { color: inherit; opacity: 0.7; }
     
     .tier-btn {
       width: 100%;
@@ -1368,6 +1372,10 @@
     .tier-btn:hover { background: #c77a3f; color: white; }
     .tier-btn.primary { background: #c77a3f; color: white; }
     .tier-btn.primary:hover { background: #b35f2a; border-color: #b35f2a; }
+    body.dark-mode .tier-btn { color: #eab67a; border-color: #eab67a; }
+    body.dark-mode .tier-btn:hover { background: #eab67a; color: #1e1916; }
+    body.dark-mode .tier-btn.primary { background: #eab67a; color: #1e1916; border-color: #eab67a; }
+    body.dark-mode .tier-btn.primary:hover { background: #f6cfaa; border-color: #f6cfaa; }
     
     /* Masonry Gallery */
     .creative-gallery {
@@ -1383,6 +1391,7 @@
       gap: 20px;
       max-width: 1400px;
       margin: 0 auto;
+      grid-auto-flow: dense;
     }
     
     .masonry-item {
@@ -1392,9 +1401,9 @@
       cursor: pointer;
     }
     .masonry-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
       transition: transform 0.6s ease;
     }
     .masonry-item:hover img { transform: scale(1.1); }
@@ -1453,18 +1462,18 @@
       background: #fff;
       border-radius: 20px;
       padding: 30px;
-      text-align: center;
+      text-align: left;
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      border: 1px solid rgba(199, 122, 63, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
     }
-    body.dark-mode .flavor-card { background: #1e1916; border-color: rgba(234, 182, 122, 0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+    body.dark-mode .flavor-card { background: #1e1916; border-color: rgba(0, 0, 0, 0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
     
     .flavor-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(199, 122, 63, 0.2);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
     }
     
     .flavor-icon {
@@ -1527,10 +1536,10 @@
     body.dark-mode .pack-item:hover { background: rgba(50, 40, 35, 0.6); }
 
     .pack-img {
-      width: 120px;
-      height: 120px;
+      width: 120px !important;
+      height: 120px !important;
       border-radius: 50%;
-      object-fit: cover;
+      object-fit: cover !important;
       margin-bottom: 20px;
       border: 4px solid #fff;
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -1581,7 +1590,7 @@
     .stat-item h4 {
       font-size: 3rem;
       font-family: 'Playfair Display', serif;
-      color: #c77a3f;
+      color: inherit; opacity: 0.7;
       margin-bottom: 5px;
     }
     .stat-item p {
@@ -1618,36 +1627,38 @@
       border-radius: 30px;
       overflow: hidden;
       box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-      border: 1px solid rgba(199, 122, 63, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
       transition: all 0.4s ease;
       display: flex;
       flex-direction: column;
     }
     body.dark-mode .pairing-card {
       background: #251f1a;
-      border-color: rgba(234, 182, 122, 0.1);
+      border-color: rgba(0, 0, 0, 0.1);
       box-shadow: 0 15px 35px rgba(0,0,0,0.3);
     }
     .pairing-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 20px 45px rgba(199, 122, 63, 0.15);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
     }
     .pairing-img {
-      height: 220px;
-      width: 100%;
-      object-fit: cover;
+      height: 220px !important;
+      width: 100% !important;
+      object-fit: cover !important;
     }
     .pairing-content {
       padding: 30px;
       flex: 1;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
     .pairing-tag {
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #c77a3f;
+      color: inherit; opacity: 0.7;
       margin-bottom: 15px;
       font-weight: 700;
     }
@@ -1667,9 +1678,9 @@
     }
     body.dark-mode .pairing-desc { color: #bbaaa0; }
     .pairing-btn {
-      align-self: flex-start;
+      align-self: center;
       background: transparent;
-      color: #c77a3f;
+      color: inherit; opacity: 0.7;
       border: none;
       font-weight: 600;
       font-size: 1rem;
@@ -1717,7 +1728,7 @@
         </ul>
 
         <div class="right-buttons">
-          <button id="darkModeToggle" class="btn-outline" aria-label="Dark mode toggle"><i class="fas fa-moon"></i></button>
+          <button id="darkModeToggle" class="btn-outline" aria-label="Dark mode toggle"><i class="fas fa-moon"></i> Dark Mode</button>
           <button id="rtlToggle" class="btn-outline" aria-label="Toggle RTL layout"><i class="fa-solid fa-right-left"></i></button>
           <a href="#" id="loginBtn" class="btn-outline btn-login" style="text-decoration: none;"><i class="fas fa-user"></i> Login</a>
         </div>
@@ -1729,8 +1740,8 @@
   <!-- Dynamic Marquee -->
   <div class="marquee-container">
     <div class="marquee-content">
-      <span>✨ Elevate Your Celebrations ✨ Custom Artistry ✨ Unique Flavors ✨ Bespoke Designs ✨ Handcrafted with Love ✨</span>
-      <span>✨ Elevate Your Celebrations ✨ Custom Artistry ✨ Unique Flavors ✨ Bespoke Designs ✨ Handcrafted with Love ✨</span>
+      <span><i class="fas fa-glass-cheers"></i> Elevate Your Celebrations &nbsp;&nbsp;&nbsp; <i class="fas fa-palette"></i> Custom Artistry &nbsp;&nbsp;&nbsp; <i class="fas fa-leaf"></i> Unique Flavors &nbsp;&nbsp;&nbsp; <i class="fas fa-pen-nib"></i> Bespoke Designs &nbsp;&nbsp;&nbsp; <i class="fas fa-heart"></i> Handcrafted with Love &nbsp;&nbsp;&nbsp;</span>
+      <span><i class="fas fa-glass-cheers"></i> Elevate Your Celebrations &nbsp;&nbsp;&nbsp; <i class="fas fa-palette"></i> Custom Artistry &nbsp;&nbsp;&nbsp; <i class="fas fa-leaf"></i> Unique Flavors &nbsp;&nbsp;&nbsp; <i class="fas fa-pen-nib"></i> Bespoke Designs &nbsp;&nbsp;&nbsp; <i class="fas fa-heart"></i> Handcrafted with Love &nbsp;&nbsp;&nbsp;</span>
     </div>
   </div>
 
@@ -1742,7 +1753,7 @@
       <p>Transforming your wildest ideas into breathtaking, mouth-watering cookie art. Whether it's a corporate gala, an intimate wedding, or a grand birthday bash, we craft cookies that steal the show.</p>
       <div class="action-group">
         <a href="#order-canvas" class="btn-creative-primary">Start Your Canvas</a>
-        <a href="#gallery" class="btn-creative-secondary">View Inspiration <i class="fas fa-arrow-right"></i></a>
+    
       </div>
     </div>
     <div class="hero-visual">
@@ -1799,13 +1810,17 @@
 
   <!-- Masonry Gallery Inspiration -->
   <section class="creative-gallery" id="gallery">
-    <h2 class="section-title">Endless Possibilities</h2>
+    <h2 class="section-title" style="margin-bottom: 20px;">Endless Possibilities</h2>
+    <p style="text-align: center; margin-bottom: 60px; color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Browse our past artisan creations to find the perfect inspiration for your upcoming event.</p>
     <div class="masonry-grid">
-      <div class="masonry-item tall"><img src="./images/classes 11.jpg" alt="Inspiration 1" loading="lazy"></div>
-      <div class="masonry-item"><img src="./images/gallery 8.jpg" alt="Inspiration 2" loading="lazy"></div>
-      <div class="masonry-item wide"><img src="./images/about 5.jpg" alt="Inspiration 3" loading="lazy"></div>
-      <div class="masonry-item"><img src="./images/tutorials 9.jpg" alt="Inspiration 4" loading="lazy"></div>
-      <div class="masonry-item"><img src="./images/gallery 4.jpg" alt="Inspiration 6" loading="lazy"></div>
+      <div class="masonry-item tall"><img src="./images/gallery 2.jpg" alt="Baby Shower Custom Cookies" loading="lazy"></div>
+      <div class="masonry-item"><img src="./images/gallery 3.jpg" alt="Heart Custom Cookies" loading="lazy"></div>
+      <div class="masonry-item wide"><img src="./images/classes 10.jpg" alt="Wedding Custom Cookies" loading="lazy"></div>
+      <div class="masonry-item"><img src="./images/about 2.jpg" alt="Handpainted Custom Cookie" loading="lazy"></div>
+      <div class="masonry-item tall"><img src="./images/gallery 14.jpg" alt="Red Velvet Custom Cookie" loading="lazy" style="object-position: center;"></div>
+      <div class="masonry-item"><img src="./images/gallery 4.jpg" alt="Custom Sugar Cookies" loading="lazy"></div>
+      <div class="masonry-item wide"><img src="./images/gallery 7.jpg" alt="Artisan Cookies" loading="lazy"></div>
+      <div class="masonry-item"><img src="./images/gallery 10.jpg" alt="Decorated Pastries" loading="lazy"></div>
     </div>
   </section>
 
@@ -1825,7 +1840,7 @@
       </div>
       <div class="flavor-card">
         <div class="flavor-icon"></div>
-        <h3 class="flavor-title">Earl Grey Shortbread</h3>
+        <h3 class="flavor-title">Earl Grey </h3>
         <p class="flavor-desc">Buttery shortbread infused with bergamot and real Earl Grey tea leaves.</p>
       </div>
       <div class="flavor-card">
@@ -1869,7 +1884,7 @@
         <img src="./images/classes 3.jpg" alt="Champagne Pairing" class="pairing-img" loading="lazy">
         <div class="pairing-content">
           <div class="pairing-tag">Weddings & Galas</div>
-          <h3 class="pairing-title">Champagne & Signature</h3>
+          <h3 class="pairing-title">Champagne</h3>
           <p class="pairing-desc">The crisp, effervescent notes of a dry Champagne perfectly cut through the rich, buttery sweetness of our Signature vanilla bean cookies.</p>
           <button class="pairing-btn">Discover Pairing <i class="fas fa-arrow-right"></i></button>
         </div>
@@ -1959,7 +1974,7 @@
       const body = document.body;
       const updateDarkModeButton = (isDark) => {
         if (!darkToggle) return;
-        darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i> Light Mode' : '<i class="fas fa-moon"></i> Dark Mode';
         darkToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
       };
       const loadDarkMode = () => {
@@ -2109,3 +2124,5 @@
   </script>
 </body>
 </html>
+
+
